@@ -213,8 +213,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &716220039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3189627226485456877, guid: ef7922e9f337d3848bd0ea1a0757387d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1323701186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &790628895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 4993981568298274673, guid: 5648e4248dc878248a4ee23eacf21a0b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4993981568298274673, guid: 5648e4248dc878248a4ee23eacf21a0b,
         type: 3}
@@ -295,11 +301,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826301292065595073, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
-      propertyPath: m_Name
-      value: Mesh
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
@@ -365,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826301292065595073, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
+      propertyPath: m_Name
+      value: Mesh
       objectReference: {fileID: 0}
     - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
@@ -475,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 640125762065946185, guid: ef7922e9f337d3848bd0ea1a0757387d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 640125762065946185, guid: ef7922e9f337d3848bd0ea1a0757387d,
         type: 3}
@@ -1356,7 +1362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1629377784
 PrefabInstance:
@@ -1408,7 +1414,7 @@ PrefabInstance:
     - target: {fileID: 1119597545959068758, guid: 5d9af7f4e904c7647b78db0accd6a589,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119597545959068758, guid: 5d9af7f4e904c7647b78db0accd6a589,
         type: 3}
@@ -1477,7 +1483,7 @@ PrefabInstance:
     - target: {fileID: 885434689366336172, guid: a1cd028b2ee18ae4494a08db292620f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 885434689366336172, guid: a1cd028b2ee18ae4494a08db292620f5,
         type: 3}
@@ -1543,7 +1549,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inventoryGrid
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 716220039}
     - target: {fileID: 885434689366336173, guid: a1cd028b2ee18ae4494a08db292620f5,
         type: 3}
       propertyPath: slots.Array.data[7]
@@ -1975,5 +1981,5 @@ Transform:
   m_Children:
   - {fileID: 1165431800}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
