@@ -965,16 +965,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4212769369901599532, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212769369901599532, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
@@ -985,12 +975,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: New item take {1} seconds to spawn
       objectReference: {fileID: 0}
-    - target: {fileID: 3590553249564892009, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e1acf56e1cc223d41ae353998383c519,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56a297afea599184eb30267d00dd7340, type: 3}
 --- !u!224 &7400747411203830377 stripped
