@@ -8,14 +8,17 @@ public class WeaponSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnWeaponRepetitively", 2.0f, 5f);
+        InvokeRepeating("SpawnWeaponRepetitively", 0.5f, 1f);
     }
 
     void SpawnWeaponRepetitively()
     {
         int slot = FirstEmptySlot();
-        setWeaponData(slot, Inventory.weaponSpawnLevel);
-        resetWeaponView(slot);
+        if(slot != -1)
+        {
+            setWeaponData(slot, Inventory.weaponSpawnLevel);
+            resetWeaponView(slot);
+        }        
     }
 
     int FirstEmptySlot()
