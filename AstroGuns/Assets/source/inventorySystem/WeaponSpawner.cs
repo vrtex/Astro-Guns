@@ -14,11 +14,6 @@ public class WeaponSpawner : MonoBehaviour
     public float SpawnInterval = 5.0f;
     public Slider ProgressSlider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // InvokeRepeating("SpawnWeaponRepetitively", 2.0f, 5f);
-    }
 
     private void Update()
     {
@@ -40,8 +35,11 @@ public class WeaponSpawner : MonoBehaviour
     void SpawnWeaponRepetitively()
     {
         int slot = FirstEmptySlot();
-        setWeaponData(slot, Inventory.weaponSpawnLevel);
-        resetWeaponView(slot);
+        if(slot != -1)
+        {
+            setWeaponData(slot, Inventory.weaponSpawnLevel);
+            resetWeaponView(slot);
+        }        
     }
 
     int FirstEmptySlot()
