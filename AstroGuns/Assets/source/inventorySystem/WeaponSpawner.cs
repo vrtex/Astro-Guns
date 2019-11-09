@@ -1,14 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class WeaponSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public float CurrentProgress
     {
-        InvokeRepeating("SpawnWeaponRepetitively", 2.0f, 5f);
+        get => SpawnProgress / SpawnInterval;
+    }
+
+    private float SpawnProgress;
+    public float SpawnInterval = 5.0f;
+
+
+    private void Update()
+    {
+        AddTime(Time.deltaTime);
+
+        while(CurrentProgress > 1 && FirstEmptySlot() >= 0)
+        {
+            SpawnWeaponRepetitively();
+            SpawnProgress -= SpawnInterval;
+        }
+
+        if(SpawnProgress < 0)
+            SpawnProgress = 0;
+    }
+
+    public void AddTime(float t)
+    {
+        SpawnProgress += t;
     }
 
     void SpawnWeaponRepetitively()
