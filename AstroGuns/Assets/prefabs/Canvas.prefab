@@ -3265,6 +3265,7 @@ GameObject:
   - component: {fileID: 2134194074682522701}
   - component: {fileID: 4404430970003581267}
   - component: {fileID: 4668435596740580016}
+  - component: {fileID: 2930350549267375774}
   m_Layer: 5
   m_Name: Counter
   m_TagString: Untagged
@@ -3376,6 +3377,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2930350549267375774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962326713602704574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d12065b4d054fc4691555742b6936ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pocket: {fileID: 0}
+  DisplayText: {fileID: 1459687834856329458}
 --- !u!1 &7346200551066175407
 GameObject:
   m_ObjectHideFlags: 0

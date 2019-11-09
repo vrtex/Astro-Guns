@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public class InventorySystem : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InventorySystem : MonoBehaviour
 
     public GameObject inventoryGrid;
     public static InventorySystem Instance { get => instance; }
+    public MoneyPocket Pocket;
 
     public List<WeaponObject> weaponObjects = new List<WeaponObject>();
 
@@ -24,6 +26,7 @@ public class InventorySystem : MonoBehaviour
     private void Start()
     {
         populateLists();
+        StartCoroutine(TickMoney());
     }
 
     public void populateLists()
@@ -34,6 +37,19 @@ public class InventorySystem : MonoBehaviour
         {
             slots.Add(slot.gameObject);
             weaponsInSlots.Add(slot.transform.Find("Weapon").gameObject);
+        }
+    }
+
+    private IEnumerator TickMoney()
+    {
+        while(true)
+        {
+            List<Slot> ValidWeapons = Inventory.Slots.FindAll( (Slot S) => { return S.weapon != null; });
+            foreach(Slot s in ValidWeapons)
+            {
+                Pocket.Money.Add(s.weapon.value);
+            }
+            yield return new WaitForSeconds(1.0f);
         }
     }
 }

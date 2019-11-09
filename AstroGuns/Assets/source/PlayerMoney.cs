@@ -2,18 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMoney : ScriptableObject
 {
     static List<Tuple<double, string>> MoneySymbols = new List<Tuple<double, string>>()
     {
+        Tuple.Create<double, string>( 1, "" ),
         Tuple.Create<double, string>( 1000, "k" ),
         Tuple.Create<double, string>( 1000000, "m" ),
         Tuple.Create<double, string>( 1000000000, "b" ),
         Tuple.Create<double, string>( 1000000000000, "t" ),
     };
 
-    public double ActualValue;
+    public UnityEvent OnValueUpdated = new UnityEvent();
+
+    public double ActualValue { get; private set; }
     /*
     public static PlayerMoney operator +(PlayerMoney a, PlayerMoney b)
     {
@@ -24,6 +28,8 @@ public class PlayerMoney : ScriptableObject
     public void Add(double amount)
     {
         ActualValue += amount;
+        if(Math.Abs(amount) > 0.0001)
+            OnValueUpdated.Invoke();
     }
 
     public void Add(PlayerMoney amount)
