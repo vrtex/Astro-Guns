@@ -5,41 +5,17 @@ using UnityEngine.UI;
 
 public class WeaponSpawner : MonoBehaviour
 {
-    public float SpawnProgress
+    // Start is called before the first frame update
+    void Start()
     {
-        get => CurrentProgress;
-    }
-
-    private float CurrentProgress = 0.0f;
-    public float SpawnInterval = 5.0f;
-    public Slider ProgressSlider;
-
-
-    private void Update()
-    {
-        AddTime(Time.deltaTime);
-        ProgressSlider.value = SpawnProgress;
-        Debug.Log(CurrentProgress);
-    }
-
-    public void AddTime(float timeInSecons)
-    {
-        CurrentProgress += timeInSecons / SpawnInterval;
-        while(CurrentProgress > 1)
-        {
-            CurrentProgress -= 1;
-            SpawnWeaponRepetitively();
-        }
+        InvokeRepeating("SpawnWeaponRepetitively", 2.0f, 5f);
     }
 
     void SpawnWeaponRepetitively()
     {
         int slot = FirstEmptySlot();
-        if(slot != -1)
-        {
-            setWeaponData(slot, Inventory.weaponSpawnLevel);
-            resetWeaponView(slot);
-        }        
+        setWeaponData(slot, Inventory.weaponSpawnLevel);
+        resetWeaponView(slot);
     }
 
     int FirstEmptySlot()

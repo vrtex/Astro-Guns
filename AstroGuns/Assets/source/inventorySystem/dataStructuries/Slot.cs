@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slot
+public class Slot : MonoBehaviour
 {
     public WeaponObject weapon;
 }

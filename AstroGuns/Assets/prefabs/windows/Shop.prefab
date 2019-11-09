@@ -584,7 +584,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'CONTAINS:
 
-    600 xxx
+    600 Etcher
 
     2x <color="red">EPIC</color> chest
 
@@ -1735,6 +1735,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 485313700319759770, guid: f1988b8cebf599741873b5ca87bdf3bf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1acf56e1cc223d41ae353998383c519,
+        type: 3}
+    - target: {fileID: 8317010227332824163, guid: f1988b8cebf599741873b5ca87bdf3bf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1acf56e1cc223d41ae353998383c519,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1988b8cebf599741873b5ca87bdf3bf, type: 3}
 --- !u!224 &9060848064879586665 stripped
