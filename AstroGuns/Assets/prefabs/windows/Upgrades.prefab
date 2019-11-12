@@ -850,6 +850,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6305333376400941925}
     m_Modifications:
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeItem (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7071736272922890484, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -955,16 +965,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_Name
-      value: UpgradeItem (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4212769369901599532, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1006,6 +1006,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6305333376400941925}
     m_Modifications:
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeItem (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7071736272922890484, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1111,16 +1121,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_Name
-      value: UpgradeItem (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
@@ -1152,6 +1152,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4172961203883846909}
     m_Modifications:
+    - target: {fileID: 4441001278268385613, guid: 7270281c3deba76419f5a8c0a5096c1d,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeShopSwitch
+      objectReference: {fileID: 0}
     - target: {fileID: 1899775963620482801, guid: 7270281c3deba76419f5a8c0a5096c1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1257,11 +1262,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4441001278268385613, guid: 7270281c3deba76419f5a8c0a5096c1d,
-        type: 3}
-      propertyPath: m_Name
-      value: UpgradeShopSwitch
-      objectReference: {fileID: 0}
     - target: {fileID: 3258204392423900153, guid: 7270281c3deba76419f5a8c0a5096c1d,
         type: 3}
       propertyPath: m_Interactable
@@ -1306,6 +1306,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6305333376400941925}
     m_Modifications:
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeItem (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7071736272922890484, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1411,16 +1421,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_Name
-      value: UpgradeItem (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
@@ -1431,6 +1431,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Item have a 0% chance to spawn 1 level higher
       objectReference: {fileID: 0}
+    - target: {fileID: 3590553249564892009, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56a297afea599184eb30267d00dd7340, type: 3}
 --- !u!224 &2615529357911369719 stripped
@@ -1446,6 +1452,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6305333376400941925}
     m_Modifications:
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeItem (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7071736272922890484, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1551,16 +1567,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_Name
-      value: UpgradeItem (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
@@ -1571,6 +1577,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: '{1}% chance to spawn an extra item when'
       objectReference: {fileID: 0}
+    - target: {fileID: 3590553249564892009, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33442467ab5f75147924a8ccc5d4667c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56a297afea599184eb30267d00dd7340, type: 3}
 --- !u!224 &4054133673859093715 stripped
@@ -1586,6 +1598,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6305333376400941925}
     m_Modifications:
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Name
+      value: UpgradeItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7071736272922890484, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1690,16 +1712,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_Name
-      value: UpgradeItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 4326717529282300727, guid: 56a297afea599184eb30267d00dd7340,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
