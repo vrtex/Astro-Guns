@@ -4769,6 +4769,16 @@ PrefabInstance:
       propertyPath: Pocket
       value: 
       objectReference: {fileID: 1108821951}
+    - target: {fileID: 7054549086897325224, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562994456352284259, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7922e9f337d3848bd0ea1a0757387d, type: 3}
 --- !u!1 &353126381 stripped
@@ -5097,25 +5107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
-    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
+    - target: {fileID: 1826301292065595073, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      propertyPath: m_Name
+      value: Mesh
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
@@ -5182,17 +5177,32 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 43996777648785405, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -1373681604028050881, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
-    - target: {fileID: 1826301292065595073, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
-      propertyPath: m_Name
-      value: Mesh
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02b1684806f130478c070c69ce21169, type: 3}
 --- !u!1 &1108821950
@@ -5424,6 +5434,12 @@ GameObject:
 --- !u!1 &1553827185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5540516113065582906, guid: ef7922e9f337d3848bd0ea1a0757387d,
+    type: 3}
+  m_PrefabInstance: {fileID: 346161532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1571501086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7904600113228083741, guid: ef7922e9f337d3848bd0ea1a0757387d,
     type: 3}
   m_PrefabInstance: {fileID: 346161532}
   m_PrefabAsset: {fileID: 0}
@@ -6077,6 +6093,11 @@ PrefabInstance:
       propertyPath: Pocket
       value: 
       objectReference: {fileID: 1108821951}
+    - target: {fileID: 885434689366336173, guid: a1cd028b2ee18ae4494a08db292620f5,
+        type: 3}
+      propertyPath: movableWeapon
+      value: 
+      objectReference: {fileID: 1571501086}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cd028b2ee18ae4494a08db292620f5, type: 3}
 --- !u!1 &1867217288 stripped
