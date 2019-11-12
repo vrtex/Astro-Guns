@@ -39,12 +39,17 @@ public class PlayerMoney : ScriptableObject
 
     public override string ToString()
     {
-        Tuple<double, string> T = MoneySymbols.Find((Tuple<double, string> X) => { return X.Item1 * 1000 >= ActualValue; });
+        return GetMoneyString(ActualValue);
+    }
+
+    public static string GetMoneyString(double value)
+    {
+        Tuple<double, string> T = MoneySymbols.Find((Tuple<double, string> X) => { return X.Item1 * 1000 >= value; });
 
         if(T == null)
-            return ActualValue.ToString();
+            return value.ToString();
 
-        double valueToReturn = Math.Abs((ActualValue / T.Item1));
+        double valueToReturn = Math.Abs((value / T.Item1));
         int length = (int)(Math.Log10(valueToReturn) + 1);
 
         return string.Format(
@@ -52,5 +57,6 @@ public class PlayerMoney : ScriptableObject
             length == 2 ? "{0:N1}" : 
             "{0:N0}",  
             valueToReturn) + T.Item2;
+
     }
 }

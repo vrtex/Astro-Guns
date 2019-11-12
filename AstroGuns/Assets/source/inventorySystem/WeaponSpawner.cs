@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class WeaponSpawner : MonoBehaviour
 {
-
+    public float DoubleSpawnChance = 0.0f;
     public float CurrentProgress
     {
         get => SpawnProgress / SpawnInterval;
@@ -40,6 +40,15 @@ public class WeaponSpawner : MonoBehaviour
         int slot = FirstEmptySlot();
         setWeaponData(slot, Inventory.weaponSpawnLevel);
         resetWeaponView(slot);
+
+
+        if(UnityEngine.Random.value < DoubleSpawnChance && FirstEmptySlot() > 0)
+        {
+            int nextSlot = FirstEmptySlot();
+            setWeaponData(nextSlot, Inventory.weaponSpawnLevel);
+            resetWeaponView(nextSlot);
+        }
+
     }
 
     int FirstEmptySlot()
