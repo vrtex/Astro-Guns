@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4527298779728841765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4527298779728841767}
+  - component: {fileID: 4527298779728841764}
+  m_Layer: 0
+  m_Name: BoostManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4527298779728841767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527298779728841765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4527298779728841764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527298779728841765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb692050a08c78a4e89a2b7c800a3522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostButton: {fileID: 0}
+  activeBoost: {fileID: 0}
+  activeSlider: {fileID: 0}
+  activeImage: {fileID: 0}
+  minTimeToBoost: 30
+  maxTimeToBoost: 120
+  boosts:
+  - type: 0
+    value: 2
+    time: 45
+    chance: 6
+    sprite: {fileID: 21300000, guid: 45d3424ff38bc2d4297fa5e173b553dd, type: 3}
+    description: New items are created x2 faster for 60 seconds
+  - type: 0
+    value: 3
+    time: 25
+    chance: 5
+    sprite: {fileID: 21300000, guid: 45d3424ff38bc2d4297fa5e173b553dd, type: 3}
+    description: New items are created x3 faster for 25 seconds
+  - type: 0
+    value: 4
+    time: 10
+    chance: 4
+    sprite: {fileID: 21300000, guid: 45d3424ff38bc2d4297fa5e173b553dd, type: 3}
+    description: New items are created x4 faster for 10 seconds
+  - type: 1
+    value: 2
+    time: 60
+    chance: 5
+    sprite: {fileID: 21300000, guid: b660ffed604686f468c63598bf2bf50c, type: 3}
+    description: Produce x2 credits for 60 seconds
+  - type: 1
+    value: 5
+    time: 25
+    chance: 4
+    sprite: {fileID: 21300000, guid: b660ffed604686f468c63598bf2bf50c, type: 3}
+    description: Produce x5 credits for 25 seconds
+  - type: 1
+    value: 10
+    time: 10
+    chance: 3
+    sprite: {fileID: 21300000, guid: b660ffed604686f468c63598bf2bf50c, type: 3}
+    description: Produce x10 credits for 10 seconds
+  - type: 2
+    value: 1
+    time: 60
+    chance: 4
+    sprite: {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+    description: New items are spawn 1 level higher for 60 seconds
+  - type: 2
+    value: 2
+    time: 25
+    chance: 3
+    sprite: {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+    description: New items are spawn 2 level higher for 25 seconds
+  - type: 2
+    value: 3
+    time: 10
+    chance: 2
+    sprite: {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+    description: New items are spawn 3 level higher for 10 seconds
+  - type: 3
+    value: 1
+    time: 60
+    chance: 3
+    sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
+    description: Items merge 1 level higher for 15 seconds
+  - type: 3
+    value: 2
+    time: 25
+    chance: 2
+    sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
+    description: Items merge 2 level higher for 10 seconds
+  - type: 3
+    value: 3
+    time: 10
+    chance: 1
+    sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
+    description: Items merge 3 level higher for 5 seconds

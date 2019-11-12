@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 4237319455302572686}
   - component: {fileID: 7988021834831100454}
   m_Layer: 5
-  m_Name: TextInfo
+  m_Name: BoostTextInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 7091649844782244044}
   - component: {fileID: 2318983614937393004}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BoostImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
