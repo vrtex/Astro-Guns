@@ -2,34 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    //Vector3 pos;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //beginPosition = transform.position;
+        GetComponent<Image>().enabled = false;
+
+        InventorySystem.Instance.movableWeapon.gameObject.SetActive(true);
+        InventorySystem.Instance.movableWeapon.GetComponent<Image>().sprite = this.GetComponent<Image>().sprite;        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        InventorySystem.Instance.movableWeapon.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.position = Vector3.zero;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        InventorySystem.Instance.movableWeapon.gameObject.SetActive(false);
+        GetComponent<Image>().enabled = true;
     }
 }

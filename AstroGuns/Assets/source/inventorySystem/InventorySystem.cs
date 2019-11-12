@@ -12,6 +12,8 @@ public class InventorySystem : MonoBehaviour
     public static InventorySystem Instance { get => instance; }
     public MoneyPocket Pocket;
 
+    public GameObject movableWeapon;
+
     public List<WeaponObject> weaponObjects = new List<WeaponObject>();
 
     public List<GameObject> slots = new List<GameObject>();
