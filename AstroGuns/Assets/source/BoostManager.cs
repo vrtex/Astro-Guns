@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BoostManager : MonoBehaviour
 {
+	public static BoostManager  instance		= null;
+
 	[Header("To connect")]
 	public GameObject           boostButton     = null;
 	public Image		        boostImage		= null;
@@ -29,6 +31,7 @@ public class BoostManager : MonoBehaviour
 
     void Start()
     {
+		instance = this;
 		timeToNextBoost = Random.Range(minTimeToBoost, maxTimeToBoost);
 	}
 
