@@ -1424,13 +1424,19 @@ PrefabInstance:
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
-      value: FORGE HIGHER
+      value: RESEARCH HIGHER
       objectReference: {fileID: 0}
     - target: {fileID: 8908027767841326246, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
       value: Item have a 0% chance to spawn 1 level higher
       objectReference: {fileID: 0}
+    - target: {fileID: 3590553249564892009, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56a297afea599184eb30267d00dd7340, type: 3}
 --- !u!224 &2615529357911369719 stripped
@@ -1564,13 +1570,19 @@ PrefabInstance:
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
-      value: DOUBLE FORGE
+      value: DOUBLE RESEARCH
       objectReference: {fileID: 0}
     - target: {fileID: 8908027767841326246, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
       value: '{1}% chance to spawn an extra item when'
       objectReference: {fileID: 0}
+    - target: {fileID: 3590553249564892009, guid: 56a297afea599184eb30267d00dd7340,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33442467ab5f75147924a8ccc5d4667c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56a297afea599184eb30267d00dd7340, type: 3}
 --- !u!224 &4054133673859093715 stripped
@@ -1704,7 +1716,7 @@ PrefabInstance:
     - target: {fileID: 5159178916883223996, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
       propertyPath: m_Text
-      value: ITEM RESERCH LEVEL
+      value: ITEM RESEARCH LEVEL
       objectReference: {fileID: 0}
     - target: {fileID: 8908027767841326246, guid: 56a297afea599184eb30267d00dd7340,
         type: 3}
