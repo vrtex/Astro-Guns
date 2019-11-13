@@ -8,15 +8,15 @@ public static class Inventory
     public const int COLS = 4;
     public const int SLOT_QUANTITY = ROWS * COLS;
 
-    public static List<Slot> Slots = new List<Slot>(SLOT_QUANTITY);
+    public static List<Slot> slots = new List<Slot>(SLOT_QUANTITY);
 
-    public static int weaponSpawnLevel = 0;
+    public static int weaponSpawnLevel = 1;
 
     static Inventory()
     {
         for (int i = 0; i < SLOT_QUANTITY; i++)
         {
-            Slots.Add(new Slot());
+            slots.Add(new Slot());
         }
     }
 }
