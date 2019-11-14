@@ -33,7 +33,6 @@ public class InventorySystem : MonoBehaviour
     private void Start()
     {
         populateLists();
-        StartCoroutine(TickMoney());
     }
 
     public void populateLists()
@@ -47,22 +46,6 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private IEnumerator TickMoney()
-    {
-        while(true)
-        {
-
-            List<Slot> ValidWeapons = Inventory.slots.FindAll( (Slot S) => { return S.weapon != null; });
-            foreach(Slot s in ValidWeapons)
-            {
-                Pocket.Money.Add(s.weapon.value);
-                int slotNumber = Inventory.slots.FindIndex((Slot _s) => { return _s == s; });
-                SlotController slotController = InventorySystem.Instance.weaponsInSlots[slotNumber].transform.parent.GetComponent<SlotController>();
-                slotController.BumpIncome(s.weapon.value);
-            }
-            yield return new WaitForSeconds(1.0f);
-        }
-    }
 }
 
 //[CustomEditor(typeof(InventorySystem))]

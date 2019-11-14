@@ -55,6 +55,7 @@ public class PlayerMoney
 
         if(T == null)
             return value.ToString();
+        value = Math.Round(value, 0, MidpointRounding.AwayFromZero);
 
         if(value < 100)
             return value.ToString();
