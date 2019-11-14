@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMoney : ScriptableObject
+public class PlayerMoney
 {
     static List<Tuple<double, string>> MoneySymbols = new List<Tuple<double, string>>()
     {

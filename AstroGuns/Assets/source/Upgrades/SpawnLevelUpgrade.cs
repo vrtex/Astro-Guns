@@ -15,4 +15,9 @@ public class SpawnLevelUpgrade : Upgrade
         return 0.03993 * Math.Pow(CurrentLevel, 10);
     }
 
+    public override void Increase()
+    {
+        base.Increase();
+        Inventory.weaponSpawnLevel = CurrentLevel - 1;
+    }
 }

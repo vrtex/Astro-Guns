@@ -16,4 +16,10 @@ public class SpawnTimeUpgrade : Upgrade
     {
         return 0.01447 * Math.Pow(CurrentLevel, 10);
     }
+
+    public override void Increase()
+    {
+        base.Increase();
+        UpgradesManager.Manager.Spawner.SpawnInterval = TimeToSpawn;
+    }
 }

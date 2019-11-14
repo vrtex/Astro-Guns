@@ -5,7 +5,7 @@ using System;
 
 public class DoubleSpawnUpgrade : Upgrade
 {
-    private float DoubleChance { get => (CurrentLevel - 1) * 0.25f; }
+    private float DoubleChance { get => (CurrentLevel - 1) * 0.25f / 100; }
     public override string GetDescription()
     {
         return string.Format("{0}% chance to spawn an extra item", (double)(DoubleChance));
@@ -19,6 +19,6 @@ public class DoubleSpawnUpgrade : Upgrade
     public override void Increase()
     {
         base.Increase();
-        Spawner.DoubleSpawnChance = DoubleChance / 100;
+        Spawner.DoubleSpawnChance = DoubleChance;
     }
 }
