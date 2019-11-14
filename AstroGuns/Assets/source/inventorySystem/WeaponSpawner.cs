@@ -34,7 +34,8 @@ public class WeaponSpawner : MonoBehaviour
 
     public void AddTime(float t)
     {
-        SpawnProgress += t;
+        // SpawnProgress += t;
+        SpawnProgress = Mathf.Clamp(SpawnProgress + t, 0, SpawnInterval * 1.01f);
     }
 
     void SpawnWeaponRepetitively(bool bAllowDoubleSpawn = true)
