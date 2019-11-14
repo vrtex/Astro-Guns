@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class SpawnLevelUpgrade : Upgrade
 {
+    public SpawnLevelUpgrade()
+    {
+        MaxLevel = 81;
+    }
+
     public override string GetDescription()
     {
         return string.Format("New item spawn at level {0}", CurrentLevel);
@@ -12,12 +17,20 @@ public class SpawnLevelUpgrade : Upgrade
 
     public override double GetUpgradeCost()
     {
-        return 0.03993 * Math.Pow(CurrentLevel, 10);
+        return Math.Round(0.03993 * Math.Pow(CurrentLevel, 10), MidpointRounding.AwayFromZero);
     }
 
     public override void Increase()
     {
         base.Increase();
-        Inventory.weaponSpawnLevel = CurrentLevel - 1;
+        Inventory.weaponSpawnLevel = CurrentLevel;
+
+        List<Slot> slots = Inventory.slots.FindAll((Slot s) => { return s.weapon != null && s.weapon.id < CurrentLevel; });
+        Debug.Log("Found: " + slots.Count);
+        foreach(Slot s in slots)
+        {
+            WeaponSpawner.setWeaponData(s, CurrentLevel);
+            WeaponSpawner.resetWeaponView(Inventory.slots.FindIndex((Slot _s) => { return _s == s; }));
+        }
     }
 }

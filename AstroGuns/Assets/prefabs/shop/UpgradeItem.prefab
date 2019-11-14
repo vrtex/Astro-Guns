@@ -282,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DescriptionText: {fileID: 8908027767841326246}
   PriceText: {fileID: 4734458673834870502}
+  UpgradeButButton: {fileID: 9038697618994175001}
   UpgradeIndex: 0
 --- !u!1 &4829022818144716580
 GameObject:

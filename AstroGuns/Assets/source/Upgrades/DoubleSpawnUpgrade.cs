@@ -13,7 +13,7 @@ public class DoubleSpawnUpgrade : Upgrade
 
     public override double GetUpgradeCost()
     {
-        return  0.146 * Math.Pow(CurrentLevel, 10);
+        return Math.Round(0.146 * Math.Pow(CurrentLevel, 10), MidpointRounding.AwayFromZero);
     }
 
     public override void Increase()
