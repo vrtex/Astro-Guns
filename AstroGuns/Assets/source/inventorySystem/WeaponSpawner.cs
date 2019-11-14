@@ -68,16 +68,22 @@ public class WeaponSpawner : MonoBehaviour
     }
 
     static public void setWeaponData(int slotNumber, int weaponId)
-    {        
+    {
+        setWeaponData(Inventory.slots[slotNumber], weaponId);
+    }
+
+    static public void setWeaponData(Slot slot, int weaponId)
+    {
         if(weaponId == -1)
         {
-            Inventory.slots[slotNumber].weapon = null;
+            slot.weapon = null;
         }
         else
         {
-            Inventory.slots[slotNumber].weapon = InventorySystem.Instance.weaponObjects[weaponId - 1];
+            slot.weapon = InventorySystem.Instance.weaponObjects[weaponId - 1];
         }
     }
+
 
     public static void resetWeaponView(int slotNumber)
     {

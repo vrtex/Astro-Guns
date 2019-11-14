@@ -13,7 +13,7 @@ public class SpawnHigherUpgrade : Upgrade
 
     public override double GetUpgradeCost()
     {
-        return 0.000868 * Math.Pow(CurrentLevel, 13);
+        return Math.Round(0.000868 * Math.Pow(CurrentLevel, 13), MidpointRounding.AwayFromZero);
     }
 
     public override void Increase()

@@ -14,6 +14,6 @@ public class MergeGemUpgrade : Upgrade
 
     public override double GetUpgradeCost()
     {
-        return 0.01223 * Math.Pow(CurrentLevel, 10.75);
+        return Math.Round(0.01223 * Math.Pow(CurrentLevel, 10.75), MidpointRounding.AwayFromZero);
     }
 }

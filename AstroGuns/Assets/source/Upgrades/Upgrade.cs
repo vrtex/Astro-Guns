@@ -7,6 +7,8 @@ public abstract class Upgrade
 {
     public static WeaponSpawner Spawner;
     public int CurrentLevel { get; protected set; } = 1;
+    public int MaxLevel = 50;
+    public bool IsMaxLevel { get => CurrentLevel == MaxLevel; }
     public abstract string GetDescription();
     public abstract double GetUpgradeCost();
 
@@ -17,4 +19,5 @@ public abstract class Upgrade
         CurrentLevel++;
         OnUpgrade.Invoke();
     }
+
 }

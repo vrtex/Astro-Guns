@@ -14,7 +14,7 @@ public class SpawnTimeUpgrade : Upgrade
 
     public override double GetUpgradeCost()
     {
-        return 0.01447 * Math.Pow(CurrentLevel, 10);
+        return Math.Round(0.01447 * Math.Pow(CurrentLevel, 10), MidpointRounding.AwayFromZero);
     }
 
     public override void Increase()
