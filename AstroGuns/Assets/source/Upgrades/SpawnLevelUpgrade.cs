@@ -26,7 +26,6 @@ public class SpawnLevelUpgrade : Upgrade
         Inventory.weaponSpawnLevel = CurrentLevel;
 
         List<Slot> slots = Inventory.slots.FindAll((Slot s) => { return s.weapon != null && s.weapon.id < CurrentLevel; });
-        Debug.Log("Found: " + slots.Count);
         foreach(Slot s in slots)
         {
             WeaponSpawner.setWeaponData(s, CurrentLevel);

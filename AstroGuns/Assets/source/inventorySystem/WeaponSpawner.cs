@@ -34,7 +34,7 @@ public class WeaponSpawner : MonoBehaviour
 
     public void AddTime(float t)
     {
-        // SpawnProgress += t;
+        // TODO: consider first slot's energy core bonus
         SpawnProgress = Mathf.Clamp(SpawnProgress + t, 0, SpawnInterval * 1.01f);
     }
 

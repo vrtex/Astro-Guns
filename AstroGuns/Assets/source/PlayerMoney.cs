@@ -57,6 +57,8 @@ public class PlayerMoney
             return value.ToString();
 
         double valueToReturn = Math.Abs((value / T.Item1));
+        if(valueToReturn < 100)
+            return valueToReturn.ToString();
         int length = (int)(Math.Log10(valueToReturn) + 1);
 
         return string.Format(
