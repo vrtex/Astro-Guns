@@ -23,9 +23,13 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
                 break;
             }
         }
+        // drop on self
+        if(InventorySystem.lastDropedSlotNumber == InventorySystem.lastMovedSlotNumber)
+            return;
 
         // właczenie grafiki
         InventorySystem.Instance.weaponsInSlots[InventorySystem.lastMovedSlotNumber].GetComponent<Image>().enabled = true;
+
 
         // jeżeli jest pusty
         if (Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon == null)
