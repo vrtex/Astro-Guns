@@ -58,7 +58,7 @@ public class WeaponSpawner : MonoBehaviour
     {
         for (int i = 0; i < Inventory.SLOT_QUANTITY; i++)
         {
-            if (Inventory.Slots[i].weapon == null)
+            if (Inventory.slots[i].weapon == null)
             {
                 return i;
             }
@@ -67,16 +67,23 @@ public class WeaponSpawner : MonoBehaviour
         return -1; // jeżeli wszystkie zajęte
     }
 
-    void setWeaponData(int slotNumber, int weaponLevel)
-    {
-        Inventory.Slots[slotNumber].weapon = InventorySystem.Instance.weaponObjects[weaponLevel];
+    static public void setWeaponData(int slotNumber, int weaponId)
+    {        
+        if(weaponId == -1)
+        {
+            Inventory.slots[slotNumber].weapon = null;
+        }
+        else
+        {
+            Inventory.slots[slotNumber].weapon = InventorySystem.Instance.weaponObjects[weaponId - 1];
+        }
     }
 
-    void resetWeaponView(int slotNumber)
+    public static void resetWeaponView(int slotNumber)
     {
-        if (Inventory.Slots[slotNumber].weapon != null)
+        if (Inventory.slots[slotNumber].weapon != null)
         {
-            InventorySystem.Instance.weaponsInSlots[slotNumber].GetComponent<Image>().sprite = Inventory.Slots[slotNumber].weapon.sprite;
+            InventorySystem.Instance.weaponsInSlots[slotNumber].GetComponent<Image>().sprite = Inventory.slots[slotNumber].weapon.sprite;
             InventorySystem.Instance.weaponsInSlots[slotNumber].SetActive(true);
         }
         else

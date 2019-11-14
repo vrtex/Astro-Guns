@@ -12,10 +12,17 @@ public class InventorySystem : MonoBehaviour
     public static InventorySystem Instance { get => instance; }
     public MoneyPocket Pocket;
 
+    public GameObject movableWeapon;     
+
     public List<WeaponObject> weaponObjects = new List<WeaponObject>();
 
     public List<GameObject> slots = new List<GameObject>();
     public List<GameObject> weaponsInSlots = new List<GameObject>();
+
+    [HideInInspector]
+    public static int lastMovedSlotNumber;
+    [HideInInspector]
+    public static int lastDropedSlotNumber;
 
     private void Awake()
     {
@@ -44,7 +51,7 @@ public class InventorySystem : MonoBehaviour
     {
         while(true)
         {
-            List<Slot> ValidWeapons = Inventory.Slots.FindAll( (Slot S) => { return S.weapon != null; });
+            List<Slot> ValidWeapons = Inventory.slots.FindAll( (Slot S) => { return S.weapon != null; });
             foreach(Slot s in ValidWeapons)
             {
                 Pocket.Money.Add(s.weapon.value);
