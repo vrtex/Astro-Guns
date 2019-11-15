@@ -33,10 +33,7 @@ public class InventorySystem : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-    }
 
-    private void Start()
-    {
         populateLists();
     }
 
