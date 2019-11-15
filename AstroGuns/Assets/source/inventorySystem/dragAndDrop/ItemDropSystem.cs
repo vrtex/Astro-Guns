@@ -11,14 +11,12 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
         // wyłączenie przesuwanej broni
         InventorySystem.Instance.movableWeapon.gameObject.SetActive(false);        
 
-        Debug.Log("DROP");
         // sprawdzenie numeru slota
         for (int i = 0; i < InventorySystem.Instance.slots.Count; i++)
         {
             if (this.gameObject.Equals(InventorySystem.Instance.slots[i].gameObject))
             {
                 InventorySystem.lastDropedSlotNumber = i;
-                Debug.Log("Upuszczony na: " + i);
 
                 break;
             }
@@ -34,7 +32,6 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
         // jeżeli jest pusty
         if (Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon == null)
         {
-            Debug.Log("EMPTY");
             // dodawanie broni do nowego
             WeaponSpawner.setWeaponData(InventorySystem.lastDropedSlotNumber, Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id);
 
@@ -44,12 +41,13 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
             // update widoku slotów
             WeaponSpawner.resetWeaponView(InventorySystem.lastDropedSlotNumber);
             WeaponSpawner.resetWeaponView(InventorySystem.lastMovedSlotNumber);
+
+            AudioManager.Instance.Play("move weapon");
         }
         // jeżeli jest taka sama broń
         else if (Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id == 
             Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id) 
         {
-            Debug.Log("TAKI SAM");
             // dodawanie broni do nowego
             WeaponSpawner.setWeaponData(InventorySystem.lastDropedSlotNumber, Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id + 1); // to +1 to później będzie lvl o jaki upgrejdujemy przy merge
 
@@ -59,12 +57,13 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
             // update widoku slotów
             WeaponSpawner.resetWeaponView(InventorySystem.lastDropedSlotNumber);
             WeaponSpawner.resetWeaponView(InventorySystem.lastMovedSlotNumber);
+
+            AudioManager.Instance.Play("merge weapon");
         }
         // jeżeli jest inna broń
         else if(Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id !=
             Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id)
         {
-            Debug.Log("RÓŻNE");
             // id podniesionej broni
             int dragId = Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id;
 

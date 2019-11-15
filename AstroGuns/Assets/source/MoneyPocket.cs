@@ -49,6 +49,9 @@ public class MoneyPocket : MonoBehaviour
             Debug.Log(sum);
             Debug.Log(PlayerMoney.GetMoneyString(sum));
 
+            if(ValidWeapons.Count != 0)
+                AudioManager.Instance.Play("coin");
+
             yield return new WaitForSeconds(1.0f);
         }
     }
