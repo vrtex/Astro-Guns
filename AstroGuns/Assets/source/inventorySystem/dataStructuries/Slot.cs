@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Slot
 {
-    public WeaponObject weapon;
+    public WeaponObject weapon; // jeżeli nie ma broni w slocie, to weapon jest nullem
 }

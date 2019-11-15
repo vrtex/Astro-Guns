@@ -52,8 +52,8 @@ public class MoneyPocket : MonoBehaviour
             sum = sum / LastIncreases.Count;
 
             MoneyPerSecondLabel.text = PlayerMoney.GetMoneyString(sum) + "/second";
-            Debug.Log(sum);
-            Debug.Log(PlayerMoney.GetMoneyString(sum));
+            //Debug.Log(sum);
+            //Debug.Log(PlayerMoney.GetMoneyString(sum));
 
             if(ValidWeapons.Count != 0)
                 AudioManager.Instance.Play("coin");

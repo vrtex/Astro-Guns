@@ -10,7 +10,7 @@ public class SlotController : MonoBehaviour
 
     public void BumpIncome(double amount)
     {
-        Debug.Log(bumpAnimation.name);
+        //Debug.Log(bumpAnimation.name);
         incomeText.text = PlayerMoney.GetMoneyString(amount);
         bumpAnimation.Play();
     }
