@@ -6,10 +6,37 @@ using UnityEngine.UI;
 public class MoneyDisplay : MonoBehaviour
 {
     public MoneyPocket Pocket;
-    public Text DisplayText;
+
+    public Text CreditCurrencyText;
+    public Text EtherCurrencyText;
+
+    public GameObject CreditCurrencyMiniature;
+    public GameObject EtherCurrencyMiniature;
+
 
     private void Start()
     {
-        Pocket.Money.OnValueUpdated.AddListener(() => DisplayText.text = Pocket.Money.ToString());
+        Pocket.Money.OnValueUpdated.AddListener(() => CreditCurrencyText.text = Pocket.Money.ToString());
+        Pocket.Ether.OnValueUpdated.AddListener(() => EtherCurrencyText.text = Pocket.Money.ToString());
+    }
+
+    public void SwipeCurrency()
+    {
+        if (CreditCurrencyMiniature.gameObject.activeSelf)
+        {
+            CreditCurrencyMiniature.gameObject.SetActive(false);
+            CreditCurrencyText.gameObject.SetActive(false);
+
+            EtherCurrencyMiniature.gameObject.SetActive(true);
+            EtherCurrencyText.gameObject.SetActive(true);
+        }
+        else
+        {
+            CreditCurrencyMiniature.gameObject.SetActive(true);
+            CreditCurrencyText.gameObject.SetActive(true);
+
+            EtherCurrencyMiniature.gameObject.SetActive(false);
+            EtherCurrencyText.gameObject.SetActive(false);
+        }
     }
 }

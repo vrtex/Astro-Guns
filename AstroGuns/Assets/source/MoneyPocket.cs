@@ -14,9 +14,15 @@ public class MoneyPocket : MonoBehaviour
         private set;
     }
 
+    public PlayerMoney Ether {
+        get;
+        private set;
+    }
+
     private void Awake()
     {
         Money = new PlayerMoney();
+        Ether = new PlayerMoney();
         StartCoroutine(TickMoney());
     }
 
