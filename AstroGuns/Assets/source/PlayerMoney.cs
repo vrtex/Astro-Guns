@@ -17,7 +17,7 @@ public class PlayerMoney
 
     public UnityEvent OnValueUpdated = new UnityEvent();
 
-    public double ActualValue { get; private set; }
+    public double ActualValue { get; set; }
     /*
     public static PlayerMoney operator +(PlayerMoney a, PlayerMoney b)
     {

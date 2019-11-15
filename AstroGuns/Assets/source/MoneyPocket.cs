@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MoneyPocket : MonoBehaviour
 {
+    private static MoneyPocket instance;
+    public static MoneyPocket Instance { get => instance; }
+
     private Queue<double> LastIncreases = new Queue<double>();
 
     public Text MoneyPerSecondLabel;
@@ -21,6 +24,14 @@ public class MoneyPocket : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Money = new PlayerMoney();
         Ether = new PlayerMoney();
         StartCoroutine(TickMoney());

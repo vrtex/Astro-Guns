@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public SaveManager Instance { get => instance; }
-
     private SaveManager instance;
+    public SaveManager Instance { get => instance; }
 
     // Start is called before the first frame update
     private void Awake()
@@ -24,8 +23,8 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        LoadGame();
-        StartCoroutine(SaveCoroutine());
+        LoadGame(); // to jest w starcie, bo sloty i bronie wpisują się na listę (Inventory System) w awake, a wczytujemy właśnie do tych slotów dane
+        StartCoroutine(SaveCoroutine()); // mejbi później to przeniesiemy, żeby zapisywało co każdy resp/merge
     }
 
     private IEnumerator SaveCoroutine()
@@ -48,16 +47,6 @@ public class SaveManager : MonoBehaviour
     public void LoadGame()
     {
         PlayerData data = SaveSystem.LoadGame();
-
-        if(data != null)
-        {
-            Inventory.weaponSpawnLevel = data.weaponSpawnLevel;
-
-            for(int i = 0; i < Inventory.SLOT_QUANTITY; i++)
-            {
-                WeaponSpawner.setWeaponData(i, data.weaponsId[i]);
-                WeaponSpawner.resetWeaponView(i);
-            }
-        }
+        PlayerData.ApplyPlayerData(data);
     }
 }
