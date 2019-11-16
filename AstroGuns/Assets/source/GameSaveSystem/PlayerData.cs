@@ -5,13 +5,16 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int weaponSpawnLevel;
-    public int[] weaponsId;
+    public int		weaponSpawnLevel;
+    public int[]	weaponsId;
 
-    public double playerCredits;
-    public double playerEther;
+    public double	playerCredits;
+    public double	playerEther;
 
-    public PlayerData()
+	public int		lastDailyReward;
+	public int      lastTimeDailyReward;
+
+	public PlayerData()
     {
         // 00 level spawnowanej broni
         weaponSpawnLevel = Inventory.weaponSpawnLevel;
@@ -36,26 +39,28 @@ public class PlayerData
         // 03 stan eteru
         playerEther = MoneyPocket.Instance.Ether.ActualValue;
 
-        // 04 stan ulepszeń
+		// 04 stan ulepszeń
 
-        // 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
-        // 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
-        // 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		lastDailyReward = DateTimeSystem.Instance.lastDailyReward;
+		lastTimeDailyReward = DateTimeSystem.Instance.lastTimeDailyReward;
 
-        // 08 skrzynie
+		// 08 skrzynie
 
-        // 09 klucze
+		// 09 klucze
 
-        // 10 fragmenty kluczy
+		// 10 fragmenty kluczy
 
-        // 11 rdzenie energetyczne
+		// 11 rdzenie energetyczne
 
-        // 12 meteory
+		// 12 meteory
 
-        // 13 kupione sloty w magazynie skrzynek
-    }
+		// 13 kupione sloty w magazynie skrzynek
+	}
 
     public static void ApplyPlayerData(PlayerData data)
     {
@@ -77,25 +82,27 @@ public class PlayerData
             // 03 stan eteru
             MoneyPocket.Instance.Ether.ActualValue = data.playerEther;
 
-            // 04 stan ulepszeń
+			// 04 stan ulepszeń
 
-            // 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
-            // 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
-            // 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			DateTimeSystem.Instance.lastDailyReward = data.lastDailyReward;
+			DateTimeSystem.Instance.lastTimeDailyReward = data.lastTimeDailyReward;
 
-            // 08 skrzynie
+			// 08 skrzynie
 
-            // 09 klucze
+			// 09 klucze
 
-            // 10 fragmenty kluczy
+			// 10 fragmenty kluczy
 
-            // 11 rdzenie energetyczne
+			// 11 rdzenie energetyczne
 
-            // 12 meteory
+			// 12 meteory
 
-            // 13 kupione sloty w magazynie skrzynek
-        }
+			// 13 kupione sloty w magazynie skrzynek
+		}
     }
 }
