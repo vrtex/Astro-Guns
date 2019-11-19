@@ -8,6 +8,7 @@ public class WeaponSpawner : MonoBehaviour
 {
     public float DoubleSpawnChance = 0.0f;
     public float HigherSpawnChance = 0.0f;
+    public float EtherChance = 0.0f;
 
     public float CurrentProgress
     {

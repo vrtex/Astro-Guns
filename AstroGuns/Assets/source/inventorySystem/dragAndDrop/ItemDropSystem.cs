@@ -59,6 +59,8 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
             WeaponSpawner.resetWeaponView(InventorySystem.lastMovedSlotNumber);
 
             AudioManager.Instance.Play("merge weapon");
+
+            MoneyPocket.Instance.TryAddEther();
         }
         // jeżeli jest inna broń
         else if(Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id !=
