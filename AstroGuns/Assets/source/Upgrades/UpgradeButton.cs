@@ -18,6 +18,8 @@ public class UpgradeButton : MonoBehaviour
 
         upgrade.OnUpgrade.AddListener(() => UpdateDisplay());
         UpdateDisplay();
+
+        MoneyPocket.Instance.Money.OnValueUpdated.AddListener(() => this.UpdateDisplay());
     }
 
     public void UseUpgrade()

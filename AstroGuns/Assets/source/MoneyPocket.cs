@@ -82,4 +82,12 @@ public class MoneyPocket : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
     }
+
+    public void TryAddEther()
+    {
+        if(UnityEngine.Random.value > Upgrade.Spawner.EtherChance)
+            return;
+
+        Ether.Add(1);
+    }
 }
