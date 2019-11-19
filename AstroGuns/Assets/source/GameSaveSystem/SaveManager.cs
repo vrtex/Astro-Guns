@@ -7,6 +7,8 @@ public class SaveManager : MonoBehaviour
     private SaveManager instance;
     public SaveManager Instance { get => instance; }
 
+    public bool ResetGame = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -47,6 +49,8 @@ public class SaveManager : MonoBehaviour
     public void LoadGame()
     {
         PlayerData data = SaveSystem.LoadGame();
+        if(ResetGame)
+            data.Reset();
         PlayerData.ApplyPlayerData(data);
     }
 }
