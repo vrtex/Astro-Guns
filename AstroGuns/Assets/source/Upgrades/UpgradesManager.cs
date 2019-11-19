@@ -10,7 +10,7 @@ public class UpgradesManager : MonoBehaviour
     {
         new SpawnLevelUpgrade(),
         new SpawnTimeUpgrade(),
-        new MergeGemUpgrade(),
+        new MergeEtherChance(),
         new DoubleSpawnUpgrade(),
         new SpawnHigherUpgrade()
     };

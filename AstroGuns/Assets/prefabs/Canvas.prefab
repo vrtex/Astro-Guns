@@ -2054,6 +2054,7 @@ GameObject:
   - component: {fileID: 5100787690999471149}
   - component: {fileID: 6485259333145540454}
   - component: {fileID: 5166850473113038798}
+  - component: {fileID: 3368473059768426067}
   m_Layer: 5
   m_Name: EtherCurrencyText
   m_TagString: Untagged
@@ -2122,6 +2123,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &3368473059768426067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2682031527682810532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6ae5d3db24ff740aaaa902fd79369f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayText: {fileID: 5166850473113038798}
 --- !u!1 &2766934023194715179
 GameObject:
   m_ObjectHideFlags: 0

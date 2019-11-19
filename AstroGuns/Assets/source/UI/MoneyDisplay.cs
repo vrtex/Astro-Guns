@@ -16,8 +16,15 @@ public class MoneyDisplay : MonoBehaviour
 
     private void Start()
     {
-        Pocket.Money.OnValueUpdated.AddListener(() => CreditCurrencyText.text = Pocket.Money.ToString());
-        Pocket.Ether.OnValueUpdated.AddListener(() => EtherCurrencyText.text = Pocket.Money.ToString());
+        UpdateDisplay();
+        Pocket.Money.OnValueUpdated.AddListener(() => UpdateDisplay());
+        Pocket.Ether.OnValueUpdated.AddListener(() => UpdateDisplay());
+    }
+
+    private void UpdateDisplay()
+    {
+        CreditCurrencyText.text = Pocket.Money.ToString();
+        EtherCurrencyText.text = Pocket.Ether.ToString();
     }
 
     public void SwipeCurrency()

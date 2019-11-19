@@ -30,8 +30,6 @@ public class PlayerMoney
         ActualValue += amount;
         if(Math.Abs(amount) > 0.0001)
             OnValueUpdated.Invoke();
-        foreach(var b in GameObject.FindObjectsOfType<UpgradeButton>())
-            b.UpdateDisplay();
     }
 
     public void Add(PlayerMoney amount)
