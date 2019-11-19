@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+	private static MenuManager instance;
+	public static MenuManager Instance { get => instance; }
+
 	public GameObject[]        panels     = new GameObject[13];
 
 	public GameObject          shopBar    = null;
 	public GameObject          pompBar    = null;
 
-	void Start()
+	void Awake()
     {
-        
-    }
+		if(instance == null)
+			instance = this;
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
+	}
 
     void Update()
     {
