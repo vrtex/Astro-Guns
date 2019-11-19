@@ -45,7 +45,7 @@ MonoBehaviour:
         values: []
     mAdMob:
       mTargetingSettings:
-        mTagForChildDirectedTreatment: 0
+        mTagForChildDirectedTreatment: 1
         mExtraOptions:
           keys: []
           values: []
