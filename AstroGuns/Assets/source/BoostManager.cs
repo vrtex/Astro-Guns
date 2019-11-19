@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EasyMobile;
 
 public class BoostManager : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class BoostManager : MonoBehaviour
 	public GameObject           activeBoost     = null;
 	public Slider               activeSlider    = null;
 	public Image                activeImage     = null;
+
+	public GameObject	        activeWatchText	= null;
+	public Text                 boostName       = null;
+
+	public GameObject           buttonsNormal   = null;
+	public GameObject           buttonsAds      = null;
 
 	[Header("Parameters")]
 	public float                minTimeToBoost  = 10f;
@@ -32,9 +39,13 @@ public class BoostManager : MonoBehaviour
 	private bool                boostReady      = false;
 
 	private bool                adIsWatch       = false;
+	private bool                adUnlock        = true;
 
-    void Start()
-    {
+	public float				timeToAdUnlock  = 60f;
+	private float               timerUnlock     = 60f;
+
+	void Awake()
+	{
 		if(instance == null)
 			instance = this;
 		else
@@ -42,18 +53,34 @@ public class BoostManager : MonoBehaviour
 			Destroy(gameObject);
 			return;
 		}
+	}
+
+    void Start()
+    {
 		timeToNextBoost = Random.Range(minTimeToBoost, maxTimeToBoost);
+
+		AdsManager.Instance.rewarderComplited.AddListener(AfterWatchAd);
+		AdsManager.Instance.rewarderSkiped.AddListener(AfterSkipAd);
 	}
 
     void Update()
     {
+		if(timerUnlock == 0f)
+		{
+			adUnlock = true;
+			timerUnlock = timeToAdUnlock;
+		}
+		else if(!adUnlock) timerUnlock -= Time.deltaTime;
+
+
 		if(boostIsActive)
 		{
 			if(activeBoostTime > 0f) //aktywny przyśpieszacz
 			{
 				activeBoostTime -= Time.deltaTime;
 				if(activeBoostTime < 0f) activeBoostTime = 0f;
-				activeSlider.value = activeBoostTime / boosts[currentBoost].time;
+				if(adIsWatch) activeSlider.value = activeBoostTime / adBoosts[currentBoost].time;
+				else activeSlider.value = activeBoostTime / boosts[currentBoost].time;
 			}
 			else //zkończenie przyśpieszacza
 			{
@@ -87,6 +114,9 @@ public class BoostManager : MonoBehaviour
 					}
 				}
 				//zapisanie informacji o bonusie
+				adIsWatch = false;
+				boostName.text = "BOOSTS";
+
 				activeBoostTime = boosts[currentBoost].time;
 				activeImage.sprite = boosts[currentBoost].sprite;
 				activeSlider.value = 1f;
@@ -99,10 +129,67 @@ public class BoostManager : MonoBehaviour
     }
 
 	public void ActiveBoost()
+	{ 
+		if(Application.internetReachability != NetworkReachability.NotReachable
+		&& adUnlock) //połączenie z netem i wyświetlenie reklamy
+		{
+			activeWatchText.SetActive(true);
+			boostName.text = "SUPERBOOSTS";
+
+			activeBoostTime = adBoosts[currentBoost].time;
+			activeImage.sprite = adBoosts[currentBoost].sprite;
+			activeSlider.value = 1f;
+			boostImage.sprite = adBoosts[currentBoost].sprite;
+			boostText.text = adBoosts[currentBoost].description;
+
+			buttonsAds.SetActive(true);
+			buttonsNormal.SetActive(false);
+
+			adUnlock = false;
+		}
+		else //brak połączenia z netem
+		{
+
+			activeWatchText.SetActive(false);
+			boostName.text = "BOOSTS";
+
+			boostIsActive = true;
+			boostButton.SetActive(false);
+			activeBoost.SetActive(true);
+
+			MenuManager.Instance.CloseAllPanels();
+		}
+	}
+
+	public void AfterWatchAd()
 	{
 		boostIsActive = true;
 		boostButton.SetActive(false);
 		activeBoost.SetActive(true);
+
+		adIsWatch = true;
+
+		MenuManager.Instance.CloseAllPanels();
+	}
+
+	public void AfterSkipAd()
+	{
+		activeBoostTime = boosts[currentBoost].time;
+		activeImage.sprite = boosts[currentBoost].sprite;
+		activeSlider.value = 1f;
+		boostImage.sprite = boosts[currentBoost].sprite;
+		boostText.text = boosts[currentBoost].description;
+
+		boostIsActive = true;
+		boostButton.SetActive(false);
+		activeBoost.SetActive(true);
+
+		buttonsAds.SetActive(false);
+		buttonsNormal.SetActive(true);
+
+		activeWatchText.SetActive(false);
+
+		adIsWatch = false;
 	}
 
 	public bool IsActive()
