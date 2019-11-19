@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BoostManager : MonoBehaviour
 {
-	public static BoostManager  instance		= null;
+	private static BoostManager instance;
+	public static BoostManager Instance { get => instance; }
 
 	[Header("To connect")]
 	public GameObject           boostButton     = null;
@@ -21,6 +22,7 @@ public class BoostManager : MonoBehaviour
 
 	[Header("Bonus List")]
 	public List<Boost>          boosts          = new List<Boost>();
+	public List<Boost>          adBoosts        = new List<Boost>();
 
 	//---
 	private float               timeToNextBoost = 0f;
@@ -29,9 +31,17 @@ public class BoostManager : MonoBehaviour
 	private bool                boostIsActive   = false;
 	private bool                boostReady      = false;
 
+	private bool                adIsWatch       = false;
+
     void Start()
     {
-		instance = this;
+		if(instance == null)
+			instance = this;
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
 		timeToNextBoost = Random.Range(minTimeToBoost, maxTimeToBoost);
 	}
 
@@ -93,5 +103,16 @@ public class BoostManager : MonoBehaviour
 		boostIsActive = true;
 		boostButton.SetActive(false);
 		activeBoost.SetActive(true);
+	}
+
+	public bool IsActive()
+	{
+		return boostIsActive;
+	}
+
+	public Boost GetCurrentBoost()
+	{
+		if(adIsWatch) return adBoosts[currentBoost];
+		return boosts[currentBoost];
 	}
 }

@@ -20,7 +20,16 @@ public class WeaponSpawner : MonoBehaviour
 
     private void Update()
     {
-        AddTime(Time.deltaTime);
+		float currTime = Time.deltaTime;
+		if(BoostManager.Instance.IsActive())
+		{
+			Boost b = BoostManager.Instance.GetCurrentBoost();
+			if(b.type == BoostType.FastResearch)
+			{
+				currTime *= b.value;
+			}
+		}
+		AddTime(currTime);
 
         while(CurrentProgress > 1 && FirstEmptySlot() >= 0)
         {
@@ -40,8 +49,17 @@ public class WeaponSpawner : MonoBehaviour
 
     void SpawnWeaponRepetitively(bool bAllowDoubleSpawn = true)
     {
-        int slot = FirstEmptySlot();
-        int spawnLevel = UnityEngine.Random.value < HigherSpawnChance ? Inventory.weaponSpawnLevel + 1 : Inventory.weaponSpawnLevel;
+		int tempSpawnLevel = Inventory.weaponSpawnLevel;
+		if(BoostManager.Instance.IsActive())
+		{
+			Boost b = BoostManager.Instance.GetCurrentBoost();
+			if(b.type == BoostType.SpawnHigher)
+			{
+				tempSpawnLevel += (int)b.value;
+			}
+		}
+		int slot = FirstEmptySlot();
+        int spawnLevel = UnityEngine.Random.value < HigherSpawnChance ? tempSpawnLevel + 1 : tempSpawnLevel;
         setWeaponData(slot, spawnLevel);
         resetWeaponView(slot);
 

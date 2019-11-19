@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostButton: {fileID: 0}
+  boostImage: {fileID: 0}
+  boostText: {fileID: 0}
   activeBoost: {fileID: 0}
   activeSlider: {fileID: 0}
   activeImage: {fileID: 0}
@@ -55,7 +57,7 @@ MonoBehaviour:
     time: 45
     chance: 6
     sprite: {fileID: 21300000, guid: 45d3424ff38bc2d4297fa5e173b553dd, type: 3}
-    description: New items are created x2 faster for 60 seconds
+    description: New items are created x2 faster for 45 seconds
   - type: 0
     value: 3
     time: 25
@@ -106,19 +108,92 @@ MonoBehaviour:
     description: New items are spawn 3 level higher for 10 seconds
   - type: 3
     value: 1
-    time: 60
+    time: 15
     chance: 3
     sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
     description: Items merge 1 level higher for 15 seconds
   - type: 3
     value: 2
-    time: 25
+    time: 10
     chance: 2
     sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
     description: Items merge 2 level higher for 10 seconds
   - type: 3
     value: 3
-    time: 10
+    time: 5
     chance: 1
     sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
     description: Items merge 3 level higher for 5 seconds
+  adBoosts:
+  - type: 0
+    value: 4
+    time: 45
+    chance: 6
+    sprite: {fileID: 21300000, guid: 45d3424ff38bc2d4297fa5e173b553dd, type: 3}
+    description: New items are created x4 faster for 45 seconds
+  - type: 0
+    value: 5
+    time: 25
+    chance: 0
+    sprite: {fileID: 21300000, guid: 45d3424ff38bc2d4297fa5e173b553dd, type: 3}
+    description: New items are created x5 faster for 25 seconds
+  - type: 0
+    value: 6
+    time: 60
+    chance: 0
+    sprite: {fileID: 0}
+    description: New items are created x6 faster for 60 seconds
+  - type: 1
+    value: 4
+    time: 60
+    chance: 0
+    sprite: {fileID: 21300000, guid: b660ffed604686f468c63598bf2bf50c, type: 3}
+    description: Produce x4 credits for 60 seconds
+  - type: 1
+    value: 5
+    time: 60
+    chance: 0
+    sprite: {fileID: 21300000, guid: b660ffed604686f468c63598bf2bf50c, type: 3}
+    description: Produce x5 credits for 60 seconds
+  - type: 1
+    value: 10
+    time: 60
+    chance: 0
+    sprite: {fileID: 21300000, guid: b660ffed604686f468c63598bf2bf50c, type: 3}
+    description: Produce x10 credits for 60 seconds
+  - type: 2
+    value: 2
+    time: 60
+    chance: 0
+    sprite: {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+    description: New items are spawn 2 level higher for 60 seconds
+  - type: 2
+    value: 3
+    time: 45
+    chance: 0
+    sprite: {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+    description: New items are spawn 3 level higher for 45 seconds
+  - type: 2
+    value: 4
+    time: 30
+    chance: 0
+    sprite: {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+    description: New items are spawn 4 level higher for 30 seconds
+  - type: 3
+    value: 2
+    time: 15
+    chance: 0
+    sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
+    description: Items merge 2 level higher for 15 seconds
+  - type: 3
+    value: 3
+    time: 10
+    chance: 0
+    sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
+    description: Items merge 3 level higher for 10 seconds
+  - type: 3
+    value: 4
+    time: 5
+    chance: 0
+    sprite: {fileID: 21300000, guid: b36a4e77def8e4f46a140a0bd0466a66, type: 3}
+    description: Items merge 4 level higher for 5 seconds

@@ -45,11 +45,21 @@ public class MoneyPocket : MonoBehaviour
             double thisIncrease = 0;
             foreach(Slot s in ValidWeapons)
             {
-                thisIncrease += s.weapon.value;
-                Money.Add(s.weapon.value);
+				double currMoney = s.weapon.value;
+				if(BoostManager.Instance.IsActive())
+				{
+					Boost b = BoostManager.Instance.GetCurrentBoost();
+					if(b.type == BoostType.CreditMultipler)
+					{
+						currMoney *= b.value;
+					}
+				}
+				thisIncrease += currMoney;
+				Money.Add(currMoney);
                 int slotNumber = Inventory.slots.FindIndex((Slot _s) => { return _s == s; });
                 SlotController slotController = InventorySystem.Instance.weaponsInSlots[slotNumber].transform.parent.GetComponent<SlotController>();
-                slotController.BumpIncome(s.weapon.value);
+
+				slotController.BumpIncome(currMoney);
             }
 
             while(LastIncreases.Count > 10)

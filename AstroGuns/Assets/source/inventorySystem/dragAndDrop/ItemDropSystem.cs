@@ -48,8 +48,17 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
         else if (Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id == 
             Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id) 
         {
-            // dodawanie broni do nowego
-            WeaponSpawner.setWeaponData(InventorySystem.lastDropedSlotNumber, Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id + 1); // to +1 to później będzie lvl o jaki upgrejdujemy przy merge
+			int levelHigh = 1;
+			if(BoostManager.Instance.IsActive())
+			{
+				Boost b = BoostManager.Instance.GetCurrentBoost();
+				if(b.type == BoostType.MergeHigher)
+				{
+					levelHigh += (int)b.value;
+				}
+			}
+			// dodawanie broni do nowego
+			WeaponSpawner.setWeaponData(InventorySystem.lastDropedSlotNumber, Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id + levelHigh); // to +1 to później będzie lvl o jaki upgrejdujemy przy merge
 
             // usuwanie broni ze starego
             WeaponSpawner.setWeaponData(InventorySystem.lastMovedSlotNumber, -1);
