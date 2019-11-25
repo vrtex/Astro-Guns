@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
 	private AudioSource audioSource	= null;
 
 	[Header("OnOff")]
+	public Toggle       soundToggle = null;
+	public Toggle       musicToggle = null;
 	public bool         soundsOn	= true;
 	public bool         musicOn     = true;
 
@@ -49,6 +51,10 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+		//if(musicOn) PlayMusic();
+
+		musicToggle.isOn = musicOn;
+		soundToggle.isOn = soundsOn;
 		if(musicOn) PlayMusic();
 	}
 
@@ -64,14 +70,14 @@ public class AudioManager : MonoBehaviour
 
 	public void SwitchMusic()
 	{
-		musicOn = !musicOn;
+		musicOn = musicToggle.isOn;
 		if(musicOn) audioSource.Play();
 		else audioSource.Stop();
 	}
 
 	public void SwitchSound()
 	{
-		soundsOn = !soundsOn;
+		soundsOn = soundToggle.isOn;
 	}
 
 	public void Play(string name)
