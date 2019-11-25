@@ -14,6 +14,9 @@ public class PlayerData
 	public int		lastDailyReward;
 	public int      lastTimeDailyReward;
 
+	public bool     sound;
+	public bool     music;
+
 	public PlayerData()
     {
         // 00 level spawnowanej broni
@@ -60,6 +63,10 @@ public class PlayerData
 		// 12 meteory
 
 		// 13 kupione sloty w magazynie skrzynek
+
+		// 14 muzyka i dźwięki
+		sound = AudioManager.Instance.soundsOn;
+		music = AudioManager.Instance.musicOn;
 	}
 
     public void Reset()
@@ -91,18 +98,22 @@ public class PlayerData
         lastDailyReward = DateTimeSystem.Instance.lastDailyReward;
         lastTimeDailyReward = DateTimeSystem.Instance.lastTimeDailyReward;
 
-        // 08 skrzynie
+		// 08 skrzynie
 
-        // 09 klucze
+		// 09 klucze
 
-        // 10 fragmenty kluczy
+		// 10 fragmenty kluczy
 
-        // 11 rdzenie energetyczne
+		// 11 rdzenie energetyczne
 
-        // 12 meteory
+		// 12 meteory
 
-        // 13 kupione sloty w magazynie skrzynek
-    }
+		// 13 kupione sloty w magazynie skrzynek
+
+		// 14 muzyka i dźwięki
+		sound = true;
+		music = true;
+	}
 
     public static void ApplyPlayerData(PlayerData data)
     {
@@ -145,6 +156,10 @@ public class PlayerData
 			// 12 meteory
 
 			// 13 kupione sloty w magazynie skrzynek
+
+			// 14 muzyka i dźwięki
+			AudioManager.Instance.soundsOn = data.sound;
+			AudioManager.Instance.musicOn = data.music;
 		}
     }
 }

@@ -130,8 +130,7 @@ public class BoostManager : MonoBehaviour
 
 	public void ActiveBoost()
 	{ 
-		if(Application.internetReachability != NetworkReachability.NotReachable
-		&& adUnlock) //połączenie z netem i wyświetlenie reklamy
+		if(Advertising.IsRewardedAdReady()) //połączenie z netem i wyświetlenie reklamy
 		{
 			activeWatchText.SetActive(true);
 			boostName.text = "SUPERBOOSTS";
@@ -147,9 +146,8 @@ public class BoostManager : MonoBehaviour
 
 			adUnlock = false;
 		}
-		else //brak połączenia z netem
+		else //gdy nie można wyświetlić reklam
 		{
-
 			activeWatchText.SetActive(false);
 			boostName.text = "BOOSTS";
 

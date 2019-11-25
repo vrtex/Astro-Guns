@@ -10,7 +10,13 @@ public class AudioManager : MonoBehaviour
     private static AudioManager instance;
     public static AudioManager Instance { get => instance; }
 
-    public List<Sound> sounds;
+	public List<Sound> sounds;
+
+	private AudioSource audioSource	= null;
+
+	[Header("OnOff")]
+	public bool         soundsOn	= true;
+	public bool         musicOn     = true;
 
     void Awake()
     {
@@ -24,7 +30,9 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        foreach (Sound s in sounds)
+		audioSource = GetComponent<AudioSource>();
+
+		foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -41,11 +49,35 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("background");
-    }
+		if(musicOn) PlayMusic();
+	}
 
-    public void Play(string name)
+	public void PlayMusic()
+	{
+		audioSource.Play();
+	}
+
+	public void StopMusic()
+	{
+		audioSource.Stop();
+	}
+
+	public void SwitchMusic()
+	{
+		musicOn = !musicOn;
+		if(musicOn) audioSource.Play();
+		else audioSource.Stop();
+	}
+
+	public void SwitchSound()
+	{
+		soundsOn = !soundsOn;
+	}
+
+	public void Play(string name)
     {
+		if(!soundsOn) return;
+
         Sound sound = sounds.Find(Sound => Sound.name == name);
         if(sound == null)
         {
