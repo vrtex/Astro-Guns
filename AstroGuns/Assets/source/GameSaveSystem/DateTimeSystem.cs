@@ -15,7 +15,7 @@ public class DateTimeSystem : MonoBehaviour
 	private string              currentDate             = "";
 	private bool                timeIsGet               = false;
 
-	public  int                 lastDailyReward         = 0;
+	public  int                 lastDailyReward         = -1;
 	public  int                 lastTimeDailyReward     = 0;
 
 	public UnityEvent			afterGetTime            = new UnityEvent();

@@ -95,8 +95,8 @@ public class PlayerData
         // 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
         // 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
-        lastDailyReward = DateTimeSystem.Instance.lastDailyReward;
-        lastTimeDailyReward = DateTimeSystem.Instance.lastTimeDailyReward;
+        lastDailyReward = -1;
+        lastTimeDailyReward = -1;
 
 		// 08 skrzynie
 
