@@ -35,7 +35,7 @@ public class MoneyPocket : MonoBehaviour
         Money = new PlayerMoney();
         Ether = new PlayerMoney();
         StartCoroutine(TickMoney());
-    }
+	}
 
     private IEnumerator TickMoney()
     {
@@ -83,7 +83,7 @@ public class MoneyPocket : MonoBehaviour
         }
     }
 
-    public void TryAddEther()
+	public void TryAddEther()
     {
         if(UnityEngine.Random.value > Upgrade.Spawner.EtherChance)
             return;

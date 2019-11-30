@@ -74,6 +74,11 @@ public class WeaponSpawner : MonoBehaviour
 
     }
 
+	public void ForceSpawnWeapon()
+	{
+		SpawnWeaponRepetitively(false);
+	}
+
     int FirstEmptySlot()
     {
         for (int i = 0; i < Inventory.SLOT_QUANTITY; i++)
