@@ -11380,6 +11380,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6300147963897948521, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
+        type: 3}
+      propertyPath: dailyButton
+      value: 
+      objectReference: {fileID: 1411519655}
+    - target: {fileID: 6300147963897948521, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
+        type: 3}
+      propertyPath: dailyRows
+      value: 
+      objectReference: {fileID: 1809655218}
+    - target: {fileID: 6300147963897948521, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
+        type: 3}
+      propertyPath: upgradesManager
+      value: 
+      objectReference: {fileID: 1481511760}
     - target: {fileID: 3042910741082490883, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11435,16 +11450,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6300147963897948521, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
-        type: 3}
-      propertyPath: dailyButton
-      value: 
-      objectReference: {fileID: 1411519655}
-    - target: {fileID: 6300147963897948521, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
-        type: 3}
-      propertyPath: dailyRows
-      value: 
-      objectReference: {fileID: 1809655218}
     - target: {fileID: 3042910741082491388, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
         type: 3}
       propertyPath: ResetGame
