@@ -20,7 +20,12 @@ public class MergeEtherChance : Upgrade
     public override void Increase()
     {
         base.Increase();
-
         Spawner.EtherChance = Chance;
     }
+
+	public override void SetLevel(int lvl)
+	{
+		base.SetLevel(lvl);
+		Spawner.EtherChance = Chance;
+	}
 }

@@ -22,4 +22,10 @@ public class SpawnTimeUpgrade : Upgrade
         base.Increase();
         UpgradesManager.Manager.Spawner.SpawnInterval = TimeToSpawn;
     }
+
+	public override void SetLevel(int lvl)
+	{
+		base.SetLevel(lvl);
+		UpgradesManager.Manager.Spawner.SpawnInterval = TimeToSpawn;
+	}
 }

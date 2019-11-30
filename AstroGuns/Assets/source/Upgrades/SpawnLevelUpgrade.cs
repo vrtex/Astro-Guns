@@ -32,4 +32,17 @@ public class SpawnLevelUpgrade : Upgrade
             WeaponSpawner.resetWeaponView(Inventory.slots.FindIndex((Slot _s) => { return _s == s; }));
         }
     }
+
+	public override void SetLevel(int lvl)
+	{
+		base.SetLevel(lvl);
+		Inventory.weaponSpawnLevel = CurrentLevel;
+
+		List<Slot> slots = Inventory.slots.FindAll((Slot s) => { return s.weapon != null && s.weapon.id < CurrentLevel; });
+		foreach(Slot s in slots)
+		{
+			WeaponSpawner.setWeaponData(s, CurrentLevel);
+			WeaponSpawner.resetWeaponView(Inventory.slots.FindIndex((Slot _s) => { return _s == s; }));
+		}
+	}
 }

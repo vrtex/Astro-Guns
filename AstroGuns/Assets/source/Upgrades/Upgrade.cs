@@ -20,4 +20,10 @@ public abstract class Upgrade
         OnUpgrade.Invoke();
     }
 
+	public virtual void SetLevel(int lvl)
+	{
+		CurrentLevel = lvl;
+		OnUpgrade.Invoke();
+	}
+
 }

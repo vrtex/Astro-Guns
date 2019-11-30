@@ -22,7 +22,19 @@ public class MoneyPocket : MonoBehaviour
         private set;
     }
 
-    private void Awake()
+	public PlayerMoney Meteor
+	{
+		get;
+		private set;
+	}
+
+	public PlayerMoney MeteorToReset
+	{
+		get;
+		private set;
+	}
+
+	private void Awake()
     {
         if (instance == null)
             instance = this;
@@ -34,6 +46,8 @@ public class MoneyPocket : MonoBehaviour
 
         Money = new PlayerMoney();
         Ether = new PlayerMoney();
+		Meteor = new PlayerMoney();
+		MeteorToReset = new PlayerMoney();
         StartCoroutine(TickMoney());
 	}
 

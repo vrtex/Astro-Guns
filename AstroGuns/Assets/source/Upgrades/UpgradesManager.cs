@@ -15,11 +15,16 @@ public class UpgradesManager : MonoBehaviour
         new SpawnHigherUpgrade()
     };
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		Manager = this;
+		Upgrade.Spawner = Spawner;
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
-        Upgrade.Spawner = Spawner;
-        Manager = this;
+        
     }
 
     public Upgrade GetUpgrade(int index)

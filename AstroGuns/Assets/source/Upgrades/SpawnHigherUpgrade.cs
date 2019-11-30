@@ -21,4 +21,10 @@ public class SpawnHigherUpgrade : Upgrade
         base.Increase();
         UpgradesManager.Manager.Spawner.HigherSpawnChance = Chance;
     }
+
+	public override void SetLevel(int lvl)
+	{
+		base.SetLevel(lvl);
+		UpgradesManager.Manager.Spawner.HigherSpawnChance = Chance;
+	}
 }

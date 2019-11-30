@@ -21,4 +21,10 @@ public class DoubleSpawnUpgrade : Upgrade
         base.Increase();
         Spawner.DoubleSpawnChance = DoubleChance;
     }
+
+	public override void SetLevel(int lvl)
+	{
+		base.SetLevel(lvl);
+		Spawner.DoubleSpawnChance = DoubleChance;
+	}
 }

@@ -11,6 +11,11 @@ public class PlayerData
     public double	playerCredits;
     public double	playerEther;
 
+	public int[]    upgrades;
+
+	public double   playerMeteors;
+	public double   playerMeteorsToReset;
+
 	public int		lastDailyReward;
 	public int      lastTimeDailyReward;
 
@@ -28,7 +33,7 @@ public class PlayerData
         {
             if(Inventory.slots[i].weapon != null)
             {
-                weaponsId[i] = Inventory.slots[i].weapon.id;
+                weaponsId[i] = Inventory.slots[i].weapon.id - 1;
             }
             else
             {
@@ -43,6 +48,11 @@ public class PlayerData
         playerEther = MoneyPocket.Instance.Ether.ActualValue;
 
 		// 04 stan ulepszeń
+		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
+		for(int i = 0; i < UpgradesManager.Manager.Upgrades.Count; ++i)
+		{
+			upgrades[i] = UpgradesManager.Manager.Upgrades[i].CurrentLevel;
+		}
 
 		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
@@ -61,6 +71,8 @@ public class PlayerData
 		// 11 rdzenie energetyczne
 
 		// 12 meteory
+		playerMeteors = MoneyPocket.Instance.Meteor.ActualValue;
+		playerMeteorsToReset = MoneyPocket.Instance.MeteorToReset.ActualValue;
 
 		// 13 kupione sloty w magazynie skrzynek
 
@@ -88,14 +100,19 @@ public class PlayerData
         // 03 stan eteru
         playerEther = 0;
 
-        // 04 stan ulepszeń
+		// 04 stan ulepszeń
+		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
+		for(int i = 0; i < UpgradesManager.Manager.Upgrades.Count; ++i)
+		{
+			upgrades[i] = 0;
+		}
 
-        // 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
-        // 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
-        // 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
-        lastDailyReward = -1;
+		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		lastDailyReward = -1;
         lastTimeDailyReward = -1;
 
 		// 08 skrzynie
@@ -107,6 +124,8 @@ public class PlayerData
 		// 11 rdzenie energetyczne
 
 		// 12 meteory
+		playerMeteors = 0;
+		playerMeteorsToReset = 0;
 
 		// 13 kupione sloty w magazynie skrzynek
 
@@ -125,6 +144,7 @@ public class PlayerData
             // 01 poziomy broni w slotach, jeżeli nie ma, to -1
             for (int i = 0; i < Inventory.SLOT_QUANTITY; i++)
             {
+				Debug.Log(data.weaponsId[i]);
                 WeaponSpawner.setWeaponData(i, data.weaponsId[i]);
                 WeaponSpawner.resetWeaponView(i);
             }
@@ -136,6 +156,14 @@ public class PlayerData
             MoneyPocket.Instance.Ether.ActualValue = data.playerEther;
 
 			// 04 stan ulepszeń
+			if(data.upgrades == null)
+			{
+				data.upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
+			}
+			for(int i = 0; i < data.upgrades.Length; ++i)
+			{
+				UpgradesManager.Manager.Upgrades[i].SetLevel(data.upgrades[i]);
+			}
 
 			// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 
@@ -154,6 +182,8 @@ public class PlayerData
 			// 11 rdzenie energetyczne
 
 			// 12 meteory
+			MoneyPocket.Instance.Meteor.ActualValue = data.playerMeteors;
+			MoneyPocket.Instance.MeteorToReset.ActualValue = data.playerMeteorsToReset;
 
 			// 13 kupione sloty w magazynie skrzynek
 
