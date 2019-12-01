@@ -10,4 +10,5 @@ public class WeaponObject : ScriptableObject
         get { return System.Math.Pow(2, id); }
     }
     public int id;
+	public string weaponName;
 }

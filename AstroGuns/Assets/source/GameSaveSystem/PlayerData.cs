@@ -22,6 +22,8 @@ public class PlayerData
 	public bool     sound;
 	public bool     music;
 
+	public int      biggestWeaponId;
+
 	public PlayerData()
     {
         // 00 level spawnowanej broni
@@ -33,7 +35,7 @@ public class PlayerData
         {
             if(Inventory.slots[i].weapon != null)
             {
-                weaponsId[i] = Inventory.slots[i].weapon.id - 1;
+                weaponsId[i] = Inventory.slots[i].weapon.id;
             }
             else
             {
@@ -79,6 +81,9 @@ public class PlayerData
 		// 14 muzyka i dźwięki
 		sound = AudioManager.Instance.soundsOn;
 		music = AudioManager.Instance.musicOn;
+
+		//15 aktualnie najwyższy poziom broni
+		biggestWeaponId = InventorySystem.Instance.biggestWeaponId;
 	}
 
     public void Reset()
@@ -102,7 +107,8 @@ public class PlayerData
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
-		for(int i = 0; i < UpgradesManager.Manager.Upgrades.Count; ++i)
+		upgrades[0] = 1;
+		for(int i = 1; i < UpgradesManager.Manager.Upgrades.Count; ++i)
 		{
 			upgrades[i] = 0;
 		}
@@ -132,6 +138,9 @@ public class PlayerData
 		// 14 muzyka i dźwięki
 		sound = true;
 		music = true;
+
+		//15 aktualnie najwyższy poziom broni
+		biggestWeaponId = 1;
 	}
 
     public static void ApplyPlayerData(PlayerData data)
@@ -190,6 +199,9 @@ public class PlayerData
 			// 14 muzyka i dźwięki
 			AudioManager.Instance.soundsOn = data.sound;
 			AudioManager.Instance.musicOn = data.music;
+
+			//15 aktualnie najwyższy poziom broni
+			InventorySystem.Instance.biggestWeaponId = data.biggestWeaponId;
 		}
     }
 }

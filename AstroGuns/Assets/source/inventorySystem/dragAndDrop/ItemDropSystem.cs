@@ -45,8 +45,8 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
             AudioManager.Instance.Play("move weapon");
         }
         // jeżeli jest taka sama broń
-        else if (Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id == 
-            Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id) 
+        else if(Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id
+		== Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id) 
         {
 			int levelHigh = 1;
 			if(BoostManager.Instance.IsActive())
@@ -60,20 +60,22 @@ public class ItemDropSystem : MonoBehaviour, IDropHandler
 			// dodawanie broni do nowego
 			WeaponSpawner.setWeaponData(InventorySystem.lastDropedSlotNumber, Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id + levelHigh); // to +1 to później będzie lvl o jaki upgrejdujemy przy merge
 
-            // usuwanie broni ze starego
-            WeaponSpawner.setWeaponData(InventorySystem.lastMovedSlotNumber, -1);
+			// usuwanie broni ze starego
+			WeaponSpawner.setWeaponData(InventorySystem.lastMovedSlotNumber, -1);
 
-            // update widoku slotów
-            WeaponSpawner.resetWeaponView(InventorySystem.lastDropedSlotNumber);
-            WeaponSpawner.resetWeaponView(InventorySystem.lastMovedSlotNumber);
+			// update widoku slotów
+			WeaponSpawner.resetWeaponView(InventorySystem.lastDropedSlotNumber);
+			WeaponSpawner.resetWeaponView(InventorySystem.lastMovedSlotNumber);
 
-            AudioManager.Instance.Play("merge weapon");
+			AudioManager.Instance.Play("merge weapon");
 
-            MoneyPocket.Instance.TryAddEther();
+			MoneyPocket.Instance.TryAddEther();
+
+			InventorySystem.Instance.CheckBiggestId(InventorySystem.lastDropedSlotNumber);
         }
         // jeżeli jest inna broń
-        else if(Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id !=
-            Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id)
+        else if(Inventory.slots[InventorySystem.lastDropedSlotNumber].weapon.id
+		!= Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id)
         {
             // id podniesionej broni
             int dragId = Inventory.slots[InventorySystem.lastMovedSlotNumber].weapon.id;

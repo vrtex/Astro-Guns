@@ -10,7 +10,7 @@ public static class Inventory
 
     public static List<Slot> slots = new List<Slot>(SLOT_QUANTITY);
 
-    public static int weaponSpawnLevel = 0;
+    public static int weaponSpawnLevel = 1;
 
     static Inventory()
     {

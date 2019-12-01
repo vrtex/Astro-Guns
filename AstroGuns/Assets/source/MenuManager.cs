@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-	private static MenuManager instance;
-	public static MenuManager Instance { get => instance; }
+	private static MenuManager	instance;
+	public static MenuManager	Instance { get => instance; }
 
-	public GameObject[]        panels     = new GameObject[13];
+	public GameObject[]			panels     = new GameObject[13];
 
-	public GameObject          shopBar    = null;
-	public GameObject          pompBar    = null;
+	public GameObject			shopBar    = null;
+	public GameObject			pompBar    = null;
+
+	public PreviewCamera        previewCamera   = null;
 
 	void Awake()
     {
@@ -49,6 +51,7 @@ public class MenuManager : MonoBehaviour
 	{
 		panels[0].SetActive(true);
 		panels[(int)panel].SetActive(true);
+		AdditionalWindowAction(panel);
 	}
 
 	public void OpenPanel(int panelIndex)
@@ -66,5 +69,15 @@ public class MenuManager : MonoBehaviour
 	{
 		shopBar.SetActive(true);
 		pompBar.SetActive(false);
+	}
+
+	public void AdditionalWindowAction(Panels panel)
+	{
+		switch(panel)
+		{
+			case Panels.Library:
+				previewCamera.RefreshWeapon();
+			break;
+		}
 	}
 }
