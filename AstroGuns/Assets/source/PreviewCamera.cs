@@ -74,10 +74,12 @@ public class PreviewCamera : MonoBehaviour
 		if(currentMesh >= InventorySystem.Instance.biggestWeaponId)
 		{
 			weaponView.mesh = lockMesh;
+			nameLabel.text = "lock";
 		}
 		else
 		{
 			weaponView.mesh = weaponsMeshes[currentMesh];
+			nameLabel.text = InventorySystem.Instance.weaponObjects[currentMesh].weaponName;
 		}
 
 		orderLabel.text = (currentMesh + 1) + "/" + weaponsMeshes.Count;

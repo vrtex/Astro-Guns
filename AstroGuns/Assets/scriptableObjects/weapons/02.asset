@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 675bd73f5db68f748b26c55310f4b7b4, type: 3}
   id: 2
+  weaponName: Other laser gun
