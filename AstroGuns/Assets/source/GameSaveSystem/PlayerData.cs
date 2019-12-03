@@ -107,8 +107,7 @@ public class PlayerData
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
-		upgrades[0] = 1;
-		for(int i = 1; i < UpgradesManager.Manager.Upgrades.Count; ++i)
+		for(int i = 0; i < UpgradesManager.Manager.Upgrades.Count; ++i)
 		{
 			upgrades[i] = 0;
 		}

@@ -99,14 +99,7 @@ public class WeaponSpawner : MonoBehaviour
 
     static public void setWeaponData(Slot slot, int weaponId)
     {
-        if(weaponId <= 0)
-        {
-            slot.weapon = null;
-        }
-        else
-        {
-            slot.weapon = InventorySystem.Instance.weaponObjects[weaponId - 1];
-        }
+        slot.weapon = weaponId < 0 ? null : InventorySystem.Instance.weaponObjects[weaponId];
     }
 
 
