@@ -47,7 +47,9 @@ MonoBehaviour:
   inventoryGrid: {fileID: 585731699359301719, guid: 12868393b277acc4e9bd690e791bcd06,
     type: 3}
   Pocket: {fileID: 0}
+  movableWeapon: {fileID: 0}
   weaponObjects:
+  - {fileID: 11400000, guid: efd29690f5ccd9c45a422fa4a01310d9, type: 2}
   - {fileID: 11400000, guid: 828cdfd083bc4be48bfce8bfa85244a8, type: 2}
   - {fileID: 11400000, guid: 01291f5be2daedc43bd49ccf0d8a16f8, type: 2}
   - {fileID: 11400000, guid: 5ee48836343050743b66b591f41c5b6f, type: 2}
@@ -131,6 +133,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56808ebedf44d684896fafe0671ecfc2, type: 2}
   slots: []
   weaponsInSlots: []
+  biggestWeaponId: 1
 --- !u!114 &2355311978954965465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,4 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545bfe80f78b91a47b3b604e8ec78d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoubleSpawnChance: 0
+  HigherSpawnChance: 0
+  EtherChance: 0
   SpawnInterval: 5
