@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SaveManager : MonoBehaviour
 {
     private SaveManager instance;
     public SaveManager Instance { get => instance; }
+
+    public static UnityEvent OnLoad = new UnityEvent();
 
     public bool ResetGame = false;
 
@@ -52,5 +55,6 @@ public class SaveManager : MonoBehaviour
         if(ResetGame)
             data.Reset();
         PlayerData.ApplyPlayerData(data);
+        OnLoad.Invoke();
     }
 }

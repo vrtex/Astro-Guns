@@ -114,8 +114,7 @@ public class PlayerData
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
-		upgrades[0] = 1;
-		for(int i = 1; i < UpgradesManager.Manager.Upgrades.Count; ++i)
+		for(int i = 0; i < UpgradesManager.Manager.Upgrades.Count; ++i)
 		{
 			upgrades[i] = 0;
 		}
@@ -166,7 +165,6 @@ public class PlayerData
             // 01 poziomy broni w slotach, jeżeli nie ma, to -1
             for (int i = 0; i < Inventory.SLOT_QUANTITY; i++)
             {
-				Debug.Log(data.weaponsId[i]);
                 WeaponSpawner.setWeaponData(i, data.weaponsId[i]);
                 WeaponSpawner.resetWeaponView(i);
             }

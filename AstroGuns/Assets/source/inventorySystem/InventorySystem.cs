@@ -24,7 +24,8 @@ public class InventorySystem : MonoBehaviour
     [HideInInspector]
     public static int lastDropedSlotNumber;
 
-	public int biggestWeaponId = 1;
+
+    public int biggestWeaponId = 1;
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class InventorySystem : MonoBehaviour
 			biggestWeaponId = Inventory.slots[slot].weapon.id;
 		}
 	}
+
 
 }
 
