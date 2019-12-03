@@ -78,6 +78,9 @@ public class MenuManager : MonoBehaviour
 			case Panels.Library:
 				previewCamera.RefreshWeapon();
 			break;
+			case Panels.Metalforge:
+				WarehouseManager.Instance.Refresh();
+			break;
 		}
 	}
 }

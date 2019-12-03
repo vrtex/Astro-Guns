@@ -19,6 +19,8 @@ public class PlayerData
 	public int		lastDailyReward;
 	public int      lastTimeDailyReward;
 
+	public int[]    chests;
+
 	public bool     sound;
 	public bool     music;
 
@@ -65,6 +67,11 @@ public class PlayerData
 		lastTimeDailyReward = DateTimeSystem.Instance.lastTimeDailyReward;
 
 		// 08 skrzynie
+		chests = new int[WarehouseManager.SIZE];
+		for(int i = 0; i < WarehouseManager.SIZE; ++i)
+		{
+			chests[i] = WarehouseManager.Instance.chests[i];
+		}
 
 		// 09 klucze
 
@@ -122,6 +129,12 @@ public class PlayerData
         lastTimeDailyReward = -1;
 
 		// 08 skrzynie
+		chests = new int[WarehouseManager.SIZE];
+		for(int i = 0; i < WarehouseManager.SIZE; ++i)
+		{
+			if(i > 11) chests[i] = -1;
+			else chests[i] = 0;
+		}
 
 		// 09 klucze
 
@@ -183,6 +196,11 @@ public class PlayerData
 			DateTimeSystem.Instance.lastTimeDailyReward = data.lastTimeDailyReward;
 
 			// 08 skrzynie
+			WarehouseManager.Instance.chests = new int[WarehouseManager.SIZE];
+			for(int i = 0; i < WarehouseManager.SIZE; ++i)
+			{
+				WarehouseManager.Instance.chests[i] = data.chests[i];
+			}
 
 			// 09 klucze
 
