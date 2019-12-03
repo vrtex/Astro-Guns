@@ -46,8 +46,9 @@ public class PreviewCamera : MonoBehaviour
 
 	public void Start()
 	{
-		currentMesh = InventorySystem.Instance.biggestWeaponId - 1;
+        currentMesh = Mathf.Clamp(Inventory.GetBiggestWeaponId(), 0, Inventory.slots.Count);
 		RefreshWeapon();
+        SaveManager.OnLoad.AddListener(() => currentMesh = Inventory.GetBiggestWeaponId());
 	}
 
 	void Update()
@@ -78,6 +79,8 @@ public class PreviewCamera : MonoBehaviour
 		}
 		else
 		{
+            Debug.Log(currentMesh);
+            Debug.Log(weaponsMeshes.Count);
 			weaponView.mesh = weaponsMeshes[currentMesh];
 			nameLabel.text = InventorySystem.Instance.weaponObjects[currentMesh].weaponName;
 		}
