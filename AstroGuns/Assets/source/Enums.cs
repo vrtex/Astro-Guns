@@ -22,5 +22,17 @@ public enum Panels
 	DailyRewards		= 14,
 	ItemInfo			= 15,
 	BuyWarehouseSlot	= 16,
-	OpenChest			= 17
+	OpenChest			= 17,
+	ConfirmBuy			= 18,
+};
+
+[System.Serializable]
+public enum BuyType
+{
+	SuperMegaPack		= 0,
+	InstantBoost		= 1,
+	Chest				= 2,
+	Multipler			= 3,
+	OfflineEarn			= 4,
+	Ether				= 5,
 };
