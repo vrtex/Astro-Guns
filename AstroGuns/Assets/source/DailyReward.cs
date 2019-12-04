@@ -89,7 +89,7 @@ public class DailyReward : MonoBehaviour
 				FillItem(12);
 			break;
 			case 3:
-				GiveChest(0);
+				GiveChest(1);
 			break;
 			case 4:
 				GiveCredits(4320.0);
@@ -101,7 +101,7 @@ public class DailyReward : MonoBehaviour
 				FillItem(24);
 			break;
 			case 7:
-				GiveChest(1);
+				GiveChest(2);
 			break;
 			case 8:
 				GiveCredits(8640.0);
@@ -113,7 +113,7 @@ public class DailyReward : MonoBehaviour
 				GiveCredits(17280.0);
 			break;
 			case 11:
-				GiveChest(2);
+				GiveChest(3);
 			break;
 			case 12:
 				GiveCredits(34560.0);
@@ -125,7 +125,7 @@ public class DailyReward : MonoBehaviour
 				GiveCredits(69120.0);
 			break;
 			case 15:
-				GiveChest(3);
+				GiveChest(4);
 			break;
 		}
 	}
@@ -157,6 +157,6 @@ public class DailyReward : MonoBehaviour
 
 	void GiveChest(int lvl)
 	{
-
+		WarehouseManager.Instance.AddChest(lvl);
 	}
 }

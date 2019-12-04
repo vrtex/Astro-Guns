@@ -9,13 +9,25 @@ public class WarehouseManager : MonoBehaviour
 	public static WarehouseManager Instance { get => instance; }
 
 	public const int				SIZE		= 24;
+	public const int                KEYS        = 4;
 
+	[Header("chests")]
 	public int[]                    chests		= new int[SIZE];
 
 	public Image[]                  chestImage	= new Image[SIZE];
 	public Sprite[]					chestSprite	= new Sprite[5];
 
 	public Sprite                   buyChest    = null;
+
+	[Header("keys and dust")]
+	public int[]                    keysAmount  = new int[KEYS];
+	public int[]                    dustAmount  = new int[KEYS];
+
+	public int                      boughtPlace = 0;
+
+	public Text[]                   keysText    = new Text[KEYS];
+	public Text[]                   keysMetalforgeText	= new Text[KEYS];
+	public Text[]                   dustMetalforgeText  = new Text[KEYS];
 
 	void Awake()
 	{
@@ -52,13 +64,4 @@ public class WarehouseManager : MonoBehaviour
 		}
 	}
 
-	void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }
