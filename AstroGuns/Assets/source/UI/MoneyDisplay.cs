@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class MoneyDisplay : MonoBehaviour
 {
-    public MoneyPocket Pocket;
+	private static MoneyDisplay  instance;
+	public static MoneyDisplay Instance { get => instance; }
+
+	public MoneyPocket Pocket;
 
     public Text CreditCurrencyText;
     public Text EtherCurrencyText;
@@ -13,8 +16,18 @@ public class MoneyDisplay : MonoBehaviour
     public GameObject CreditCurrencyMiniature;
     public GameObject EtherCurrencyMiniature;
 
+	void Awake()
+	{
+		if(instance == null)
+			instance = this;
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
+	}
 
-    private void Start()
+	private void Start()
     {
         UpdateDisplay();
         Pocket.Money.OnValueUpdated.AddListener(() => UpdateDisplay());
@@ -31,19 +44,29 @@ public class MoneyDisplay : MonoBehaviour
     {
         if (CreditCurrencyMiniature.gameObject.activeSelf)
         {
-            CreditCurrencyMiniature.gameObject.SetActive(false);
-            CreditCurrencyText.gameObject.SetActive(false);
-
-            EtherCurrencyMiniature.gameObject.SetActive(true);
-            EtherCurrencyText.gameObject.SetActive(true);
-        }
+			ShowEther();
+		}
         else
         {
-            CreditCurrencyMiniature.gameObject.SetActive(true);
-            CreditCurrencyText.gameObject.SetActive(true);
-
-            EtherCurrencyMiniature.gameObject.SetActive(false);
-            EtherCurrencyText.gameObject.SetActive(false);
-        }
+			ShowCredits();
+		}
     }
+
+	public void ShowCredits()
+	{
+		CreditCurrencyMiniature.gameObject.SetActive(true);
+		CreditCurrencyText.gameObject.SetActive(true);
+
+		EtherCurrencyMiniature.gameObject.SetActive(false);
+		EtherCurrencyText.gameObject.SetActive(false);
+	}
+
+	public void ShowEther()
+	{
+		CreditCurrencyMiniature.gameObject.SetActive(false);
+		CreditCurrencyText.gameObject.SetActive(false);
+
+		EtherCurrencyMiniature.gameObject.SetActive(true);
+		EtherCurrencyText.gameObject.SetActive(true);
+	}
 }

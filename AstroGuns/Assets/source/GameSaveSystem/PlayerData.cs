@@ -204,7 +204,6 @@ public class PlayerData
 
             // 03 stan eteru
             MoneyPocket.Instance.Ether.ActualValue = data.playerEther;
-			MoneyPocket.Instance.Ether.ActualValue += 70;
 
 			// 04 stan ulepszeń
 			if(data.upgrades == null)

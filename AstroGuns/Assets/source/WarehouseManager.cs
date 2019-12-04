@@ -68,6 +68,7 @@ public class WarehouseManager: MonoBehaviour
 
 	public void Refresh()
 	{
+		slotCostText.text = "" + costOfSlots[boughtPlace];
 		for(int i = 0; i < SIZE; ++i)
 		{
 			if(chests[i] == -1) chestImage[i].sprite = buyChest;
@@ -112,6 +113,7 @@ public class WarehouseManager: MonoBehaviour
 
 	public void BuySlotWindow()
 	{
+		MoneyDisplay.Instance.ShowEther();
 		MenuManager.Instance.OpenPanel(Panels.BuyWarehouseSlot);
 		buySlotButton.interactable = MoneyPocket.Instance.Ether.ActualValue >= costOfSlots[boughtPlace] ? true : false;
 	}
@@ -124,7 +126,6 @@ public class WarehouseManager: MonoBehaviour
 			++boughtPlace;
 			UnlockNext();
 			Refresh();
-			slotCostText.text = "" + costOfSlots[boughtPlace];
 			buySlotButton.interactable = MoneyPocket.Instance.Ether.ActualValue >= costOfSlots[boughtPlace] ? true : false;
 		}
 	}
