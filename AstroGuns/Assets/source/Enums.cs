@@ -29,6 +29,7 @@ public enum Panels
 [System.Serializable]
 public enum BuyType
 {
+	None				= -1,
 	SuperMegaPack		= 0,
 	InstantBoost		= 1,
 	Chest				= 2,

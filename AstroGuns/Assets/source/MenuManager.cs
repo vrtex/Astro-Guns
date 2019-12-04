@@ -81,6 +81,9 @@ public class MenuManager : MonoBehaviour
 			case Panels.Warehouse:
 				WarehouseManager.Instance.Refresh();
 			break;
+			case Panels.Shop:
+				MoneyDisplay.Instance.ShowEther();
+			break;
 		}
 	}
 }

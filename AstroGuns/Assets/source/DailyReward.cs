@@ -130,7 +130,7 @@ public class DailyReward : MonoBehaviour
 		}
 	}
 
-	void GiveCredits(double creditsMultipler)
+	public void GiveCredits(double creditsMultipler)
 	{
 		double allMoney = 0.0;
 		List<Slot> ValidWeapons = Inventory.slots.FindAll((Slot S) => { return S.weapon != null; });

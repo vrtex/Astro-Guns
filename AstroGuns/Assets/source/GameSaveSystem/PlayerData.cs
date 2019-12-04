@@ -33,6 +33,10 @@ public class PlayerData
 	public bool     sound;
 	public bool     music;
 
+	//sklep
+	public double       earningTime; //w godzinach zarabienie offline
+	public double       creditMultipler;
+
 
 	public PlayerData()
     {
@@ -110,9 +114,15 @@ public class PlayerData
 
 		//15 aktualnie najwyższy poziom broni
 		biggestWeaponId = InventorySystem.Instance.biggestWeaponId;
+
+		//16 wykupione mnożniki pieniędzy
+		creditMultipler = ItemShop.Instance.creditMultipler;
+
+		//17 wykupiona ilość czasu zarabiania podczas bycia offline
+		earningTime = ItemShop.Instance.earningTime;
 	}
 
-    public void Reset()
+	public void Reset()
     {
 
         // 00 level spawnowanej broni
@@ -183,6 +193,12 @@ public class PlayerData
 
 		//15 aktualnie najwyższy poziom broni
 		biggestWeaponId = 0;
+
+		//16 wykupione mnożniki pieniędzy
+		creditMultipler = 0;
+
+		//17 wykupiona ilość czasu zarabiania podczas bycia offline
+		earningTime = 3;
 	}
 
     public static void ApplyPlayerData(PlayerData data)
@@ -284,6 +300,12 @@ public class PlayerData
 
 			//15 aktualnie najwyższy poziom broni
 			InventorySystem.Instance.biggestWeaponId = data.biggestWeaponId;
+
+			//16 wykupione mnożniki pieniędzy
+			ItemShop.Instance.creditMultipler = data.creditMultipler;
+
+			//17 wykupiona ilość czasu zarabiania podczas bycia offline
+			ItemShop.Instance.earningTime = data.earningTime;
 		}
-    }
+	}
 }
