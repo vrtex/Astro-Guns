@@ -17,5 +17,6 @@ public enum Panels
 	Meteors			= 9,
 	PushablePopup	= 10,
 	EnergyCore		= 11,
-	EnergyCoreDet	= 12
+	EnergyCoreDet	= 12,
+    ItemInfo        = 15
 };

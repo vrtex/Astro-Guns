@@ -7,11 +7,31 @@ public class SlotController : MonoBehaviour
 {
     public Animation bumpAnimation;
     public Text incomeText;
+    public Button InfoButton;
+    [HideInInspector]
+    public double LastIncomeAmount { get; private set; }
+
+    public int weaponIndex { get; private set; }
+
+    private Slot managedSlot;
+
+    private void Start()
+    {
+        weaponIndex = transform.GetSiblingIndex();
+        managedSlot = Inventory.slots[weaponIndex];
+        InfoButton.onClick.AddListener(() => OpenInfoPanel());
+    }
 
     public void BumpIncome(double amount)
     {
-        //Debug.Log(bumpAnimation.name);
+        LastIncomeAmount = amount;
         incomeText.text = PlayerMoney.GetMoneyString(amount);
         bumpAnimation.Play();
+    }
+
+    public void OpenInfoPanel()
+    {
+        GameObject itemInfoPanel = MenuManager.Instance.OpenPanel(Panels.ItemInfo);
+        itemInfoPanel.GetComponent<ItemInfoController>().SetToSlot(this);
     }
 }

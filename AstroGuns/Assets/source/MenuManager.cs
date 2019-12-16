@@ -25,11 +25,6 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
-    void Update()
-    {
-        
-    }
-
 	public void CloseAllPanels()
 	{
 		for(int i = 0; i < panels.Length; ++i)
@@ -38,25 +33,34 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
+    public void ClosePanelAndBackground(Panels panel)
+    {
+        ClosePanel(Panels.Backgorund);
+        ClosePanel(panel);
+    }
+
 	public void ClosePanel(Panels panel)
 	{
-		panels[(int)panel].SetActive(false);
+        ClosePanel((int)panel);
 	}
+
 	public void ClosePanel(int panel)
 	{
 		panels[panel].SetActive(false);
 	}
 
-	public void OpenPanel(Panels panel)
+	public GameObject OpenPanel(Panels panel)
 	{
 		panels[0].SetActive(true);
 		panels[(int)panel].SetActive(true);
 		AdditionalWindowAction(panel);
+
+        return panels[(int)panel];
 	}
 
-	public void OpenPanel(int panelIndex)
+	public GameObject OpenPanel(int panelIndex)
 	{
-		OpenPanel((Panels)panelIndex);
+		return OpenPanel((Panels)panelIndex);
 	}
 
 	public void MaxPomp()
