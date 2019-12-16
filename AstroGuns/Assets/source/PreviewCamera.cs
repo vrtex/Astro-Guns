@@ -79,8 +79,6 @@ public class PreviewCamera : MonoBehaviour
 		}
 		else
 		{
-            Debug.Log(currentMesh);
-            Debug.Log(weaponsMeshes.Count);
 			weaponView.mesh = weaponsMeshes[currentMesh];
 			nameLabel.text = InventorySystem.Instance.weaponObjects[currentMesh].weaponName;
 		}

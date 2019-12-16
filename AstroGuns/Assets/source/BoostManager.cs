@@ -97,6 +97,7 @@ public class BoostManager : MonoBehaviour
 			}
 			else
 			{
+				timeToNextBoost = Random.Range(minTimeToBoost, maxTimeToBoost);
 				//losowanie bonusu
 				int chanceSum = 0;
 				foreach(var c in boosts)
@@ -178,16 +179,19 @@ public class BoostManager : MonoBehaviour
 		boostImage.sprite = boosts[currentBoost].sprite;
 		boostText.text = boosts[currentBoost].description;
 
-		boostIsActive = true;
-		boostButton.SetActive(false);
-		activeBoost.SetActive(true);
+		boostName.text = "BOOSTS";
+
+		boostIsActive = false;
+		adIsWatch = false;
+		//boostButton.SetActive(false);
+		//activeBoost.SetActive(true);
 
 		buttonsAds.SetActive(false);
 		buttonsNormal.SetActive(true);
 
 		activeWatchText.SetActive(false);
 
-		adIsWatch = false;
+		
 	}
 
 	public bool IsActive()

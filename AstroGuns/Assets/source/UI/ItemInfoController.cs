@@ -5,21 +5,14 @@ using UnityEngine.UI;
 
 public class ItemInfoController : MonoBehaviour
 {
-    public static ItemInfoController Instance { get; private set; }
     public Button CloseButton;
     public Image WeaponIcon;
     public Text IncomeText;
 
     public Sprite EmptyWeaponIcon;
 
-    private void Awake()
-    {
-        Debug.Log("!!!!");
-    }
-
     private void Start()
     {
-        Instance = this;
         CloseButton.onClick.AddListener(() => MenuManager.Instance.ClosePanelAndBackground(Panels.ItemInfo));
     }
 

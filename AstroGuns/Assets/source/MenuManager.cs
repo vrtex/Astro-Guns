@@ -82,6 +82,12 @@ public class MenuManager : MonoBehaviour
 			case Panels.Library:
 				previewCamera.RefreshWeapon();
 			break;
+			case Panels.Warehouse:
+				WarehouseManager.Instance.Refresh();
+			break;
+			case Panels.Shop:
+				MoneyDisplay.Instance.ShowEther();
+			break;
 		}
 	}
 }
