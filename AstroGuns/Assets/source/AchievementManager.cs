@@ -74,7 +74,7 @@ public class AchievementManager : MonoBehaviour
     {
         if (GameServices.IsInitialized())
         {
-            GameServices.ReportAchievementProgress(achievementName, progress)
+            GameServices.ReportAchievementProgress(achievementName, progress);
         }
         else
         {
