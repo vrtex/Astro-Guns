@@ -27,7 +27,7 @@ public class BonusManager : MonoBehaviour
 	public List<Boost>          boosts          = new List<Boost>();
 
 	private float               activeBoostTime = 0f;
-	private int                 currentBoost    = 0;
+	private int                 currentBoost    = -1;
 	private bool                boostIsActive   = false;
 
 	void Awake()
@@ -54,7 +54,7 @@ public class BonusManager : MonoBehaviour
 			multipler.interactable = true;
 			autoMerge.interactable = true;
 
-			if(currentBoost == -1)
+			if(currentBoost != -1)
 			{
 				multipler.interactable = false;
 				autoMerge.interactable = false;

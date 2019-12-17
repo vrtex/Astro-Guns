@@ -77,16 +77,20 @@ public class MenuManager : MonoBehaviour
 		{
 			case Panels.Library:
 				previewCamera.RefreshWeapon();
-			break;
+			    break;
 			case Panels.Warehouse:
 				WarehouseManager.Instance.Refresh();
-			break;
+			    break;
 			case Panels.Shop:
 				MoneyDisplay.Instance.ShowEther();
 			break;
 			case Panels.Bonuses:
-				
+				BonusManager.Instance.CheckBonus();
 			break;
+			    break;
+            case Panels.Achievements:
+                AchievementManager.Instance.ShowAchievementsUI();
+            break;
 		}
 	}
 }
