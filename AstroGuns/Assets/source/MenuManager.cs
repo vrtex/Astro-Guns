@@ -59,7 +59,12 @@ public class MenuManager : MonoBehaviour
 		OpenPanel((Panels)panelIndex);
 	}
 
-	public void MaxPomp()
+    public void OpenPanelWithoutPanel(int panelIndex)
+    {
+        AdditionalWindowAction((Panels)panelIndex);
+    }
+
+    public void MaxPomp()
 	{
 		shopBar.SetActive(false);
 		pompBar.SetActive(true);
