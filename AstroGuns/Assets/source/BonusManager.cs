@@ -134,6 +134,7 @@ public class BonusManager : MonoBehaviour
 		activeBonus.SetActive(true);
 		boostIsActive = true;
 
+		currentBoost = -1;
 		CheckBonus();
 	}
 
