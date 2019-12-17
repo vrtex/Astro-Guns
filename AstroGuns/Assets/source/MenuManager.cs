@@ -84,6 +84,9 @@ public class MenuManager : MonoBehaviour
 			case Panels.Shop:
 				MoneyDisplay.Instance.ShowEther();
 			break;
+			case Panels.Bonuses:
+				
+			break;
 		}
 	}
 }
