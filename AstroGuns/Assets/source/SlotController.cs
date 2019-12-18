@@ -13,7 +13,7 @@ public class SlotController : MonoBehaviour
 
     public int weaponIndex { get; private set; }
 
-    private Slot managedSlot;
+    public Slot managedSlot { get; private set;  }
 
     private void Start()
     {

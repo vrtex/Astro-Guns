@@ -29,8 +29,9 @@ public class WeaponSpawner : MonoBehaviour
 			{
 				currTime *= b.value;
 			}
-		}
-		AddTime(currTime);
+        }
+        // TODO: consider first slot's energy core bonus
+        AddTime(currTime);
 
         while(CurrentProgress > 1 && FirstEmptySlot() >= 0)
         {
@@ -44,7 +45,6 @@ public class WeaponSpawner : MonoBehaviour
 
     public void AddTime(float t)
     {
-        // TODO: consider first slot's energy core bonus
         SpawnProgress = Mathf.Clamp(SpawnProgress + t, 0, SpawnInterval * 1.01f);
     }
 

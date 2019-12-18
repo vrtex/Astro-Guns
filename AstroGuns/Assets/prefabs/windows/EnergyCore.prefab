@@ -663,8 +663,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6157364692387096453}
   m_HandleRect: {fileID: 4821578038809346540}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -749,7 +749,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Item spawn faster in this slot
+  m_Text: Items spawn faster in this slot
 --- !u!1 &4313736508549192734
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +996,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chance to double income for this slot
+  m_Text: Chance for double income for this slot
 --- !u!1 &4798372842764671821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1775,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Produce more gold from this slot
+  m_Text: Generate more credits from this slot
 --- !u!1 &7805508048563962692
 GameObject:
   m_ObjectHideFlags: 0
