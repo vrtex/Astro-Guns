@@ -13,15 +13,17 @@ public class BoostManager : MonoBehaviour
 	public GameObject           boostButton     = null;
 	public Image		        boostImage		= null;
 	public Text                 boostText       = null;
-	public GameObject           activeBoost     = null;
-	public Slider               activeSlider    = null;
-	public Image                activeImage     = null;
 
-	public GameObject	        activeWatchText	= null;
+	public GameObject           activeWatchText = null;
 	public Text                 boostName       = null;
 
 	public GameObject           buttonsNormal   = null;
 	public GameObject           buttonsAds      = null;
+
+	[Header("Active bar")]
+	public GameObject           activeBoost     = null;
+	public Slider               activeSlider    = null;
+	public Image                activeImage     = null;
 
 	[Header("Parameters")]
 	public float                minTimeToBoost  = 10f;
@@ -43,6 +45,9 @@ public class BoostManager : MonoBehaviour
 
 	public float				timeToAdUnlock  = 60f;
 	private float               timerUnlock     = 60f;
+
+	//zabezpieczenie, żeby nie włączał się boost po obejżeniu reklamy w bonusach
+	private bool                active          = false;
 
 	void Awake()
 	{
@@ -146,6 +151,7 @@ public class BoostManager : MonoBehaviour
 			buttonsNormal.SetActive(false);
 
 			adUnlock = false;
+			active = true;
 		}
 		else //gdy nie można wyświetlić reklam
 		{
@@ -162,6 +168,8 @@ public class BoostManager : MonoBehaviour
 
 	public void AfterWatchAd()
 	{
+		if(!active) return;
+
 		boostIsActive = true;
 		boostButton.SetActive(false);
 		activeBoost.SetActive(true);
@@ -169,10 +177,14 @@ public class BoostManager : MonoBehaviour
 		adIsWatch = true;
 
 		MenuManager.Instance.CloseAllPanels();
+
+		active = false;
 	}
 
 	public void AfterSkipAd()
 	{
+		if(!active) return;
+
 		activeBoostTime = boosts[currentBoost].time;
 		activeImage.sprite = boosts[currentBoost].sprite;
 		activeSlider.value = 1f;
@@ -191,7 +203,7 @@ public class BoostManager : MonoBehaviour
 
 		activeWatchText.SetActive(false);
 
-		
+		active = false;
 	}
 
 	public bool IsActive()

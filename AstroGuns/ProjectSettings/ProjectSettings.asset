@@ -119,7 +119,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3.0
+  bundleVersion: 0.5.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -163,7 +163,7 @@ PlayerSettings:
     Android: com.propellant.astroguns
     Standalone: com.Company.ProductName
   buildNumber: {}
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -632,8 +632,8 @@ PlayerSettings:
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
     1: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB
-    4: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB
-    7: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB
+    4: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB;NO_GPGS
+    7: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB;EM_GPGS
     13: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB
     14: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB
     19: EASY_MOBILE;EASY_MOBILE_PRO;EM_ADMOB

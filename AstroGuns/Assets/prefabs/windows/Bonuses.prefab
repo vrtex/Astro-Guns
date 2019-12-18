@@ -2039,6 +2039,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8933289583844039629, guid: 81ff384148573d04e82fffdfae017fef,
+        type: 3}
+      propertyPath: m_Name
+      value: ButtonFill
+      objectReference: {fileID: 0}
     - target: {fileID: 6724299315260175684, guid: 81ff384148573d04e82fffdfae017fef,
         type: 3}
       propertyPath: m_Sprite
@@ -2169,6 +2174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8933289583844039629, guid: 81ff384148573d04e82fffdfae017fef,
+        type: 3}
+      propertyPath: m_Name
+      value: ButtonMultipler
       objectReference: {fileID: 0}
     - target: {fileID: 6724299315260175684, guid: 81ff384148573d04e82fffdfae017fef,
         type: 3}

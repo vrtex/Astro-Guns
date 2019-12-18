@@ -19,5 +19,6 @@ public enum BoostType
 	FastResearch	= 0,
 	CreditMultipler	= 1,
 	SpawnHigher		= 2,
-	MergeHigher		= 3
+	MergeHigher		= 3,
+	AutoMerge		= 4,
 };

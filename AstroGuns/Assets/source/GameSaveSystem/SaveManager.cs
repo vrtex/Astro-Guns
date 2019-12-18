@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class SaveManager : MonoBehaviour
 {
-    private SaveManager instance;
-    public SaveManager Instance { get => instance; }
+    private static SaveManager instance;
+    public static SaveManager Instance { get => instance; }
 
     public static UnityEvent OnLoad = new UnityEvent();
 
@@ -38,6 +38,8 @@ public class SaveManager : MonoBehaviour
         {
             //Debug.Log("SAVE0");
             SaveGame();
+            StatisticsManager.Instance.runGame();
+
 
             yield return new WaitForSeconds(5.0f);
         }
