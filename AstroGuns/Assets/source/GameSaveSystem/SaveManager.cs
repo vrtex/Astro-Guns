@@ -31,7 +31,7 @@ public class SaveManager : MonoBehaviour
         LoadGame(); // to jest w starcie, bo sloty i bronie wpisują się na listę (Inventory System) w awake, a wczytujemy właśnie do tych slotów dane
         StartCoroutine(SaveCoroutine()); // mejbi później to przeniesiemy, żeby zapisywało co każdy resp/merge
 
-        //StatisticsManager.Instance.runGame();
+        StatisticsManager.Instance.runGame();
     }
 
     private IEnumerator SaveCoroutine()
