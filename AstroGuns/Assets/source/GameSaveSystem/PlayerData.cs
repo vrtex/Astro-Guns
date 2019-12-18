@@ -5,38 +5,41 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-	//weapons
+	// weapons
     public int		weaponSpawnLevel;
     public int[]	weaponsId;
 	public int      biggestWeaponId;
 
-	//money
+	// money
 	public double	playerCredits;
     public double	playerEther;
 	public double   playerMeteors;
 	public double   playerMeteorsToReset;
 
-	//upgrades
+	// upgrades
 	public int[]    upgrades;
 
-	//reward
+	// reward
 	public int		lastDailyReward;
 	public int      lastTimeDailyReward;
 
-	//warehouse
+	// warehouse
 	public int[]    chests;
 	public int[]    keys;
 	public int[]    dust;
 	public int      boughtPlace;
 
-	//settings
+	// settings
 	public bool     sound;
 	public bool     music;
 
-	//sklep
+	// sklep
 	public double       earningTime; //w godzinach zarabienie offline
 	public double       creditMultipler;
 
+	// statistics
+	public bool isRunFirstTime;
+	public int merge;
 
 	public PlayerData()
     {
@@ -120,6 +123,10 @@ public class PlayerData
 
 		//17 wykupiona ilość czasu zarabiania podczas bycia offline
 		earningTime = ItemShop.Instance.earningTime;
+
+		// 18 statystyki
+		isRunFirstTime = StatisticsManager.Instance.isRunFirstTime;
+		merge = StatisticsManager.Instance.merge;
 	}
 
 	public void Reset()
@@ -199,6 +206,10 @@ public class PlayerData
 
 		//17 wykupiona ilość czasu zarabiania podczas bycia offline
 		earningTime = 3;
+
+		// 18 statystyki
+		isRunFirstTime = false;
+		merge = 0;
 	}
 
     public static void ApplyPlayerData(PlayerData data)
@@ -306,6 +317,10 @@ public class PlayerData
 
 			//17 wykupiona ilość czasu zarabiania podczas bycia offline
 			ItemShop.Instance.earningTime = data.earningTime;
+
+			// 18 statystyki
+			StatisticsManager.Instance.isRunFirstTime = data.isRunFirstTime;
+			StatisticsManager.Instance.merge = data.merge;
 		}
 	}
 }
