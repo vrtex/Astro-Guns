@@ -32,11 +32,11 @@ public class StatisticsManager : MonoBehaviour
 
     public void runGame()
     {
-        if(isRunFirstTime == false)
-        {
+        //if(isRunFirstTime == false)
+        //{
             isRunFirstTime = true;
             AchievementManager.Instance.RevealAchievement(EM_GameServicesConstants.Achievement_Run_the_game);
             AchievementManager.Instance.UnlockAchievement(EM_GameServicesConstants.Achievement_Run_the_game);
-        }
+        //}
     }
 }
