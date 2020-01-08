@@ -23,22 +23,35 @@ public class WarehouseManager: MonoBehaviour
 	public int[]                    keysAmount  = new int[KEYS];
 	public int[]                    dustAmount  = new int[KEYS];
 
-	public int                      boughtPlace = 0;
+	public int                      boughtPlace	= 0;
 
-	public Text[]                   keysText    = new Text[KEYS];
+	public Text[]                   keysText			= new Text[KEYS];
 	public Text[]                   keysMetalforgeText  = new Text[KEYS];
 	public Text[]                   dustMetalforgeText  = new Text[KEYS];
 
 	[Header("buy slots")]
-	public Text                     slotCostText = null;
-	public Button                   buySlotButton = null;
+	public Text                     slotCostText		= null;
+	public Button                   buySlotButton		= null;
 
-	private int[]                   costOfSlots = { 20, 30, 50, 90, 140, 200,
-													300, 420, 540, 660, 780, 900,
-													1200, 1500, 1800, 2500, 4000, 6000};
+	private int[]                   costOfSlots			= { 20, 30, 50, 90, 140, 200,
+															300, 420, 540, 660, 780, 900,
+															1200, 1500, 1800, 2500, 4000, 6000};
 
 	[Header("open chest")]
-	public int                      openedChestType = 0;	
+	public int                      openedChestType		= 0;
+	public Image                    chestToOpenImage    = null;
+
+	[Header("banana")]
+	public Slider                   bananaSlider        = null;
+	public Image                    bananaView          = null;
+	public Sprite[]                 bananaFrames        = new Sprite[27];
+
+	[Header("items from chest")]
+	public Image[]                  items               = new Image[12];
+	public Sprite                   noneGFX             = null;
+	public Sprite[]                 coreProfit			= new Sprite[5];
+	public Sprite[]                 coreHaste	        = new Sprite[5];
+	public Sprite[]                 coreFortune	        = new Sprite[5];
 
 	void Awake()
 	{
@@ -74,6 +87,13 @@ public class WarehouseManager: MonoBehaviour
 			if(chests[i] == -1) chestImage[i].sprite = buyChest;
 			else chestImage[i].sprite = chestSprite[chests[i]];
 		}
+
+		for(int i = 0; i < KEYS; ++i)
+		{
+			keysText[i].text = keysAmount[i].ToString();
+			keysMetalforgeText[i].text = keysAmount[i].ToString();
+			dustMetalforgeText[i].text = dustAmount[i].ToString();
+		}
 	}
 
 	public void UnlockNext()
@@ -102,13 +122,77 @@ public class WarehouseManager: MonoBehaviour
 
 	public void OpenChestWindow(int slot)
 	{
-		MenuManager.Instance.OpenPanel(Panels.OpenChest);
-		openedChestType = chests[slot];
+		if(keysAmount[chests[slot] - 1] > 0) //otwarcie skrzyni kluczem
+		{
+			openedChestType = chests[slot];
+			chestToOpenImage.sprite = chestSprite[openedChestType]; //ustawienie grafiki skrzyni
+			--keysAmount[openedChestType - 1]; //zabranie klucza
+			chests[slot] = 0;
+
+			MenuManager.Instance.OpenPanel(Panels.OpenChest);
+		}
+		else
+		{
+			//jeśli nie ma kluczy
+		}
 	}
 
 	public void OpenChest()
 	{
-		//tutaj będzie losowanko rdzeni ze skrzynek
+		MenuManager.Instance.OpenPanel(Panels.Banana);
+		MenuManager.Instance.ClosePanel(Panels.OpenChest);
+	}
+
+	public void UpdateBanana()
+	{
+		int index = Mathf.Clamp((int)(bananaSlider.value * bananaFrames.Length), 0, 26);
+
+		bananaView.sprite = bananaFrames[index];
+
+		if(bananaSlider.value > 0.95) OpenBanana();
+	}
+
+	public void OpenBanana()
+	{
+		int itemAmount = openedChestType * 2 + 2;
+		for(int i = 0; i < items.Length; ++i)
+		{
+			int type = Random.Range(0, 3);
+			int level = 0;
+			if(openedChestType == 0)
+			{
+				if(i == 0) level = Random.Range(0, 2);
+			}
+			else if(openedChestType == 1)
+			{
+				if(i == 0) level = Random.Range(0, 3);
+				else level = Random.Range(0, 2);
+			}
+			else if(openedChestType == 2)
+			{
+				if(i == 2) level = Random.Range(0, 4);
+				else if(i == 3) level = Random.Range(0, 4);
+				else level = Random.Range(1, 4);
+			}
+			else if(openedChestType == 3)
+			{
+				if(i == 2) level = Random.Range(1, 4);
+				else if(i == 3) level = Random.Range(1, 4);
+				else level = Random.Range(2, 4);
+			}
+
+			if(type == 0)
+				items[i].sprite = coreProfit[level];
+			else if(type == 1)
+				items[i].sprite = coreHaste[level];
+			else if(type == 2)
+				items[i].sprite = coreFortune[level];
+
+			//tutaj powinno być dodanie rdzeni
+		}
+
+		MenuManager.Instance.ClosePanel(Panels.Banana);
+		MenuManager.Instance.OpenPanel(Panels.LootFromBanana);
 	}
 
 	public void BuySlotWindow()

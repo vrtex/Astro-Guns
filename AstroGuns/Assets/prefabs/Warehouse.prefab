@@ -97,3 +97,66 @@ MonoBehaviour:
   slotCostText: {fileID: 0}
   buySlotButton: {fileID: 0}
   openedChestType: 0
+  chestToOpenImage: {fileID: 0}
+  bananaSlider: {fileID: 0}
+  bananaView: {fileID: 0}
+  bananaFrames:
+  - {fileID: 21300000, guid: 3640ecc8bd9c16f43b03674f9cf0ec57, type: 3}
+  - {fileID: 21300000, guid: 09ea48076fe6ec84bb6e1132dfd0d3c4, type: 3}
+  - {fileID: 21300000, guid: 1582d85c7e447294eacdbb86520e4b1e, type: 3}
+  - {fileID: 21300000, guid: a76931927aeda854c9a3a0f0bc73dcf2, type: 3}
+  - {fileID: 21300000, guid: f122832052a472b45ac54aa6c5b8fd81, type: 3}
+  - {fileID: 21300000, guid: 1db1b886403caf948a550491059e9af8, type: 3}
+  - {fileID: 21300000, guid: abe9b29864cf3b74693a4b8e1cbff04b, type: 3}
+  - {fileID: 21300000, guid: 533ec5997e4370243a2ee1755e37b53b, type: 3}
+  - {fileID: 21300000, guid: 144a8100821cfeb44b4c4c0490eb27a1, type: 3}
+  - {fileID: 21300000, guid: 4b1126d729cbc0049a597d27fe78cd7b, type: 3}
+  - {fileID: 21300000, guid: 7cd3a0fa0ca546d48bea12b7b2f71409, type: 3}
+  - {fileID: 21300000, guid: b56bd29026642fb4ab18ec7fc3737044, type: 3}
+  - {fileID: 21300000, guid: 2fc0e70a08d8492458c15bdaac1832cf, type: 3}
+  - {fileID: 21300000, guid: ed1b7e53434089b48b40028adeb37ced, type: 3}
+  - {fileID: 21300000, guid: d28371431d84d72458d5d8c72b20b6d9, type: 3}
+  - {fileID: 21300000, guid: 4db2f002d2958df4788b37eee7368d1a, type: 3}
+  - {fileID: 21300000, guid: 2985e781ac98c184dbb9deec828172cc, type: 3}
+  - {fileID: 21300000, guid: 46d9b1cf5ba870d4a8c24aa97ea08a35, type: 3}
+  - {fileID: 21300000, guid: d8e5025e18fedbe4c97e933cf45cb650, type: 3}
+  - {fileID: 21300000, guid: ca489a39365245f4d80b7b0f88ddf0a6, type: 3}
+  - {fileID: 21300000, guid: 013f197fc54e9ad4d82d420e851cea2f, type: 3}
+  - {fileID: 21300000, guid: b6905c64119f8904c8928759c7f2e588, type: 3}
+  - {fileID: 21300000, guid: 02c0dc31ff13837489240e7d519f1631, type: 3}
+  - {fileID: 21300000, guid: 9195dd17a8366f44284436eab6cd3b69, type: 3}
+  - {fileID: 21300000, guid: fd9b5dbaa8ad0964c9a6808c1fa3a4e3, type: 3}
+  - {fileID: 21300000, guid: 467f191b78469c74c862ecdb36de02e7, type: 3}
+  - {fileID: 21300000, guid: 73830dd9098e3d440ae24a5500d71d0a, type: 3}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  noneGFX: {fileID: 21300000, guid: 60fc803f78d3c344981d91fc1ec9fdc9, type: 3}
+  coreProfit:
+  - {fileID: 21300000, guid: 5f1223c344d585647854e01e9c5d9da9, type: 3}
+  - {fileID: 21300000, guid: 3fc7858b85a4a6a4c9d795323369718f, type: 3}
+  - {fileID: 21300000, guid: 6350c67cd71534a458439fe3dc8bf303, type: 3}
+  - {fileID: 21300000, guid: d88da3db83589c34c835876910be6e0c, type: 3}
+  - {fileID: 21300000, guid: 62a9cfe31dff8b543ad9602c998aa206, type: 3}
+  coreHaste:
+  - {fileID: 21300000, guid: 8e64dac318ad19649856289ed72db94c, type: 3}
+  - {fileID: 21300000, guid: cb5af9f132c8279419069d5853add6dc, type: 3}
+  - {fileID: 21300000, guid: 2aaa9d3ddaae8714e95742e22027d8ea, type: 3}
+  - {fileID: 21300000, guid: f7e76519956b45441a62597392a7e598, type: 3}
+  - {fileID: 21300000, guid: 1c52beddab50c534d8b624baff3d7706, type: 3}
+  coreFortune:
+  - {fileID: 21300000, guid: 6266030e88f49cd42beae3ddb1707640, type: 3}
+  - {fileID: 21300000, guid: 789a3c776727e0a4a866ac125b9846a2, type: 3}
+  - {fileID: 21300000, guid: 545e30271dc88f14f9967ce550c3c6a6, type: 3}
+  - {fileID: 21300000, guid: 76c4c9dd3af02684e8a9c088db07b79e, type: 3}
+  - {fileID: 21300000, guid: 1f93616c6a7ac164bbf549064f285c82, type: 3}
