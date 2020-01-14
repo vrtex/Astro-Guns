@@ -12537,6 +12537,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2444545405946703473, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7287065773662777113, guid: ef7922e9f337d3848bd0ea1a0757387d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef7922e9f337d3848bd0ea1a0757387d, type: 3}
@@ -13158,6 +13163,12 @@ MonoBehaviour:
 --- !u!1 &611195766 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7745657285521695721, guid: ef7922e9f337d3848bd0ea1a0757387d,
+    type: 3}
+  m_PrefabInstance: {fileID: 346161532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &611195769 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8082819276994194202, guid: ef7922e9f337d3848bd0ea1a0757387d,
     type: 3}
   m_PrefabInstance: {fileID: 346161532}
   m_PrefabAsset: {fileID: 0}
@@ -16529,6 +16540,11 @@ PrefabInstance:
       propertyPath: chestToOpenImage
       value: 
       objectReference: {fileID: 2002296481}
+    - target: {fileID: 4993286212799801632, guid: a6438c7e46ca3dd4d803189345c4f00c,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 611195769}
     - target: {fileID: 4993286212799801633, guid: a6438c7e46ca3dd4d803189345c4f00c,
         type: 3}
       propertyPath: m_LocalPosition.x

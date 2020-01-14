@@ -45,6 +45,7 @@ public class WarehouseManager: MonoBehaviour
 	public Slider                   bananaSlider        = null;
 	public Image                    bananaView          = null;
 	public Sprite[]                 bananaFrames        = new Sprite[27];
+	public AudioSource              audioSource         = null;
 
 	[Header("items from chest")]
 	public Image[]                  items               = new Image[12];
@@ -150,6 +151,7 @@ public class WarehouseManager: MonoBehaviour
 		int index = Mathf.Clamp((int)(bananaSlider.value * bananaFrames.Length), 0, 26);
 
 		bananaView.sprite = bananaFrames[index];
+		audioSource.volume = Mathf.Floor(bananaSlider.value * 100f) / 100f;
 
 		if(bananaSlider.value > 0.95) OpenBanana();
 	}
