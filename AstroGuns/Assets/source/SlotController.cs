@@ -31,7 +31,8 @@ public class SlotController : MonoBehaviour
 
     public void OpenInfoPanel()
     {
-        GameObject itemInfoPanel = MenuManager.Instance.OpenPanel(Panels.ItemInfo);
+        MenuManager.Instance.OpenPanel(Panels.ItemInfo);
+        GameObject itemInfoPanel = MenuManager.Instance.GetPanel(Panels.ItemInfo);
         itemInfoPanel.GetComponent<ItemInfoController>().SetToSlot(this);
     }
 }

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+[System.Serializable]
 public class EnergyCore
 {
+    [System.Serializable]
     public enum EnergyCoreType
     {
         None,

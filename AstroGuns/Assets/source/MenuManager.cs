@@ -49,18 +49,21 @@ public class MenuManager : MonoBehaviour
 		panels[panel].SetActive(false);
 	}
 
-	public GameObject OpenPanel(Panels panel)
+	public void OpenPanel(Panels panel)
 	{
 		panels[0].SetActive(true);
 		panels[(int)panel].SetActive(true);
 		AdditionalWindowAction(panel);
-
-        return panels[(int)panel];
 	}
 
-	public GameObject OpenPanel(int panelIndex)
+    public GameObject GetPanel(Panels panel)
+    {
+        return panels[(int)panel];
+    }
+
+	public void OpenPanel(int panelIndex)
 	{
-		return OpenPanel((Panels)panelIndex);
+		OpenPanel((Panels)panelIndex);
 	}
 
     public void OpenPanelWithoutPanel(int panelIndex)

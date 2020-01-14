@@ -17,7 +17,8 @@ public class ItemInfoController : MonoBehaviour
     public EnergyCoreImageMapping HasteImages;
     public EnergyCoreImageMapping FortuneImages;
 
-    private SlotController currentSlot;
+    public SlotController currentSlot { get; private set; }
+    public int currentCoreSlotIndex { get; private set; }
 
     private void Start()
     {
@@ -41,14 +42,15 @@ public class ItemInfoController : MonoBehaviour
         string CoresInfoDescription = "";
         for(int i = 0; i < CoreImages.Count; ++i)
         {
-            if(i >= currentSlot.managedSlot.EnergyCores.Count)
+            if(i >= currentSlot.managedSlot.EnergyCores.Count || currentSlot.managedSlot.GetCoreAtIndex(i) == null)
             {
                 CoreImages[i].sprite = EmptyCoreIcon;
                 continue;
             }
 
             EnergyCore currentCore = currentSlot.managedSlot.EnergyCores[i];
-            CoreImages[i].sprite = GetImageMapping(currentCore.Type).sprites[currentCore.Level];
+            Debug.Log(GetImageMapping(currentCore == null ? EnergyCore.EnergyCoreType.Fortune : currentCore.Type));
+            CoreImages[i].sprite = currentCore == null ? EmptyCoreIcon : GetImageMapping(currentCore.Type).sprites[currentCore.Level];
             CoresInfoDescription += currentCore.Description + "\n";
         }
 
@@ -63,8 +65,13 @@ public class ItemInfoController : MonoBehaviour
             null;
     }
 
-    public void OpenEnergyCoreInfo(int coreSlotIndex)
+    public void OpenEnergyCoresPanel(int coreSlotIndex)
     {
-
+        // FUCK THIS MOTHERFUCKING GAY SHIT
+        // FUUUUUUUUUUUUUUUUUUUUUUUCK
+        FindObjectOfType<CoresContainer>().SetCurrentCoreSlot(new KeyValuePair<Slot, int>(currentSlot.managedSlot, coreSlotIndex));
+        MenuManager.Instance.ClosePanel(Panels.ItemInfo);
+        MenuManager.Instance.OpenPanel(Panels.EnergyCore);
     }
+
 }
