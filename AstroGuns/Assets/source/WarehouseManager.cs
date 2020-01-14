@@ -139,6 +139,8 @@ public class WarehouseManager: MonoBehaviour
 
 	public void OpenChest()
 	{
+		bananaSlider.value = 0f;
+		bananaView.sprite = bananaFrames[0];
 		MenuManager.Instance.OpenPanel(Panels.Banana);
 		MenuManager.Instance.ClosePanel(Panels.OpenChest);
 	}
@@ -157,38 +159,42 @@ public class WarehouseManager: MonoBehaviour
 		int itemAmount = openedChestType * 2 + 2;
 		for(int i = 0; i < items.Length; ++i)
 		{
-			int type = Random.Range(0, 3);
-			int level = 0;
-			if(openedChestType == 0)
+			if(i < itemAmount)
 			{
-				if(i == 0) level = Random.Range(0, 2);
-			}
-			else if(openedChestType == 1)
-			{
-				if(i == 0) level = Random.Range(0, 3);
-				else level = Random.Range(0, 2);
-			}
-			else if(openedChestType == 2)
-			{
-				if(i == 2) level = Random.Range(0, 4);
-				else if(i == 3) level = Random.Range(0, 4);
-				else level = Random.Range(1, 4);
-			}
-			else if(openedChestType == 3)
-			{
-				if(i == 2) level = Random.Range(1, 4);
-				else if(i == 3) level = Random.Range(1, 4);
-				else level = Random.Range(2, 4);
-			}
+				int type = Random.Range(0, 3);
+				int level = 0;
+				if(openedChestType == 0)
+				{
+					if(i == 0) level = Random.Range(0, 2);
+				}
+				else if(openedChestType == 1)
+				{
+					if(i == 0) level = Random.Range(0, 3);
+					else level = Random.Range(0, 2);
+				}
+				else if(openedChestType == 2)
+				{
+					if(i == 2) level = Random.Range(0, 4);
+					else if(i == 3) level = Random.Range(0, 4);
+					else level = Random.Range(1, 4);
+				}
+				else if(openedChestType == 3)
+				{
+					if(i == 2) level = Random.Range(1, 4);
+					else if(i == 3) level = Random.Range(1, 4);
+					else level = Random.Range(2, 4);
+				}
 
-			if(type == 0)
-				items[i].sprite = coreProfit[level];
-			else if(type == 1)
-				items[i].sprite = coreHaste[level];
-			else if(type == 2)
-				items[i].sprite = coreFortune[level];
+				if(type == 0)
+					items[i].sprite = coreProfit[level];
+				else if(type == 1)
+					items[i].sprite = coreHaste[level];
+				else if(type == 2)
+					items[i].sprite = coreFortune[level];
 
-			//tutaj powinno być dodanie rdzeni
+				//tutaj powinno być dodanie rdzeni
+			}
+			else items[i].sprite = noneGFX;	
 		}
 
 		MenuManager.Instance.ClosePanel(Panels.Banana);
