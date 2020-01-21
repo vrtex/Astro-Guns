@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3469355111475566996}
   - component: {fileID: 2848911814325476714}
   m_Layer: 5
-  m_Name: Counter
+  m_Name: MeltCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 6428729369720448150}
   - component: {fileID: 7420181664611858057}
   m_Layer: 5
-  m_Name: Miniature
+  m_Name: MetalForgeMiniature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 872754936833421749}
   - component: {fileID: 8617510166552855396}
   m_Layer: 5
-  m_Name: Title
+  m_Name: MeltTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1654,6 +1654,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8735984661830872440}
     m_Modifications:
+    - target: {fileID: 6788386568295920341, guid: dd5da0f461270cb4d83c3a7360d63a1a,
+        type: 3}
+      propertyPath: m_Name
+      value: WarehouseSteelworksSwitch
+      objectReference: {fileID: 0}
     - target: {fileID: 8775816449108018537, guid: dd5da0f461270cb4d83c3a7360d63a1a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1759,11 +1764,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6788386568295920341, guid: dd5da0f461270cb4d83c3a7360d63a1a,
-        type: 3}
-      propertyPath: m_Name
-      value: WarehouseSteelworksSwitch
-      objectReference: {fileID: 0}
     - target: {fileID: 3357343431458138631, guid: dd5da0f461270cb4d83c3a7360d63a1a,
         type: 3}
       propertyPath: m_Interactable
@@ -1784,6 +1784,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1681019777117709024}
     m_Modifications:
+    - target: {fileID: 4351654163603821880, guid: f6263b1147f18e247b2bf7c646bc5f64,
+        type: 3}
+      propertyPath: m_Name
+      value: KeyList
+      objectReference: {fileID: 0}
     - target: {fileID: 6123047728948594078, guid: f6263b1147f18e247b2bf7c646bc5f64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1909,11 +1914,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4351654163603821880, guid: f6263b1147f18e247b2bf7c646bc5f64,
-        type: 3}
-      propertyPath: m_Name
-      value: KeyList
-      objectReference: {fileID: 0}
     - target: {fileID: 4880494798917695933, guid: f6263b1147f18e247b2bf7c646bc5f64,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1989,6 +1989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1681019777117709024}
     m_Modifications:
+    - target: {fileID: 7983465377440018061, guid: 451889157a892df4e906c2128601d5b5,
+        type: 3}
+      propertyPath: m_Name
+      value: ShardList
+      objectReference: {fileID: 0}
     - target: {fileID: 4256296986755625590, guid: 451889157a892df4e906c2128601d5b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2113,11 +2118,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7983465377440018061, guid: 451889157a892df4e906c2128601d5b5,
-        type: 3}
-      propertyPath: m_Name
-      value: ShardList
       objectReference: {fileID: 0}
     - target: {fileID: 2083548711281836675, guid: 451889157a892df4e906c2128601d5b5,
         type: 3}

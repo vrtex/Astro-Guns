@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
+
 
 public class DateTimeSystem : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class DateTimeSystem : MonoBehaviour
 	public  int                 lastDailyReward         = -1;
 	public  int                 lastTimeDailyReward     = 0;
 
+	public  long				lastTimeAfterOffGame    = -1;
+
 	public UnityEvent			afterGetTime            = new UnityEvent();
 
 	void Awake()
@@ -32,8 +36,8 @@ public class DateTimeSystem : MonoBehaviour
 
     void Update()
     {
-        
-    }
+		StartCoroutine("GetTimeInterval");
+	}
 
 	public IEnumerator GetTime()
 	{
@@ -54,6 +58,12 @@ public class DateTimeSystem : MonoBehaviour
 			timeIsGet = true;
 			afterGetTime.Invoke();
 		}
+	}
+
+	public IEnumerator GetTimeInterval()
+	{
+		yield return new WaitForSeconds(1);
+		lastTimeAfterOffGame = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 	}
 
 	public int GetCurrentDateNow()

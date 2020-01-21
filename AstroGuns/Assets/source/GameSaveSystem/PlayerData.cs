@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class PlayerData
@@ -29,6 +30,10 @@ public class PlayerData
 	public int[]    dust;
 	public int      boughtPlace;
 
+	// metalforge
+	public float    fullMeltTime;
+	public float    timeToEndMelt;
+
 	// settings
 	public bool     sound;
 	public bool     music;
@@ -40,6 +45,9 @@ public class PlayerData
 	// statistics
 	public bool isRunFirstTime;
 	public int merge;
+
+	//czas
+	public long lastTimeAfterOffGame;
 
 	public PlayerData()
     {
@@ -73,9 +81,12 @@ public class PlayerData
 			upgrades[i] = UpgradesManager.Manager.Upgrades[i].CurrentLevel;
 		}
 
-		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 05 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		lastTimeAfterOffGame = DateTimeSystem.Instance.lastTimeAfterOffGame;
 
-		// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 06 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		fullMeltTime = WarehouseManager.Instance.fullMeltTime;
+		timeToEndMelt = WarehouseManager.Instance.timeToEndMelt;
 
 		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		lastDailyReward = DateTimeSystem.Instance.lastDailyReward;
@@ -155,9 +166,12 @@ public class PlayerData
 			upgrades[i] = 0;
 		}
 
-		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 05 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		lastTimeAfterOffGame = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-		// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 06 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		fullMeltTime = 0f;
+		timeToEndMelt = 0f;
 
 		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		lastDailyReward = -1;
@@ -242,9 +256,16 @@ public class PlayerData
 				UpgradesManager.Manager.Upgrades[i].SetLevel(data.upgrades[i]);
 			}
 
-			// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 05 godzina o której wyłączyliśmy grę
+			DateTimeSystem.Instance.lastTimeAfterOffGame = data.lastTimeAfterOffGame;
 
-			// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 06 czas do stworzenia klucza
+			WarehouseManager.Instance.timeToEndMelt = data.timeToEndMelt;
+
+			long diffTime = DateTimeSystem.Instance.lastTimeAfterOffGame - DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+			if(data.fullMeltTime <= (float)diffTime) WarehouseManager.Instance.fullMeltTime = 0f;
+			else WarehouseManager.Instance.fullMeltTime = data.fullMeltTime - (float)diffTime;
 
 			// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 			DateTimeSystem.Instance.lastDailyReward = data.lastDailyReward;
@@ -326,6 +347,8 @@ public class PlayerData
 			// - NAN - do testów
 			WarehouseManager.Instance.chests[0] = 1;
 			WarehouseManager.Instance.keysAmount[0] = 2;
+			WarehouseManager.Instance.dustAmount[0] = 4;
+			WarehouseManager.Instance.dustAmount[1] = 4;
 		}
 	}
 }

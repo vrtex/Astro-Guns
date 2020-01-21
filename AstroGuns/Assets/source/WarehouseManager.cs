@@ -29,6 +29,19 @@ public class WarehouseManager: MonoBehaviour
 	public Text[]                   keysMetalforgeText  = new Text[KEYS];
 	public Text[]                   dustMetalforgeText  = new Text[KEYS];
 
+	[Header("metal forge")]
+	public Text                     meltDescription     = null;
+	public Text                     meltTimer           = null;
+	public Image                    meltImage           = null;
+	public Slider                   meltProgress        = null;
+	public Sprite[]                 keyImage            = new Sprite[KEYS];
+	public float                    timeToEndMelt       = 0f;
+	public float                    fullMeltTime        = 0f;
+
+	private int                     currentMeltType     = -1;
+	private string                  chooseToMelt		= "Chose which type of key you want to melt";
+	private string                  remainingMelting	= "Remaining melting time";
+
 	[Header("buy slots")]
 	public Text                     slotCostText		= null;
 	public Button                   buySlotButton		= null;
@@ -94,6 +107,20 @@ public class WarehouseManager: MonoBehaviour
 			keysText[i].text = keysAmount[i].ToString();
 			keysMetalforgeText[i].text = keysAmount[i].ToString();
 			dustMetalforgeText[i].text = dustAmount[i].ToString();
+		}
+
+		if(currentMeltType != -1)
+		{
+			meltImage.sprite = keyImage[currentMeltType];
+
+			if(fullMeltTime > 0f)
+				meltProgress.value = (fullMeltTime - timeToEndMelt) / fullMeltTime;
+			else meltProgress.value = 0f;
+		}
+		else
+		{
+			meltImage.sprite = noneGFX;
+			meltProgress.value = 0f;
 		}
 	}
 
@@ -222,4 +249,16 @@ public class WarehouseManager: MonoBehaviour
 		}
 	}
 
+	public void MeltDust(int dustType)
+	{
+		if(dustAmount[dustType] >= 4)
+		{
+			dustAmount[dustType] -= 4;
+			timeToEndMelt = 60 * 60 * (dustType + 1);
+			fullMeltTime = timeToEndMelt;
+			meltProgress.value = 0f;
+			meltImage.sprite = keyImage[dustType];
+			currentMeltType = dustType;
+		}
+	}
 }
