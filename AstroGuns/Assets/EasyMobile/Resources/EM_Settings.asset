@@ -235,7 +235,14 @@ MonoBehaviour:
     mEnableAmazonSandboxTesting: 0
     mValidateAppleReceipt: 0
     mValidateGooglePlayReceipt: 1
-    mProducts: []
+    mProducts:
+    - _name: ether_60
+      _type: 0
+      _id: ether_60
+      _price: 9.99
+      _description: 
+      _storeSpecificIds: []
+      _isEditingAdvanced: 1
   mNotificationSettings:
     mAutoInit: 1
     mAutoInitDelay: 0
