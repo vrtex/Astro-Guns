@@ -226,7 +226,9 @@ public class ItemShop : MonoBehaviour
 			case BuyType.Ether: //W TYM TRZEBA SPRAWDZIC CZY ZAPŁACIŁ PIENIĄŻKI
 				if(currentIndex == 0)
 				{
-					MoneyPocket.Instance.Ether.Add(60);
+					//MoneyPocket.Instance.Ether.Add(60);
+					IAPManager.Instance.PurchaseSampleProduct(EasyMobile.EM_IAPConstants.Product_ether_60);
+
 				}
 				else if(currentIndex == 1)
 				{
