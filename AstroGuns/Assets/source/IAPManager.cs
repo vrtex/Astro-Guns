@@ -22,8 +22,15 @@ public class IAPManager : MonoBehaviour
 
         if(!InAppPurchasing.IsInitialized())
             InAppPurchasing.InitializePurchasing();
+        InAppPurchasing.PurchaseCompleted += InAppPurchasing_PurchaseCompleted;
 
         products = InAppPurchasing.GetAllIAPProducts();
+    }
+
+    private void InAppPurchasing_PurchaseCompleted(IAPProduct obj)
+    {
+        //throw new System.NotImplementedException();
+        PurchaseCompletedHandler(obj);
     }
 
     // Purchase the sample product
