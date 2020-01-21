@@ -38,7 +38,7 @@ public class WarehouseManager: MonoBehaviour
 	public float                    timeToEndMelt       = 0f;
 	public float                    fullMeltTime        = 0f;
 
-	private int                     currentMeltType     = -1;
+	public	int                     currentMeltType     = -1;
 	private string                  chooseToMelt		= "Chose which type of key you want to melt";
 	private string                  remainingMelting	= "Remaining melting time";
 
@@ -259,6 +259,12 @@ public class WarehouseManager: MonoBehaviour
 			meltProgress.value = 0f;
 			meltImage.sprite = keyImage[dustType];
 			currentMeltType = dustType;
+
+			meltDescription.text = remainingMelting;
+		}
+		else
+		{
+			//jeśli nie ma na tyle pyłu
 		}
 	}
 }

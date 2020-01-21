@@ -33,6 +33,7 @@ public class PlayerData
 	// metalforge
 	public float    fullMeltTime;
 	public float    timeToEndMelt;
+	public int      currentMeltType;
 
 	// settings
 	public bool     sound;
@@ -87,6 +88,7 @@ public class PlayerData
 		// 06 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		fullMeltTime = WarehouseManager.Instance.fullMeltTime;
 		timeToEndMelt = WarehouseManager.Instance.timeToEndMelt;
+		currentMeltType = WarehouseManager.Instance.currentMeltType;
 
 		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		lastDailyReward = DateTimeSystem.Instance.lastDailyReward;
@@ -172,6 +174,7 @@ public class PlayerData
 		// 06 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		fullMeltTime = 0f;
 		timeToEndMelt = 0f;
+		currentMeltType = 0;
 
 		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		lastDailyReward = -1;
@@ -266,6 +269,8 @@ public class PlayerData
 
 			if(data.fullMeltTime <= (float)diffTime) WarehouseManager.Instance.fullMeltTime = 0f;
 			else WarehouseManager.Instance.fullMeltTime = data.fullMeltTime - (float)diffTime;
+
+			WarehouseManager.Instance.currentMeltType = data.currentMeltType;
 
 			// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 			DateTimeSystem.Instance.lastDailyReward = data.lastDailyReward;
