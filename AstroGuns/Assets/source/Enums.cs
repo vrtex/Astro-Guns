@@ -24,6 +24,8 @@ public enum Panels
 	BuyWarehouseSlot	= 16,
 	OpenChest			= 17,
 	ConfirmBuy			= 18,
+	Banana				= 19,
+	LootFromBanana		= 20,
 };
 
 [System.Serializable]

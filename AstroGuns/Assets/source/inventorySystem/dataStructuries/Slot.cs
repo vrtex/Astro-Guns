@@ -13,7 +13,7 @@ public class Slot
         for(int i = 0; i < 3; ++i)
             EnergyCores.Add(null);
 
-        EquipCore(1, new EnergyCore { Level = 1, Type = EnergyCore.EnergyCoreType.Profit });
+        // EquipCore(1, new EnergyCore { Level = 1, Type = EnergyCore.EnergyCoreType.Profit });
     }
 
 
@@ -37,4 +37,13 @@ public class Slot
         return EnergyCores.FindAll((EnergyCore e) => e != null);
     }
 
+    public float GetCoreValue(EnergyCore.EnergyCoreType energyCoreType)
+    {
+        float toReturn = 0;
+        EnergyCores
+            .FindAll((EnergyCore e) => e != null)
+            .FindAll((EnergyCore e) => e.Type == energyCoreType)
+            .ForEach((EnergyCore e) => toReturn += e.Value);
+        return toReturn;
+    }
 }

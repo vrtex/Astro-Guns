@@ -321,6 +321,11 @@ public class PlayerData
 			// 18 statystyki
 			StatisticsManager.Instance.isRunFirstTime = data.isRunFirstTime;
 			StatisticsManager.Instance.merge = data.merge;
+
+
+			// - NAN - do testów
+			WarehouseManager.Instance.chests[0] = 1;
+			WarehouseManager.Instance.keysAmount[0] = 2;
 		}
 	}
 }

@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
-	public void CloseAllPanels()
+    public void CloseAllPanels()
 	{
 		for(int i = 0; i < panels.Length; ++i)
 		{

@@ -54,7 +54,7 @@ public class ItemInfoController : MonoBehaviour
             CoresInfoDescription += currentCore.Description + "\n";
         }
 
-        CoresInfo.text = CoresInfoDescription == "" ? "No cores" : "Some cores";
+        CoresInfo.text = CoresInfoDescription == "" ? "No cores" : CoresInfoDescription;
     }
 
     private EnergyCoreImageMapping GetImageMapping(EnergyCore.EnergyCoreType type)

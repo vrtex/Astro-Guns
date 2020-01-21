@@ -18,6 +18,12 @@ public class WeaponSpawner : MonoBehaviour
     private float SpawnProgress;
     public float SpawnInterval = 6.0f;
 
+    private void Start()
+    {
+        Inventory.slots[0].EquipCore(0, new EnergyCore { Level = 4, Type = EnergyCore.EnergyCoreType.Fortune });
+        Inventory.slots[0].EquipCore(1, new EnergyCore { Level = 4, Type = EnergyCore.EnergyCoreType.Fortune });
+        Inventory.slots[0].EquipCore(2, new EnergyCore { Level = 4, Type = EnergyCore.EnergyCoreType.Fortune });
+    }
 
     private void Update()
     {
@@ -30,10 +36,13 @@ public class WeaponSpawner : MonoBehaviour
 				currTime *= b.value;
 			}
         }
-        // TODO: consider first slot's energy core bonus
-        AddTime(currTime);
+        int firstEmptySlotIndex = FirstEmptySlotIndex();
+        Slot firstSlot = firstEmptySlotIndex >= 0 ? Inventory.slots[FirstEmptySlotIndex()] : null;
+        float coreTimeMultiplier = firstSlot != null ? firstSlot.GetCoreValue(EnergyCore.EnergyCoreType.Haste) : 0;
+        coreTimeMultiplier += 1;
+        AddTime(currTime * coreTimeMultiplier);
 
-        while(CurrentProgress > 1 && FirstEmptySlot() >= 0)
+        while(CurrentProgress > 1 && firstEmptySlotIndex >= 0)
         {
             SpawnWeaponRepetitively();
             SpawnProgress -= SpawnInterval;
@@ -59,15 +68,17 @@ public class WeaponSpawner : MonoBehaviour
 				tempSpawnLevel += (int)b.value;
 			}
 		}
-		int slot = FirstEmptySlot();
-        int spawnLevel = UnityEngine.Random.value < HigherSpawnChance ? tempSpawnLevel + 1 : tempSpawnLevel;
-        setWeaponData(slot, spawnLevel);
-        resetWeaponView(slot);
+		int slotIndex = FirstEmptySlotIndex();
+        Slot slot = FirstEmptySlot();
+        float boostedHigherSpawnChance = HigherSpawnChance * (slot != null ? slot.GetCoreValue(EnergyCore.EnergyCoreType.Fortune) + 1 : 1);
+        int spawnLevel = UnityEngine.Random.value < boostedHigherSpawnChance ? tempSpawnLevel + 1 : tempSpawnLevel;
+        setWeaponData(slotIndex, spawnLevel);
+        resetWeaponView(slotIndex);
 
         if(!bAllowDoubleSpawn)
             return;
 
-        if(UnityEngine.Random.value > DoubleSpawnChance || FirstEmptySlot() < 0)
+        if(UnityEngine.Random.value > DoubleSpawnChance || FirstEmptySlotIndex() < 0)
             return;
 
         SpawnWeaponRepetitively(false);
@@ -79,7 +90,7 @@ public class WeaponSpawner : MonoBehaviour
 		SpawnWeaponRepetitively(false);
 	}
 
-    int FirstEmptySlot()
+    int FirstEmptySlotIndex()
     {
         for (int i = 0; i < Inventory.SLOT_QUANTITY; i++)
         {
@@ -90,6 +101,11 @@ public class WeaponSpawner : MonoBehaviour
         }
 
         return -1; // jeżeli wszystkie zajęte
+    }
+
+    Slot FirstEmptySlot()
+    {
+        return FirstEmptySlotIndex() < 0 ? null : Inventory.slots[FirstEmptySlotIndex()];
     }
 
     static public void setWeaponData(int slotNumber, int weaponId)

@@ -16,6 +16,8 @@ public class EnergyCore
         Fortune
     };
 
+    public static List<EnergyCore> availibleCores = new List<EnergyCore>();
+
     private static readonly Dictionary<EnergyCoreType, string> TypeNames = new Dictionary<EnergyCoreType, string>()
     {
         {EnergyCoreType.Haste, "Haste core" },
@@ -35,8 +37,28 @@ public class EnergyCore
     public string Description
     {
         get {
-            return "!!";
+            return "EEEE";
         }
+    }
+
+    public static void AddCore(EnergyCore toAdd)
+    {
+        availibleCores.Add(toAdd);
+    }
+
+    public static EnergyCore PollCore(int level, EnergyCoreType type)
+    {
+        int foundIndex = availibleCores.FindIndex((EnergyCore e) => e.Type == type && e.Level == level);
+        if(foundIndex < 0)
+            return null;
+        EnergyCore found = availibleCores[foundIndex];
+        availibleCores.RemoveAt(foundIndex);
+        return found;
+    }
+
+    public static int CountCores(int level, EnergyCoreType type)
+    {
+        return availibleCores.Count((EnergyCore e) => e.Level == 0 && e.Type == type);
     }
 
     public EnergyCoreType Type;
