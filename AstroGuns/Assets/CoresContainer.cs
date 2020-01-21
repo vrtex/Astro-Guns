@@ -1,18 +1,26 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CoresContainer : MonoBehaviour
 {
-    private List<EnergyCore> availibleCores = new List<EnergyCore>();
+    [HideInInspector]
+    public List<EnergyCore> availibleCores = new List<EnergyCore>();
     private KeyValuePair<Slot, int> currentCoreSlot;
 
     private void Start()
     {
+        for(int i = 0; i < 5; ++i)
+        {
+            AddCore(new EnergyCore { Level = i, Type = EnergyCore.EnergyCoreType.Fortune });
+            AddCore(new EnergyCore { Level = i, Type = EnergyCore.EnergyCoreType.Haste });
+            AddCore(new EnergyCore { Level = i, Type = EnergyCore.EnergyCoreType.Profit });
+        }
+
+
         if(FindObjectsOfType<CoresContainer>().Length > 1)
             Debug.LogError("REEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-
-        AddCore(new EnergyCore { Level = 0, Type = EnergyCore.EnergyCoreType.Profit });
     }
 
     public List<EnergyCore> GetCoresOfType(EnergyCore.EnergyCoreType energyCoreType)
@@ -22,9 +30,10 @@ public class CoresContainer : MonoBehaviour
 
     public EnergyCore pollCore(int level, EnergyCore.EnergyCoreType type)
     {
+        Debug.Log("Loking for: " + type.ToString() + "of level: " + level);
         EnergyCore found = availibleCores.Find((EnergyCore e) => e.Type == type && e.Level == level);
         availibleCores.Remove(found);
-        Debug.Log("UUUUUUU" + found == null);
+        Debug.Log("UUUUUUU" + (found == null));
         return found;
     }
 
@@ -47,6 +56,11 @@ public class CoresContainer : MonoBehaviour
     {
         currentCoreSlot.Key.EquipCore(currentCoreSlot.Value, pollCore(level, type));
         return currentCoreSlot.Key.GetCoreAtIndex(currentCoreSlot.Value) != null;
+    }
+
+    public int CountCores(int level, EnergyCore.EnergyCoreType energyCoreType)
+    {
+        return availibleCores.Count((EnergyCore e) => e.Level == level && e.Type == energyCoreType);
     }
 
 }

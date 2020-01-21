@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
     private static string path = Application.persistentDataPath + "/logo.png"; // tak dla zmyły hehe
+    public static CoresContainer Cores;
 
     public static void SaveGame()
     {        

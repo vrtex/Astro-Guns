@@ -19,6 +19,9 @@ public class PlayerData
 	// upgrades
 	public int[]    upgrades;
 
+    // cores
+    public          List<KeyValuePair<int, EnergyCore.EnergyCoreType>> cores = new List<KeyValuePair<int, EnergyCore.EnergyCoreType>>();
+
 	// reward
 	public int		lastDailyReward;
 	public int      lastTimeDailyReward;
@@ -103,6 +106,10 @@ public class PlayerData
 		}
 
 		// 11 rdzenie energetyczne
+        foreach(EnergyCore c in SaveSystem.Cores.availibleCores)
+        {
+            cores.Add(new KeyValuePair<int, EnergyCore.EnergyCoreType>(c.Level, c.Type));
+        }
 
 		// 12 meteory
 		playerMeteors = MoneyPocket.Instance.Meteor.ActualValue;
@@ -185,7 +192,8 @@ public class PlayerData
 			dust[i] = 0;
 		}
 
-		// 11 rdzenie energetyczne
+        // 11 rdzenie energetyczne
+        cores.Clear();
 
 		// 12 meteory
 		playerMeteors = 0;
@@ -296,7 +304,12 @@ public class PlayerData
 				WarehouseManager.Instance.dustAmount[i] = data.dust[i];
 			}
 
-			// 11 rdzenie energetyczne
+            // 11 rdzenie energetyczne
+            Debug.Log(data.cores);
+            CoresContainer coresContainer = Object.FindObjectOfType<CoresContainer>();
+            foreach(KeyValuePair<int, EnergyCore.EnergyCoreType> c in data.cores)
+                { coresContainer.AddCore(new EnergyCore { Level = c.Key, Type = c.Value }); }
+
 
 			// 12 meteory
 			MoneyPocket.Instance.Meteor.ActualValue = data.playerMeteors;

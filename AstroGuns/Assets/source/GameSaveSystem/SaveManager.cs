@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
 
     public static UnityEvent OnLoad = new UnityEvent();
 
+    public CoresContainer CoresContainer;
     public bool ResetGame = false;
 
     // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class SaveManager : MonoBehaviour
     public void SaveGame()
     {
         //Debug.Log("SAVE1");
+        SaveSystem.Cores = CoresContainer;
         SaveSystem.SaveGame();
     }
 

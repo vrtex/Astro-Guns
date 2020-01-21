@@ -192,7 +192,7 @@ public class WarehouseManager: MonoBehaviour
 				else if(type == 2)
 					items[i].sprite = coreFortune[level];
 
-                EnergyCore.AddCore(new EnergyCore
+                FindObjectOfType<CoresContainer>().AddCore(new EnergyCore
                 {
                     Level = level,
                     Type = 

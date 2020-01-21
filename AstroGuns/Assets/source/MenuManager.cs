@@ -99,9 +99,12 @@ public class MenuManager : MonoBehaviour
 			case Panels.Bonuses:
 				BonusManager.Instance.CheckBonus();
 			break;
-			    break;
             case Panels.Achievements:
                 AchievementManager.Instance.ShowAchievementsUI();
+            break;
+            case Panels.EnergyCore:
+                EnergyCoreButton[] buttons = FindObjectsOfType<EnergyCoreButton>();
+                foreach(EnergyCoreButton b in buttons) { b.UpdateDisplayedText(); }
             break;
 		}
 	}
