@@ -26,6 +26,7 @@ public enum Panels
 	ConfirmBuy			= 18,
 	Banana				= 19,
 	LootFromBanana		= 20,
+	ConfirmDust			= 21
 };
 
 [System.Serializable]
