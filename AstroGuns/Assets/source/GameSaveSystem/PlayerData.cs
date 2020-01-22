@@ -16,6 +16,7 @@ public class PlayerData
     public double	playerEther;
 	public double   playerMeteors;
 	public double   playerMeteorsToReset;
+	public double   lastMoney;
 
 	// upgrades
 	public int[]    upgrades;
@@ -40,12 +41,12 @@ public class PlayerData
 	public bool     music;
 
 	// sklep
-	public double       earningTime; //w godzinach zarabienie offline
-	public double       creditMultipler;
+	public double   earningTime; //w godzinach zarabienie offline
+	public double   creditMultipler;
 
 	// statistics
-	public bool isRunFirstTime;
-	public int merge;
+	public bool		isRunFirstTime;
+	public int		merge;
 
 	//czas
 	public long lastTimeAfterOffGame;
@@ -71,9 +72,10 @@ public class PlayerData
 
         // 02 stan kredytów
         playerCredits = MoneyPocket.Instance.Money.ActualValue;
+		lastMoney = MoneyPocket.Instance.lastMoney;
 
-        // 03 stan eteru
-        playerEther = MoneyPocket.Instance.Ether.ActualValue;
+		// 03 stan eteru
+		playerEther = MoneyPocket.Instance.Ether.ActualValue;
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
@@ -157,9 +159,10 @@ public class PlayerData
 
         // 02 stan kredytów
         playerCredits = 0;
+		lastMoney = 0;
 
-        // 03 stan eteru
-        playerEther = 0;
+		// 03 stan eteru
+		playerEther = 0;
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
@@ -263,12 +266,12 @@ public class PlayerData
 			DateTimeSystem.Instance.lastTimeAfterOffGame = data.lastTimeAfterOffGame;
 
 			// 06 czas do stworzenia klucza
-			WarehouseManager.Instance.timeToEndMelt = data.timeToEndMelt;
+			WarehouseManager.Instance.fullMeltTime = data.fullMeltTime;
 
-			long diffTime = DateTimeSystem.Instance.lastTimeAfterOffGame - DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+			long diffTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - DateTimeSystem.Instance.lastTimeAfterOffGame;
 
-			if(data.fullMeltTime <= (float)diffTime) WarehouseManager.Instance.fullMeltTime = 0f;
-			else WarehouseManager.Instance.fullMeltTime = data.fullMeltTime - (float)diffTime;
+			if(data.timeToEndMelt <= (float)diffTime) WarehouseManager.Instance.timeToEndMelt = 0f;
+			else WarehouseManager.Instance.timeToEndMelt = data.timeToEndMelt - (float)diffTime;
 
 			WarehouseManager.Instance.currentMeltType = data.currentMeltType;
 
@@ -347,6 +350,16 @@ public class PlayerData
 			// 18 statystyki
 			StatisticsManager.Instance.isRunFirstTime = data.isRunFirstTime;
 			StatisticsManager.Instance.merge = data.merge;
+
+
+			MoneyPocket.Instance.lastMoney = data.lastMoney;
+			float moneyMultipler = 0;
+			if(ItemShop.Instance.earningTime < (double)diffTime / 360)
+			{
+				moneyMultipler = (float)(diffTime - (ItemShop.Instance.earningTime * 360f));
+			}
+			else moneyMultipler = (float)diffTime;
+			MoneyPocket.Instance.Money.Add(MoneyPocket.Instance.lastMoney * moneyMultipler);
 
 
 			// - NAN - do testów

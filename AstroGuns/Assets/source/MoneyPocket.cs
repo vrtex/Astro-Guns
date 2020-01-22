@@ -8,7 +8,9 @@ public class MoneyPocket : MonoBehaviour
     private static MoneyPocket instance;
     public static MoneyPocket Instance { get => instance; }
 
-    private Queue<double> LastIncreases = new Queue<double>();
+	public double lastMoney = 0f;
+
+	private Queue<double> LastIncreases = new Queue<double>();
 
     public Text MoneyPerSecondLabel;
     public PlayerMoney Money
@@ -87,10 +89,13 @@ public class MoneyPocket : MonoBehaviour
             sum = sum / LastIncreases.Count;
 
             MoneyPerSecondLabel.text = PlayerMoney.GetMoneyString(sum) + "/second";
-            //Debug.Log(sum);
-            //Debug.Log(PlayerMoney.GetMoneyString(sum));
+			//Debug.Log(sum);
+			//Debug.Log(PlayerMoney.GetMoneyString(sum));
 
-            if(ValidWeapons.Count != 0)
+			lastMoney = sum;
+
+
+			if(ValidWeapons.Count != 0)
                 AudioManager.Instance.Play("coin");
 
             yield return new WaitForSeconds(1.0f);
