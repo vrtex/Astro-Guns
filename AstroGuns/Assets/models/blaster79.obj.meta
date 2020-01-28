@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: blaster79Mat
+    second: {fileID: 2100000, guid: 4fa98ab1bd029c7409ad09849225096f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: blaster81Mat
     second: {fileID: 2100000, guid: 4fa98ab1bd029c7409ad09849225096f, type: 2}
   materials:
