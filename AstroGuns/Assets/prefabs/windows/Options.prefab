@@ -695,7 +695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Jakub Czaja\nArtur Mokrosi\u0144ski\nMaciej Nabia\u0142czyk\n\nAssets source:\r\nwww.dafont.com/planetary-contact.font"
+  m_Text: "Jakub Czaja\nArtur Mokrosi\u0144ski\nMaciej Nabia\u0142czyk\n\nAssets source:\r\nhttps://www5.flamingtext.com/net-fu/jobs/26401681533914661.html\nhttps://soundimage.org/attribution-info/\nhttps://www.zapsplat.com/license-type/standard-license/"
 --- !u!1 &3722117464077046124
 GameObject:
   m_ObjectHideFlags: 0
