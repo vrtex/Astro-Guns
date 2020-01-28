@@ -243,6 +243,27 @@ MonoBehaviour:
       _description: 
       _storeSpecificIds: []
       _isEditingAdvanced: 1
+    - _name: ether_150
+      _type: 0
+      _id: ether_150
+      _price: 9.99
+      _description: 
+      _storeSpecificIds: []
+      _isEditingAdvanced: 1
+    - _name: ether_360
+      _type: 0
+      _id: ether_360
+      _price: 9.99
+      _description: 
+      _storeSpecificIds: []
+      _isEditingAdvanced: 1
+    - _name: ether_900
+      _type: 0
+      _id: ether_900
+      _price: 9.99
+      _description: 
+      _storeSpecificIds: []
+      _isEditingAdvanced: 1
   mNotificationSettings:
     mAutoInit: 1
     mAutoInitDelay: 0

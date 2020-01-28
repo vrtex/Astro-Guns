@@ -47,15 +47,35 @@ public class IAPManager : MonoBehaviour
         switch (product.Name)
         {
             case EM_IAPConstants.Product_ether_60:
-                Debug.Log("Sample_Product was purchased. The user should be granted it now.");
                 MoneyPocket.Instance.Ether.Add(60);
                 break;
-            //case EM_IAPConstants.Another_Sample_Product:
-            //    Debug.Log("Another_Sample_Product was purchased. The user should be granted it now.");
-            //    break;
+            case EM_IAPConstants.Product_ether_150:
+                MoneyPocket.Instance.Ether.Add(150);
+                break;
+            case EM_IAPConstants.Product_ether_360:
+                MoneyPocket.Instance.Ether.Add(360);
+                break;
+            case EM_IAPConstants.Product_ether_900:
+                MoneyPocket.Instance.Ether.Add(900);
+                break;
+            case EM_IAPConstants.Product_super_mega_pack:
+                MoneyPocket.Instance.Ether.Add(600);
+                WarehouseManager.Instance.AddChest(3);
+                WarehouseManager.Instance.AddChest(4);
+                WarehouseManager.Instance.AddChest(4);
+                break;
+                //case EM_IAPConstants.Another_Sample_Product:
+                //    Debug.Log("Another_Sample_Product was purchased. The user should be granted it now.");
+                //    break;
                 // More products here...
         }
     }
+
+    //WarehouseManager.Instance.AddChest(3);
+				//WarehouseManager.Instance.AddChest(3);
+				//WarehouseManager.Instance.AddChest(4);
+				//WarehouseManager.Instance.AddChest(4);
+				//MoneyPocket.Instance.Ether.ActualValue += 600;
 
     // Failed purchase handler
     void PurchaseFailedHandler(IAPProduct product)
