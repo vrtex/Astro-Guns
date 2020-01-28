@@ -59,17 +59,21 @@ public class MoneyPocket : MonoBehaviour
         {
             List<Slot> ValidWeapons = Inventory.slots.FindAll((Slot S) => { return S.weapon != null; });
             double thisIncrease = 0;
+            double boostMultipleir = 1;
+            if(BoostManager.Instance.IsActive())
+            {
+                Boost b = BoostManager.Instance.GetCurrentBoost();
+                if(b.type == BoostType.CreditMultipler)
+                {
+                    boostMultipleir = b.value;
+                }
+            }
             foreach(Slot s in ValidWeapons)
             {
+                double coreMultiplier = s.GetCoreValue(EnergyCore.EnergyCoreType.Profit) + 1.0d;
 				double currMoney = s.weapon.value;
-				if(BoostManager.Instance.IsActive())
-				{
-					Boost b = BoostManager.Instance.GetCurrentBoost();
-					if(b.type == BoostType.CreditMultipler)
-					{
-						currMoney *= b.value;
-					}
-				}
+                currMoney *= boostMultipleir;
+                currMoney *= coreMultiplier;
 				thisIncrease += currMoney;
 				Money.Add(currMoney);
                 int slotNumber = Inventory.slots.FindIndex((Slot _s) => { return _s == s; });

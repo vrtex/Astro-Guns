@@ -25,12 +25,7 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
-    void Update()
-    {
-        
-    }
-
-	public void CloseAllPanels()
+    public void CloseAllPanels()
 	{
 		for(int i = 0; i < panels.Length; ++i)
 		{
@@ -38,10 +33,17 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
+    public void ClosePanelAndBackground(Panels panel)
+    {
+        ClosePanel(Panels.Backgorund);
+        ClosePanel(panel);
+    }
+
 	public void ClosePanel(Panels panel)
 	{
-		panels[(int)panel].SetActive(false);
+        ClosePanel((int)panel);
 	}
+
 	public void ClosePanel(int panel)
 	{
 		panels[panel].SetActive(false);
@@ -53,6 +55,11 @@ public class MenuManager : MonoBehaviour
 		panels[(int)panel].SetActive(true);
 		AdditionalWindowAction(panel);
 	}
+
+    public GameObject GetPanel(Panels panel)
+    {
+        return panels[(int)panel];
+    }
 
 	public void OpenPanel(int panelIndex)
 	{
@@ -95,9 +102,12 @@ public class MenuManager : MonoBehaviour
 			case Panels.Bonuses:
 				BonusManager.Instance.CheckBonus();
 			break;
-			    break;
             case Panels.Achievements:
                 AchievementManager.Instance.ShowAchievementsUI();
+            break;
+            case Panels.EnergyCore:
+                EnergyCoreButton[] buttons = FindObjectsOfType<EnergyCoreButton>();
+                foreach(EnergyCoreButton b in buttons) { b.UpdateDisplayedText(); }
             break;
 		}
 	}

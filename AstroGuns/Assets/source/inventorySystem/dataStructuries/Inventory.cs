@@ -25,4 +25,9 @@ public static class Inventory
             slots.Add(new Slot());
         }
     }
+
+    public static WeaponObject GetWeapon(int weaponIndex)
+    {
+        return slots[weaponIndex].weapon;
+    }
 }

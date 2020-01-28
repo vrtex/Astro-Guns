@@ -282,7 +282,14 @@ public class WarehouseManager: MonoBehaviour
 				else if(type == 2)
 					items[i].sprite = coreFortune[level];
 
-				//tutaj powinno być dodanie rdzeni
+                FindObjectOfType<CoresContainer>().AddCore(new EnergyCore
+                {
+                    Level = level,
+                    Type = 
+                    type == 0 ? EnergyCore.EnergyCoreType.Profit :
+                    type == 1 ? EnergyCore.EnergyCoreType.Haste :
+                    EnergyCore.EnergyCoreType.Fortune
+                });
 			}
 			else items[i].sprite = noneGFX;	
 		}
