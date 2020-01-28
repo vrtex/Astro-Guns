@@ -746,6 +746,36 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 713482444}
+    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateBanana
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 356790147256528346, guid: ef7922e9f337d3848bd0ea1a0757387d,
         type: 3}
       propertyPath: m_RaycastTarget
@@ -12582,36 +12612,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 713482444}
-    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateBanana
-      objectReference: {fileID: 0}
-    - target: {fileID: 6418229773928750929, guid: ef7922e9f337d3848bd0ea1a0757387d,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1497008374473273133, guid: ef7922e9f337d3848bd0ea1a0757387d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -13428,6 +13428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f004dacca4c294cb61b5cd3ffe87e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availibleCores: []
 --- !u!4 &670683190
 Transform:
   m_ObjectHideFlags: 0
@@ -16151,8 +16152,13 @@ PrefabInstance:
     - target: {fileID: 3042910741082491388, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
         type: 3}
       propertyPath: ResetGame
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3042910741082491388, guid: 7853f13b3c0df704ebcb71a7b8da6bc9,
+        type: 3}
+      propertyPath: CoresContainer
+      value: 
+      objectReference: {fileID: 670683189}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7853f13b3c0df704ebcb71a7b8da6bc9, type: 3}
 --- !u!1001 &4527298779602594517

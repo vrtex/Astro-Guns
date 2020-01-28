@@ -11,14 +11,6 @@ public class CoresContainer : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < 5; ++i)
-        {
-            AddCore(new EnergyCore { Level = i, Type = EnergyCore.EnergyCoreType.Fortune });
-            AddCore(new EnergyCore { Level = i, Type = EnergyCore.EnergyCoreType.Haste });
-            AddCore(new EnergyCore { Level = i, Type = EnergyCore.EnergyCoreType.Profit });
-        }
-
-
         if(FindObjectsOfType<CoresContainer>().Length > 1)
             Debug.LogError("REEEEEEEEEEEEEEEEEEEEEEEEEEEE");
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,8 @@ public class PlayerData
 	public int[]    upgrades;
 
     // cores
-    public          List<KeyValuePair<int, EnergyCore.EnergyCoreType>> cores = new List<KeyValuePair<int, EnergyCore.EnergyCoreType>>();
+    //public          List<KeyValuePair<int, EnergyCore.EnergyCoreType>> cores = new List<KeyValuePair<int, EnergyCore.EnergyCoreType>>();
+    public int[,]   cores = new int[5, Enum.GetValues(typeof(EnergyCore.EnergyCoreType)).Length];
 
 	// reward
 	public int		lastDailyReward;
@@ -105,14 +107,18 @@ public class PlayerData
 			dust[i] = WarehouseManager.Instance.dustAmount[i];
 		}
 
-		// 11 rdzenie energetyczne
-        foreach(EnergyCore c in SaveSystem.Cores.availibleCores)
+        // 11 rdzenie energetyczne
+        CoresContainer container = UnityEngine.Object.FindObjectOfType<CoresContainer>();
+        foreach(EnergyCore.EnergyCoreType coreType in Enum.GetValues(typeof(EnergyCore.EnergyCoreType)))
         {
-            cores.Add(new KeyValuePair<int, EnergyCore.EnergyCoreType>(c.Level, c.Type));
+            for(int level = 0; level < 5; ++level)
+            {
+                cores[level, (int)coreType] = container.CountCores(level, coreType);
+            }
         }
 
-		// 12 meteory
-		playerMeteors = MoneyPocket.Instance.Meteor.ActualValue;
+        // 12 meteory
+        playerMeteors = MoneyPocket.Instance.Meteor.ActualValue;
 		playerMeteorsToReset = MoneyPocket.Instance.MeteorToReset.ActualValue;
 
 		// 13 kupione sloty w magazynie skrzynek
@@ -193,10 +199,11 @@ public class PlayerData
 		}
 
         // 11 rdzenie energetyczne
-        cores.Clear();
+        Debug.LogWarning("has cores: " + (cores != null));
+        cores = new int[5, Enum.GetValues(typeof(EnergyCore.EnergyCoreType)).Length];
 
-		// 12 meteory
-		playerMeteors = 0;
+        // 12 meteory
+        playerMeteors = 0;
 		playerMeteorsToReset = 0;
 
 		// 13 kupione sloty w magazynie skrzynek
@@ -305,10 +312,16 @@ public class PlayerData
 			}
 
             // 11 rdzenie energetyczne
-            Debug.Log(data.cores);
-            CoresContainer coresContainer = Object.FindObjectOfType<CoresContainer>();
-            foreach(KeyValuePair<int, EnergyCore.EnergyCoreType> c in data.cores)
-                { coresContainer.AddCore(new EnergyCore { Level = c.Key, Type = c.Value }); }
+            CoresContainer coresContainer = UnityEngine.Object.FindObjectOfType<CoresContainer>();
+            foreach(EnergyCore.EnergyCoreType coreType in Enum.GetValues(typeof(EnergyCore.EnergyCoreType)))
+            {
+                for(int level = 0; level < 5; ++level)
+                {
+                    int amount = data.cores[level, (int)coreType];
+                    for(int i = 0; i < amount; ++i)
+                        coresContainer.AddCore(new EnergyCore { Level = level, Type = coreType });
+                }
+            }
 
 
 			// 12 meteory
