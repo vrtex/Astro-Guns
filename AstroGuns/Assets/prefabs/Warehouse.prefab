@@ -94,6 +94,26 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  dustSprite:
+  - {fileID: 21300000, guid: ce1a156cbec3bfb41a2369c54f1eb757, type: 3}
+  - {fileID: 21300000, guid: 6c7c605ea53dbcf498cd10232a7758f6, type: 3}
+  - {fileID: 21300000, guid: 2471e92ffb6c5c24cbc53a464587c398, type: 3}
+  - {fileID: 21300000, guid: 9c0a713474fe4d64186c824256704bdc, type: 3}
+  dustWindowMiniature: {fileID: 0}
+  minTimetoNextDust: 10
+  maxTimetoNextDust: 20
+  meltDescription: {fileID: 0}
+  meltTimer: {fileID: 0}
+  meltImage: {fileID: 0}
+  meltProgress: {fileID: 0}
+  keyImage:
+  - {fileID: 21300000, guid: 928ed93d8e572874e8f90f360a1e216e, type: 3}
+  - {fileID: 21300000, guid: da36862f563659845b281ae866f0ff0c, type: 3}
+  - {fileID: 21300000, guid: e4b32d280a4e4744c8c8bd7a6a5ee02e, type: 3}
+  - {fileID: 21300000, guid: 2e0f91bf61b93f847b5945ba7aee9272, type: 3}
+  timeToEndMelt: 0
+  fullMeltTime: 0
+  currentMeltType: -1
   slotCostText: {fileID: 0}
   buySlotButton: {fileID: 0}
   openedChestType: 0
@@ -128,6 +148,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd9b5dbaa8ad0964c9a6808c1fa3a4e3, type: 3}
   - {fileID: 21300000, guid: 467f191b78469c74c862ecdb36de02e7, type: 3}
   - {fileID: 21300000, guid: 73830dd9098e3d440ae24a5500d71d0a, type: 3}
+  audioSource: {fileID: 0}
   items:
   - {fileID: 0}
   - {fileID: 0}

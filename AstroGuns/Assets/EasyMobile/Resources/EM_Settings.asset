@@ -233,9 +233,16 @@ MonoBehaviour:
     mSimulateAppleAskToBuy: 0
     mInterceptApplePromotionalPurchases: 0
     mEnableAmazonSandboxTesting: 0
-    mValidateAppleReceipt: 1
+    mValidateAppleReceipt: 0
     mValidateGooglePlayReceipt: 1
-    mProducts: []
+    mProducts:
+    - _name: ether_60
+      _type: 0
+      _id: ether_60
+      _price: 9.99
+      _description: 
+      _storeSpecificIds: []
+      _isEditingAdvanced: 1
   mNotificationSettings:
     mAutoInit: 1
     mAutoInitDelay: 0
@@ -328,9 +335,9 @@ MonoBehaviour:
       - mKey: NSContactsUsageDescription
         mValue: '[Your usage description]'
   mIsAdModuleEnable: 1
-  mIsIAPModuleEnable: 0
+  mIsIAPModuleEnable: 1
   mIsGameServiceModuleEnable: 1
   mIsNotificationModuleEnable: 0
   mIsSharingModuleEnable: 0
-  mActiveModuleIndex: 1
+  mActiveModuleIndex: 3
   mIsSelectingModule: 0

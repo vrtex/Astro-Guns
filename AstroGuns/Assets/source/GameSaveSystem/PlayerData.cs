@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class PlayerData
@@ -16,6 +17,7 @@ public class PlayerData
     public double	playerEther;
 	public double   playerMeteors;
 	public double   playerMeteorsToReset;
+	public double   lastMoney;
 
 	// upgrades
 	public int[]    upgrades;
@@ -34,17 +36,25 @@ public class PlayerData
 	public int[]    dust;
 	public int      boughtPlace;
 
+	// metalforge
+	public float    fullMeltTime;
+	public float    timeToEndMelt;
+	public int      currentMeltType;
+
 	// settings
 	public bool     sound;
 	public bool     music;
 
 	// sklep
-	public double       earningTime; //w godzinach zarabienie offline
-	public double       creditMultipler;
+	public double   earningTime; //w godzinach zarabienie offline
+	public double   creditMultipler;
 
 	// statistics
-	public bool isRunFirstTime;
-	public int merge;
+	public bool		isRunFirstTime;
+	public int		merge;
+
+	//czas
+	public long lastTimeAfterOffGame;
 
 	public PlayerData()
     {
@@ -67,9 +77,10 @@ public class PlayerData
 
         // 02 stan kredytów
         playerCredits = MoneyPocket.Instance.Money.ActualValue;
+		lastMoney = MoneyPocket.Instance.lastMoney;
 
-        // 03 stan eteru
-        playerEther = MoneyPocket.Instance.Ether.ActualValue;
+		// 03 stan eteru
+		playerEther = MoneyPocket.Instance.Ether.ActualValue;
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
@@ -78,9 +89,13 @@ public class PlayerData
 			upgrades[i] = UpgradesManager.Manager.Upgrades[i].CurrentLevel;
 		}
 
-		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 05 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		lastTimeAfterOffGame = DateTimeSystem.Instance.lastTimeAfterOffGame;
 
-		// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 06 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		fullMeltTime = WarehouseManager.Instance.fullMeltTime;
+		timeToEndMelt = WarehouseManager.Instance.timeToEndMelt;
+		currentMeltType = WarehouseManager.Instance.currentMeltType;
 
 		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		lastDailyReward = DateTimeSystem.Instance.lastDailyReward;
@@ -157,9 +172,10 @@ public class PlayerData
 
         // 02 stan kredytów
         playerCredits = 0;
+		lastMoney = 0;
 
-        // 03 stan eteru
-        playerEther = 0;
+		// 03 stan eteru
+		playerEther = 0;
 
 		// 04 stan ulepszeń
 		upgrades = new int[UpgradesManager.Manager.Upgrades.Count];
@@ -168,9 +184,13 @@ public class PlayerData
 			upgrades[i] = 0;
 		}
 
-		// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 05 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		lastTimeAfterOffGame = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-		// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		// 06 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+		fullMeltTime = 0f;
+		timeToEndMelt = 0f;
+		currentMeltType = 0;
 
 		// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 		lastDailyReward = -1;
@@ -257,9 +277,18 @@ public class PlayerData
 				UpgradesManager.Manager.Upgrades[i].SetLevel(data.upgrades[i]);
 			}
 
-			// 05 czas do stworzenia klucza // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 05 godzina o której wyłączyliśmy grę
+			DateTimeSystem.Instance.lastTimeAfterOffGame = data.lastTimeAfterOffGame;
 
-			// 06 godzina o której wyłączyliśmy grę // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
+			// 06 czas do stworzenia klucza
+			WarehouseManager.Instance.fullMeltTime = data.fullMeltTime;
+
+			long diffTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - DateTimeSystem.Instance.lastTimeAfterOffGame;
+
+			if(data.timeToEndMelt <= (float)diffTime) WarehouseManager.Instance.timeToEndMelt = 0f;
+			else WarehouseManager.Instance.timeToEndMelt = data.timeToEndMelt - (float)diffTime;
+
+			WarehouseManager.Instance.currentMeltType = data.currentMeltType;
 
 			// 07 który dzień z rzędu odbieramy nagrodę dnia // trzeba obgadać, żeby ktoś nie zmieniał daty w fonie
 			DateTimeSystem.Instance.lastDailyReward = data.lastDailyReward;
@@ -349,9 +378,21 @@ public class PlayerData
 			StatisticsManager.Instance.merge = data.merge;
 
 
+			MoneyPocket.Instance.lastMoney = data.lastMoney;
+			float moneyMultipler = 0;
+			if(ItemShop.Instance.earningTime < (double)diffTime / 360)
+			{
+				moneyMultipler = (float)(diffTime - (ItemShop.Instance.earningTime * 360f));
+			}
+			else moneyMultipler = (float)diffTime;
+			MoneyPocket.Instance.Money.Add(MoneyPocket.Instance.lastMoney * moneyMultipler);
+
+
 			// - NAN - do testów
 			WarehouseManager.Instance.chests[0] = 1;
 			WarehouseManager.Instance.keysAmount[0] = 2;
+			WarehouseManager.Instance.dustAmount[0] = 4;
+			WarehouseManager.Instance.dustAmount[1] = 4;
 		}
 	}
 }
