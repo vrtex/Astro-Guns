@@ -9,6 +9,10 @@ namespace EasyMobile
 	public static class EM_IAPConstants
 	{
 		public const string Product_ether_60 = "ether_60";
+		public const string Product_ether_150 = "ether_150";
+		public const string Product_ether_900 = "ether_900";
+		public const string Product_super_mega_pack = "super_mega_pack";
+		public const string Product_ether_360 = "ether_360";
 
 	}
 }

@@ -95,14 +95,14 @@ MonoBehaviour:
   lockMesh: {fileID: -7434527051930761011, guid: b526b43c56c9a514498612521ef81e04,
     type: 3}
   weaponsMeshes:
-  - {fileID: -2432090755550338912, guid: 5d73582a44d2afb4eb82b925bcb48905, type: 3}
+  - {fileID: 769013440213101543, guid: 76b153dd672c033409c8c2f5899a5df8, type: 3}
   - {fileID: -1373681604028050881, guid: f02b1684806f130478c070c69ce21169, type: 3}
   - {fileID: 5615995691893682196, guid: 4e8c932416176e748919023532ace1f1, type: 3}
-  - {fileID: -9204900796418782274, guid: a1b0bb71f494df641adc148a50fd4a34, type: 3}
+  - {fileID: -1623738657829890318, guid: a1b0bb71f494df641adc148a50fd4a34, type: 3}
   - {fileID: 3431314867563264946, guid: 8dfe6f298d205a040b2736634f72969f, type: 3}
   - {fileID: -1623738657829890318, guid: 563be18d0e96e014ca687f161275862d, type: 3}
   - {fileID: -4498860027032917547, guid: 432d81f427fcf434e8104bc2b105828b, type: 3}
-  - {fileID: 9135968121393160107, guid: 09c3c422c1826b6448f9baf06238910a, type: 3}
+  - {fileID: -3783944679754823394, guid: 09c3c422c1826b6448f9baf06238910a, type: 3}
   - {fileID: -4033266703483114362, guid: fd741e6ddd8cfe647b846a4ae21b4210, type: 3}
   - {fileID: -4561466641566432805, guid: 8f490d31234d49f4ca46a8766d5ee77b, type: 3}
   - {fileID: 6406424155548023830, guid: 2470f2d9224165b4dadb040adb0bf398, type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: -4964552516510320490, guid: 56a25ec87dcbac84690e475c06add4d6, type: 3}
   - {fileID: 6752073990107243079, guid: 3aa3374412eb4a74dbcf506ac5a5f000, type: 3}
   - {fileID: -5574000553476277108, guid: 232e270b90170a1428d9c49578550e51, type: 3}
-  - {fileID: 917307768731852856, guid: d3b5fdfb11fd02a44833d343dc6029cc, type: 3}
+  - {fileID: 7229128644504314848, guid: d3b5fdfb11fd02a44833d343dc6029cc, type: 3}
   - {fileID: -3783944679754823394, guid: 1a9d70ea351809a45b141a0c2ae9e980, type: 3}
   - {fileID: -7053777426167059749, guid: 6518f5e2aae90e1498954aae83e1495f, type: 3}
   - {fileID: -2134832978134117115, guid: 5509d0240e24d294a8f570b4d36ef26c, type: 3}
@@ -123,7 +123,7 @@ MonoBehaviour:
   - {fileID: -5109414961310146056, guid: 5588b1a0f9979de4fa242019770a0740, type: 3}
   - {fileID: 858563851855808058, guid: f20e306a7ea331d418776b1984877f31, type: 3}
   - {fileID: 3745992894662428320, guid: 47f83c783f0d51140ab7f523b8b0abd6, type: 3}
-  - {fileID: -5901239384180471342, guid: 2a4b6189734fd9247b34c95eced97dc0, type: 3}
+  - {fileID: -606131800088436064, guid: 2a4b6189734fd9247b34c95eced97dc0, type: 3}
   - {fileID: -8422681445198420024, guid: aff77222208209a4dbbf0c6b4c992b43, type: 3}
   - {fileID: -606131800088436064, guid: cceb9ed537627ad4090e4895308b1a72, type: 3}
   - {fileID: 7411239162132941244, guid: 169770e3621eae841ad7f0b120635471, type: 3}
@@ -137,7 +137,7 @@ MonoBehaviour:
   - {fileID: -4888433699186111378, guid: 75f911693d342e04bad5c1b2c0a4bc1f, type: 3}
   - {fileID: 1173218879644214194, guid: ca830ed9eb3d8834f8b1adce08579fd5, type: 3}
   - {fileID: -2770724698789427071, guid: 10c72eae66981c64e929a7d31da86e26, type: 3}
-  - {fileID: 6179480891802035572, guid: 80358dbe4308cab4da4f11fbc3d5c9c6, type: 3}
+  - {fileID: 9135968121393160107, guid: 80358dbe4308cab4da4f11fbc3d5c9c6, type: 3}
   - {fileID: 902668919303500566, guid: 2009a0b5a06cf9a44882784aa9cd8d47, type: 3}
   - {fileID: 8528840878197958032, guid: 44dff21aa09aa6c46b38b205f7c566a4, type: 3}
   - {fileID: -8777772991916184858, guid: 618a6f09d43ac8e44a9a460a49c8824f, type: 3}
@@ -174,7 +174,7 @@ MonoBehaviour:
   - {fileID: 2020966599137502904, guid: e66a3d09ce5a9fc48a6b5d4e5c90b2b6, type: 3}
   - {fileID: -4932386029457003302, guid: f0a8f5d21131b924aa2fea2fc28fa1e0, type: 3}
   - {fileID: 8710148563880113846, guid: 8b20fefeedc075b4d851ae24d2ac402d, type: 3}
-  - {fileID: 4765661972746145402, guid: 1843808863eb124469abd5ee13ddf241, type: 3}
+  - {fileID: 7987111106699676294, guid: 1843808863eb124469abd5ee13ddf241, type: 3}
   - {fileID: 7987111106699676294, guid: 2bcb510e14a8b7344b0f27c843b0af50, type: 3}
   - {fileID: -5013558599364677284, guid: ba539348a859b60458294acf9ef09cb0, type: 3}
   nameLabel: {fileID: 0}
@@ -227,6 +227,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 43996777648785405, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1373681604028050881, guid: f02b1684806f130478c070c69ce21169,
+        type: 3}
     - target: {fileID: -4216859302048453862, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,12 +298,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 43996777648785405, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -1373681604028050881, guid: f02b1684806f130478c070c69ce21169,
-        type: 3}
     - target: {fileID: -4534206015576417867, guid: f02b1684806f130478c070c69ce21169,
         type: 3}
       propertyPath: m_LocalRotation.y

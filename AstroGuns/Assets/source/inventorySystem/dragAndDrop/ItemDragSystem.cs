@@ -29,7 +29,14 @@ public class ItemDragSystem : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
-        InventorySystem.Instance.movableWeapon.transform.position = Input.mousePosition;
+        if(Input.touchCount > 0)
+        {
+            InventorySystem.Instance.movableWeapon.transform.position = Input.GetTouch(0).position;
+        }
+        else
+        {
+            InventorySystem.Instance.movableWeapon.transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)

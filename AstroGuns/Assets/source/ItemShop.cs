@@ -149,11 +149,8 @@ public class ItemShop : MonoBehaviour
 		switch(currentBuyType)
 		{
 			case BuyType.SuperMegaPack: //W TYM TRZEBA SPRAWDZIC CZY ZAPŁACIŁ PIENIĄŻKI
-				WarehouseManager.Instance.AddChest(3);
-				WarehouseManager.Instance.AddChest(3);
-				WarehouseManager.Instance.AddChest(4);
-				WarehouseManager.Instance.AddChest(4);
-				MoneyPocket.Instance.Ether.ActualValue += 600;
+				IAPManager.Instance.PurchaseSampleProduct(EasyMobile.EM_IAPConstants.Product_super_mega_pack);
+				
 			break;
 			case BuyType.InstantBoost:
 				if(currentIndex == 0)
@@ -232,17 +229,17 @@ public class ItemShop : MonoBehaviour
 				}
 				else if(currentIndex == 1)
 				{
-					MoneyPocket.Instance.Ether.Add(150);
+					IAPManager.Instance.PurchaseSampleProduct(EasyMobile.EM_IAPConstants.Product_ether_150);
 				}
 				else if(currentIndex == 2)
 				{
-					MoneyPocket.Instance.Ether.Add(360);
+					IAPManager.Instance.PurchaseSampleProduct(EasyMobile.EM_IAPConstants.Product_ether_360);
 				}
 				else if(currentIndex == 3)
 				{
-					MoneyPocket.Instance.Ether.Add(900);
+					IAPManager.Instance.PurchaseSampleProduct(EasyMobile.EM_IAPConstants.Product_ether_900);
 				}
-			break;
+				break;
 		}
 	}
 }

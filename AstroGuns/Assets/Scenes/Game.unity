@@ -16649,7 +16649,43 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponsMeshes.Array.data[0]
       value: 
-      objectReference: {fileID: -2432090755550338912, guid: 76b153dd672c033409c8c2f5899a5df8,
+      objectReference: {fileID: 769013440213101543, guid: 76b153dd672c033409c8c2f5899a5df8,
+        type: 3}
+    - target: {fileID: 2602156203770683628, guid: f3975f39b78359a4fa458db3b2872c58,
+        type: 3}
+      propertyPath: weaponsMeshes.Array.data[7]
+      value: 
+      objectReference: {fileID: -3783944679754823394, guid: 09c3c422c1826b6448f9baf06238910a,
+        type: 3}
+    - target: {fileID: 2602156203770683628, guid: f3975f39b78359a4fa458db3b2872c58,
+        type: 3}
+      propertyPath: weaponsMeshes.Array.data[16]
+      value: 
+      objectReference: {fileID: 7229128644504314848, guid: d3b5fdfb11fd02a44833d343dc6029cc,
+        type: 3}
+    - target: {fileID: 2602156203770683628, guid: f3975f39b78359a4fa458db3b2872c58,
+        type: 3}
+      propertyPath: weaponsMeshes.Array.data[28]
+      value: 
+      objectReference: {fileID: -606131800088436064, guid: 2a4b6189734fd9247b34c95eced97dc0,
+        type: 3}
+    - target: {fileID: 2602156203770683628, guid: f3975f39b78359a4fa458db3b2872c58,
+        type: 3}
+      propertyPath: weaponsMeshes.Array.data[42]
+      value: 
+      objectReference: {fileID: 9135968121393160107, guid: 80358dbe4308cab4da4f11fbc3d5c9c6,
+        type: 3}
+    - target: {fileID: 2602156203770683628, guid: f3975f39b78359a4fa458db3b2872c58,
+        type: 3}
+      propertyPath: weaponsMeshes.Array.data[79]
+      value: 
+      objectReference: {fileID: 7987111106699676294, guid: 1843808863eb124469abd5ee13ddf241,
+        type: 3}
+    - target: {fileID: 2602156203770683628, guid: f3975f39b78359a4fa458db3b2872c58,
+        type: 3}
+      propertyPath: weaponsMeshes.Array.data[3]
+      value: 
+      objectReference: {fileID: -1623738657829890318, guid: a1b0bb71f494df641adc148a50fd4a34,
         type: 3}
     - target: {fileID: 2602156203770683626, guid: f3975f39b78359a4fa458db3b2872c58,
         type: 3}
