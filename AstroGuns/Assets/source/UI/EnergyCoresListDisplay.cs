@@ -27,7 +27,6 @@ public class EnergyCoresListDisplay : MonoBehaviour
         foreach(EnergyCoreButton b in Buttons)
         {
             b.Type = EnergyCoresType;
-            Debug.Log("Setting to type: " + EnergyCoresType.ToString());
             b.OnEquipButtonPressed.AddListener((int l, EnergyCore.EnergyCoreType t) => EquipCore(l, t));
         }
     }

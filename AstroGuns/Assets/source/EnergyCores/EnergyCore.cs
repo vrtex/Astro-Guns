@@ -42,6 +42,14 @@ public class EnergyCore
         }
     }
 
+    public static string GetDescription(int level, EnergyCoreType Type)
+    {
+        return
+                Type == EnergyCoreType.Fortune ? "Bonus double spawn chance: " + Values[level] * 100 + "%" :
+                Type == EnergyCoreType.Profit ? "Profit increase " + Values[level] * 100 + "%" :
+                "Bonus forge speed " + Values[level] * 100 + "%";
+    }
+
     public EnergyCoreType Type;
     public int Level;
     public float Value { get => Values[Level]; }

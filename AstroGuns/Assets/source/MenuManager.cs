@@ -109,6 +109,9 @@ public class MenuManager : MonoBehaviour
                 EnergyCoreButton[] buttons = FindObjectsOfType<EnergyCoreButton>();
                 foreach(EnergyCoreButton b in buttons) { b.UpdateDisplayedText(); }
             break;
+            case Panels.EnergyCoreDet:
+                GetPanel(Panels.EnergyCoreDet).GetComponent<EnergyCoreController>().UpdateCore();
+            break;
 		}
 	}
 }

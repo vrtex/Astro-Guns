@@ -7,7 +7,17 @@ public class CoresContainer : MonoBehaviour
 {
     [HideInInspector]
     public List<EnergyCore> availibleCores = new List<EnergyCore>();
-    private KeyValuePair<Slot, int> currentCoreSlot;
+    [HideInInspector]
+    public KeyValuePair<Slot, int> currentCoreSlot;
+    [HideInInspector]
+    public int currentCoreLevel;
+    [HideInInspector]
+    public EnergyCore.EnergyCoreType currentCoreType;
+
+    public List<Sprite> profitIcons;
+    public List<Sprite> hasteIcons;
+    public List<Sprite> fortuneIcons;
+
 
     private void Start()
     {
@@ -22,18 +32,20 @@ public class CoresContainer : MonoBehaviour
 
     public EnergyCore pollCore(int level, EnergyCore.EnergyCoreType type)
     {
-        Debug.Log("Loking for: " + type.ToString() + "of level: " + level);
         EnergyCore found = availibleCores.Find((EnergyCore e) => e.Type == type && e.Level == level);
         availibleCores.Remove(found);
-        Debug.Log("UUUUUUU" + (found == null));
         return found;
+    }
+
+    public bool RemoveCore(int level, EnergyCore.EnergyCoreType type)
+    {
+        return pollCore(level, type) != null;
     }
 
     public void AddCore(EnergyCore toAdd)
     {
         if(toAdd == null)
         {
-            Debug.LogError("HUEHUEHHE");
             return;
         }
         availibleCores.Add(toAdd);
@@ -55,4 +67,11 @@ public class CoresContainer : MonoBehaviour
         return availibleCores.Count((EnergyCore e) => e.Level == level && e.Type == energyCoreType);
     }
 
+    public Sprite GetIconForCore(int level, EnergyCore.EnergyCoreType type)
+    {
+        List<Sprite> list = type == EnergyCore.EnergyCoreType.Fortune ? fortuneIcons :
+            type == EnergyCore.EnergyCoreType.Haste ? hasteIcons :
+            profitIcons;
+        return list[level];
+    }
 }

@@ -70,7 +70,7 @@ public class ItemInfoController : MonoBehaviour
         // FUCK THIS MOTHERFUCKING GAY SHIT
         // FUUUUUUUUUUUUUUUUUUUUUUUCK
         FindObjectOfType<CoresContainer>().SetCurrentCoreSlot(new KeyValuePair<Slot, int>(currentSlot.managedSlot, coreSlotIndex));
-        MenuManager.Instance.ClosePanel(Panels.ItemInfo);
+        MenuManager.Instance.CloseAllPanels();
         MenuManager.Instance.OpenPanel(Panels.EnergyCore);
     }
 

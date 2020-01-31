@@ -21,12 +21,10 @@ public class EnergyCoreButton : MonoBehaviour
 
     public void OnPress()
     {
-        Debug.Log("!!!!" + Level + " " + Type);
-        bool equiped = FindObjectOfType<CoresContainer>().Equip(Level, Type);
-        if(equiped)
-            MenuManager.Instance.CloseAllPanels();
-        else
-            Debug.Log("DUPA");
+        FindObjectOfType<CoresContainer>().currentCoreLevel = Level;
+        FindObjectOfType<CoresContainer>().currentCoreType = Type;
+        MenuManager.Instance.CloseAllPanels();
+        MenuManager.Instance.OpenPanel(Panels.EnergyCoreDet);
     }
 
 }

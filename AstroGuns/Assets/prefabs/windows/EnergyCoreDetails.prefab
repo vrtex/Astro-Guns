@@ -236,7 +236,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4611907877622440067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 715427401748584109}
+        m_MethodName: Assign
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1275626350731497601
@@ -1223,7 +1234,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2385815026951565043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 715427401748584109}
+        m_MethodName: Craft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &7628419307574767785
@@ -1595,6 +1617,7 @@ GameObject:
   - component: {fileID: 7317670137049862909}
   - component: {fileID: 8239193396680918771}
   - component: {fileID: 261247185508492513}
+  - component: {fileID: 715427401748584109}
   m_Layer: 5
   m_Name: EnergyCoreDetails
   m_TagString: Untagged
@@ -1661,6 +1684,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &715427401748584109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189639955945090790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb49f11956fad4943af38009dfff6738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftButton: {fileID: 4533352983987632377}
+  assignButton: {fileID: 6416375786917508146}
+  coreImage: {fileID: 1577792782982569362}
+  previousCoreImage: {fileID: 3620817602460155922}
+  coreNameText: {fileID: 3866683451136980346}
+  coreDescriptionText: {fileID: 6562020547888759000}
+  coreAmountText: {fileID: 2751228260926314046}
 --- !u!1 &8480196814715979203
 GameObject:
   m_ObjectHideFlags: 0
