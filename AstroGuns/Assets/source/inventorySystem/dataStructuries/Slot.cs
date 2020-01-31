@@ -16,6 +16,37 @@ public class Slot
         // EquipCore(1, new EnergyCore { Level = 1, Type = EnergyCore.EnergyCoreType.Profit });
     }
 
+    public List<int> GetCoresSaveInfo()
+    {
+        List<int> toReturn = new List<int>();
+        for(int i = 0; i < 3; ++i)
+        {
+            EnergyCore core = GetCoreAtIndex(i);
+            if(core == null)
+            {
+                toReturn.Add(-1);
+                toReturn.Add(-1);
+            }
+            else
+            {
+                toReturn.Add(core.Level);
+                toReturn.Add((int)core.Type);
+            }
+        }
+        return toReturn;
+    }
+
+    public void ApplyInfo(List<int> info)
+    {
+        for(int i = 0; i < 3; ++i)
+        {
+            int slotLevel = info[i * 2];
+            if(slotLevel >= 0)
+                EquipCore(i, new EnergyCore { Level = slotLevel, Type = (EnergyCore.EnergyCoreType)info[i * 2 + 1] });
+            else
+                UnequipCore(i);
+        }
+    }
 
     public void EquipCore(int index, EnergyCore energyCore)
     {

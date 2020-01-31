@@ -26,6 +26,24 @@ public static class Inventory
         }
     }
 
+    public static int[] GetCoresSaveInfo()
+    {
+        List<int> info = new List<int>();
+        slots.ForEach((Slot s) => { info.AddRange(s.GetCoresSaveInfo()); });
+        return info.ToArray();
+    }
+
+    public static void ApplySaveInfo(int[] info)
+    {
+        List<int> coresInfo = new List<int>(info);
+        slots.ForEach((Slot s) =>
+        {
+            List<int> currentSlotInfo = coresInfo.GetRange(0, 6);
+            coresInfo.RemoveRange(0, 6);
+            s.ApplyInfo(currentSlotInfo);
+        });
+    }
+
     public static WeaponObject GetWeapon(int weaponIndex)
     {
         return slots[weaponIndex].weapon;

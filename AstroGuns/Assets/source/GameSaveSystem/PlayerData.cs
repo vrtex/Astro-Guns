@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class PlayerData
     // cores
     //public          List<KeyValuePair<int, EnergyCore.EnergyCoreType>> cores = new List<KeyValuePair<int, EnergyCore.EnergyCoreType>>();
     public int[,]   cores = new int[5, Enum.GetValues(typeof(EnergyCore.EnergyCoreType)).Length];
+    public int[]    equipedSlots = Inventory.GetCoresSaveInfo();
 
 	// reward
 	public int		lastDailyReward;
@@ -132,6 +134,8 @@ public class PlayerData
             }
         }
 
+        equipedSlots = Inventory.GetCoresSaveInfo();
+
         // 12 meteory
         playerMeteors = MoneyPocket.Instance.Meteor.ActualValue;
 		playerMeteorsToReset = MoneyPocket.Instance.MeteorToReset.ActualValue;
@@ -221,6 +225,8 @@ public class PlayerData
         // 11 rdzenie energetyczne
         Debug.LogWarning("has cores: " + (cores != null));
         cores = new int[5, Enum.GetValues(typeof(EnergyCore.EnergyCoreType)).Length];
+        equipedSlots = Inventory.GetCoresSaveInfo();
+        equipedSlots = new List<int>(equipedSlots).ConvertAll((int i) => -1).ToArray();
 
         // 12 meteory
         playerMeteors = 0;
@@ -351,6 +357,8 @@ public class PlayerData
                         coresContainer.AddCore(new EnergyCore { Level = level, Type = coreType });
                 }
             }
+            if(data.equipedSlots != null)
+                Inventory.ApplySaveInfo(data.equipedSlots);
 
 
 			// 12 meteory
