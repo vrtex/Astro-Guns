@@ -39,8 +39,4 @@ public class EnergyCoresListDisplay : MonoBehaviour
         Slot slot = MenuManager.Instance.GetPanel(Panels.ItemInfo).GetComponent<ItemInfoController>().currentSlot.managedSlot;
     }
 
-    public void UnequipCore()
-    {
-
-    }
 }

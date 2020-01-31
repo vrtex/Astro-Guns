@@ -37,6 +37,12 @@ public class CoresContainer : MonoBehaviour
         return found;
     }
 
+    public void RemoveCores(int count, int level, EnergyCore.EnergyCoreType type)
+    {
+        for(int i = 0; i < count; ++i)
+            RemoveCore(level, type);
+    }
+
     public bool RemoveCore(int level, EnergyCore.EnergyCoreType type)
     {
         return pollCore(level, type) != null;
