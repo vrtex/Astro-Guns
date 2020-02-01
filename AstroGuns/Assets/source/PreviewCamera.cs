@@ -46,7 +46,7 @@ public class PreviewCamera : MonoBehaviour
 
 	public void Start()
 	{
-        currentMesh = Mathf.Clamp(Inventory.GetBiggestWeaponId() - 1, 0, Inventory.slots.Count);
+        currentMesh = Mathf.Clamp(Inventory.GetBiggestWeaponId(), 0, Inventory.slots.Count);
 		RefreshWeapon();
         SaveManager.OnLoad.AddListener(() => currentMesh = Inventory.GetBiggestWeaponId());
 	}
@@ -72,7 +72,7 @@ public class PreviewCamera : MonoBehaviour
 
 	public void RefreshWeapon()
 	{
-		if(currentMesh >= InventorySystem.Instance.biggestWeaponId)
+		if(currentMesh > InventorySystem.Instance.biggestWeaponId)
 		{
 			weaponView.mesh = lockMesh;
 			nameLabel.text = "lock";
