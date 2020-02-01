@@ -36,7 +36,7 @@ public class WarehouseManager: MonoBehaviour
 	public float                    maxTimetoNextDust   = 20f;
 	private float                   timeToNextDust      = 15f;
 
-	[Header("metal forge")]
+	[Header("METAL FORGE")]
 	public Text                     meltDescription     = null;
 	public Text                     meltTimer           = null;
 	public Image                    meltImage           = null;
@@ -49,7 +49,7 @@ public class WarehouseManager: MonoBehaviour
 	private string                  chooseToMelt		= "Chose which type of key you want to melt";
 	private string                  remainingMelting	= "Remaining melting time";
 
-	[Header("buy slots")]
+	[Header("BUY SLOTS")]
 	public Text                     slotCostText		= null;
 	public Button                   buySlotButton		= null;
 
@@ -57,17 +57,18 @@ public class WarehouseManager: MonoBehaviour
 															300, 420, 540, 660, 780, 900,
 															1200, 1500, 1800, 2500, 4000, 6000};
 
-	[Header("open chest")]
+	[Header("OPEN CHEST")]
 	public int                      openedChestType		= 0;
 	public Image                    chestToOpenImage    = null;
 
-	[Header("banana")]
+	[Header("BANANA")]
 	public Slider                   bananaSlider        = null;
 	public Image                    bananaView          = null;
 	public Sprite[]                 bananaFrames        = new Sprite[27];
 	public AudioSource              audioSource         = null;
+	public Image                    bananaLight         = null;
 
-	[Header("items from chest")]
+	[Header("ITEMS FROM CHEST")]
 	public Image[]                  items               = new Image[12];
 	public Sprite                   noneGFX             = null;
 	public Sprite[]                 coreProfit			= new Sprite[5];
@@ -126,7 +127,7 @@ public class WarehouseManager: MonoBehaviour
 	{
 		int hours = (int)(value / 60 / 60);
 		int minutes = (int)(value / 60) - hours * 60;
-		int seconds = (int)(value) - minutes * 60 - hours * 360;
+		int seconds = (int)(value) - minutes * 60 - hours * 3600;
 
 		return (hours > 10 ? hours.ToString() : ("0" + hours.ToString())) 
 			+ ":" 
@@ -240,6 +241,8 @@ public class WarehouseManager: MonoBehaviour
 
 		bananaView.sprite = bananaFrames[index];
 		audioSource.volume = Mathf.Floor(bananaSlider.value * 100f) / 100f;
+
+		bananaLight.color = new Color(1f, 1f, 1f, bananaSlider.value);
 
 		if(bananaSlider.value > 0.95) OpenBanana();
 	}
