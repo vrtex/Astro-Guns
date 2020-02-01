@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 5268942270360328020}
   - component: {fileID: 1077715628584622986}
   - component: {fileID: 5465883822730011384}
+  - component: {fileID: 8095632551860179816}
   m_Layer: 5
   m_Name: Light
   m_TagString: Untagged
@@ -1071,6 +1072,22 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!111 &8095632551860179816
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642386774784085589}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ca1d6905d50202c46a0157216fbfe6bb, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ca1d6905d50202c46a0157216fbfe6bb, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6343823902835290908
 GameObject:
   m_ObjectHideFlags: 0

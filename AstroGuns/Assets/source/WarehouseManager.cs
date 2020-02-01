@@ -231,6 +231,7 @@ public class WarehouseManager: MonoBehaviour
 	{
 		bananaSlider.value = 0f;
 		bananaView.sprite = bananaFrames[0];
+		bananaLight.color = new Color(1f, 1f, 1f, 0f);
 		MenuManager.Instance.OpenPanel(Panels.Banana);
 		MenuManager.Instance.ClosePanel(Panels.OpenChest);
 	}
